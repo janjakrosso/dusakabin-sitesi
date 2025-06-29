@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristal Serisi - Firma Adı</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">FİRMA LOGO</a>
+            <nav>
+                <!-- Mobil için Hamburger Menü Düğmesi -->
+                <button class="hamburger" id="hamburger-button" aria-label="Menüyü aç/kapat">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Navigasyon Menüsü -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="urunler.html">Ürünler</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-detail">
+            <div class="container">
+                <h1>Kristal Serisi</h1>
+                <div class="product-gallery-container">
+                    <div class="main-image-display">
+                        <img id="mainProductImage" src="images/dusakabin-model-1.jpg" alt="Kristal Serisi Duşakabin">
+                        <button class="gallery-nav-btn prev" id="prevImageBtn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="gallery-nav-btn next" id="nextImageBtn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <img class="thumbnail active" src="images/dusakabin-model-1.jpg" data-full-src="images/dusakabin-model-1.jpg" alt="Kristal Serisi Duşakabin - Ana Görünüm">
+                        <img class="thumbnail" src="images/dusakabin-model-1-variant-1.jpg" data-full-src="images/dusakabin-model-1-variant-1.jpg" alt="Kristal Serisi Duşakabin - Yan Görünüm">
+                        <img class="thumbnail" src="images/dusakabin-model-1-variant-2.jpg" data-full-src="images/dusakabin-model-1-variant-2.jpg" alt="Kristal Serisi Duşakabin - İç Görünüm">
+                        <!-- Daha fazla thumbnail ekleyebilirsiniz -->
+                    </div>
+                </div>
+                <p>Temperli cam ve paslanmaz çelik profillerle banyonuza şıklık katın. Kristal serisi, modern tasarımı ve dayanıklı yapısıyla öne çıkar.</p>
+                <h2>Özellikler</h2>
+                <ul>
+                    <li>6mm temperli cam</li>
+                    <li>Paslanmaz çelik profiller</li>
+                    <li>Kolay temizlenebilir yüzey</li>
+                    <li>Farklı boyut seçenekleri</li>
+                </ul>
+                <p class="product-price">2.500 TL</p>
+                <a href="iletisim.html" class="btn">Fiyat Teklifi Al</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-contact-info">
+                    <div class="details-wrapper">
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Örnek+Mah.+Örnek+Cad.+No:+123,+İstanbul" target="_blank" rel="noopener noreferrer">Örnek Mah. Örnek Cad. No: 123, İstanbul</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+902121234567">0212 123 45 67</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@firmaadi.com">info@firmaadi.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Firma Adı. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="social-links">
+        <!-- Sosyal medya linklerinizi buraya ekleyin -->
+        <a href="https://www.facebook.com/firmaniz" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/firmaniz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/firmaniz" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/company/firmaniz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <!-- İhtiyacınıza göre diğer sosyal medya ikonlarını ekleyebilirsiniz -->
+    </div>
+
+    <!-- Lightbox HTML -->
+    <div id="productLightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <button class="lightbox-nav-btn prev" id="lightboxPrevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav-btn next" id="lightboxNextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

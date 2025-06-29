@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pleksi Duşakabin - Firma Adı</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Firma Adı Logosu"></a>
+            <nav>
+                <!-- Mobil için Hamburger Menü Düğmesi -->
+                <button class="hamburger" id="hamburger-button" aria-label="Menüyü aç/kapat">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <!-- Navigasyon Menüsü -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="urunler.html">Ürünler</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-detail fade-in-section">
+            <div class="container">
+                <h1>Pleksi Duşakabin</h1>
+                <div class="product-gallery-container">
+                    <div class="main-image-display"> 
+                        <img id="mainProductImage" src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin">
+                        <button class="gallery-nav-btn prev" id="prevImageBtn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="gallery-nav-btn next" id="nextImageBtn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <img class="thumbnail active" src="images/pleksi-dusakabin/pileksidusakabin.jpg" data-full-src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin - Ana Görünüm">
+                        <img class="thumbnail" src="images/pleksi-dusakabin/pileksidusakabin2.jpg" data-full-src="images/pleksi-dusakabin/pileksidusakabin2.jpg" alt="Pleksi Duşakabin - Yan Görünüm">
+                        <img class="thumbnail" src="images/pleksi-dusakabin/pileksidusakabin3.jpg" data-full-src="images/pleksi-dusakabin/pileksidusakabin3.jpg" alt="Pleksi Duşakabin - İç Görünüm">
+                        <img class="thumbnail" src="images/pleksi-dusakabin/pileksidusakabin4.jpg" data-full-src="images/pleksi-dusakabin/pileksidusakabin4.jpg" alt="Pleksi Duşakabin - Ana Görünüm">
+                        <img class="thumbnail" src="images/pleksi-dusakabin/pileksidusakabin5.jpg" data-full-src="images/pleksi-dusakabin/pileksidusakabin5.jpg" alt="Pleksi Duşakabin - Yan Görünüm">
+ <!-- Buraya eklediğiniz diğer küçük resimlerin yollarını da eklemeyi unutmayın -->
+                    </div>
+                </div>
+                <p>Ekonomik ve pratik çözüm arayanlar için ideal. Pleksi duşakabinler, hafif ve dayanıklı yapısıyla kolay kurulum ve kullanım sunar.</p>
+                <h2>Özellikler</h2>
+                <ul>
+                    <li>2.8mm pleksi malzeme</li>
+                    <li>Beyaz profiller</li>
+                    <li>Farklı desen seçenekleri</li>
+                    <li>Standart boyutlar</li>
+                </ul>
+                <p class="product-price">1.850 TL</p>
+                <a href="iletisim.html" class="btn">Fiyat Teklifi Al</a>
+            </div>
+        </section>
+    </main>
+
+   <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-contact-info">
+                    <div class="details-wrapper">
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Esenyurt+İstanbul" target="_blank" rel="noopener noreferrer">Esenyurt/İstanbul</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+905335805266">+905335805266</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="berkakabin@outlook.com">berkakabin@outlook.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Firma Adı. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Yukarı Çık Butonu -->
+    <button id="scrollToTopBtn" title="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
+
+    <div class="social-links">
+        <!-- Sosyal medya linklerinizi buraya ekleyin -->
+        <a href="https://www.facebook.com/firmaniz" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/berkadus" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <!-- İhtiyacınıza göre diğer sosyal medya ikonlarını ekleyebilirsiniz -->
+    </div>
+
+    <!-- Lightbox HTML -->
+    <div id="productLightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <button class="lightbox-nav-btn prev" id="lightboxPrevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav-btn next" id="lightboxNextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
