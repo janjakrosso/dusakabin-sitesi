@@ -260,6 +260,21 @@ header .logo img {
     margin-bottom: 3rem;
     font-size: 2.5rem;
     color: var(--text-dark);
+    position: relative; /* Animasyonlu alt çizgi için */
+    padding-bottom: 15px;
+}
+
+/* Bölüm başlığı için animasyonlu alt çizgi */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; /* Animasyon başlangıcı */
+    height: 4px;
+    background-color: var(--primary-color);
+    transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Yumuşak geçiş */
 }
 
 .page-header h1 {
@@ -296,8 +311,8 @@ header .logo img {
 }
 
 .product-card:hover {
-    transform: translateY(-12px); /* Kartın yukarı kalkma efektini artırdık */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* Daha belirgin gölge */
+    transform: translateY(-10px) scale(1.03); /* Hem yukarı kalkma hem büyüme efekti */
+    box-shadow: 0 10px 25px rgba(30, 41, 59, 0.2); /* Daha yumuşak ve derin gölge */
     border-color: var(--primary-color); /* Kenarlık rengini değiştir */
 }
 
@@ -894,6 +909,24 @@ header .logo img {
     padding: 0 1rem;
 }
 
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(100, 116, 139, 0.15);
+}
+
+/* Grid ve Kartlar için sıralı animasyon (Staggered Animation) */
+.fade-in-section.is-visible .product-link-wrapper,
+.fade-in-section.is-visible .feature-item {
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+/* Her bir eleman için animasyon gecikmesi */
+.fade-in-section.is-visible .product-link-wrapper:nth-child(2), .fade-in-section.is-visible .feature-item:nth-child(2) { animation-delay: 0.15s; }
+.fade-in-section.is-visible .product-link-wrapper:nth-child(3), .fade-in-section.is-visible .feature-item:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-section.is-visible .product-link-wrapper:nth-child(4) { animation-delay: 0.45s; }
+.fade-in-section.is-visible .product-link-wrapper:nth-child(5) { animation-delay: 0.6s; }
+.fade-in-section.is-visible .product-link-wrapper:nth-child(6) { animation-delay: 0.75s; }
+
 /* --- Genel Geçişler ve Animasyonlar --- */
 
 /* Tüm sayfa için daha akıcı bir kaydırma deneyimi */
@@ -911,61 +944,45 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
 /* Navigasyon linklerine hover efekti */
 .nav-menu li a:hover,
 .nav-menu li a:focus {
-    color: #007bff; /* Sitenizin ana rengiyle değiştirebilirsiniz */
-    transform: translateY(-2px);
+    color: var(--primary-color);
 }
 
-/* Navigasyon linklerinin altına gelen çizgi efekti */
-.nav-menu li a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #007bff; /* Sitenizin ana rengiyle değiştirebilirsiniz */
-    transition: width .3s;
-}
+/* Masaüstü navigasyon linklerinin altına gelen çizgi efekti */
+@media (min-width: 768px) {
+    .nav-menu li a {
+        position: relative;
+        padding-bottom: 5px;
+    }
+    .nav-menu li a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s ease-out;
+    }
 
-.nav-menu li a:hover::after {
-    width: 100%;
+    .nav-menu li a:hover::after {
+        width: 100%;
+    }
 }
-
 
 /* --- Düğme Animasyonları --- */
 
 /* Genel düğme hover efekti */
 .btn:hover,
 .btn:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* --- Kart ve Izgara Animasyonları --- */
-
-/* Ürün kartları için hover efekti */
-.product-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* "Neden Biz" bölümündeki öğeler için hover efekti */
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-/* --- Sosyal Medya ve Footer Animasyonları --- */
-
-/* Sosyal medya ikonları için hover efekti */
-.social-links a:hover {
-    transform: scale(1.2) rotate(10deg);
-    color: #007bff; /* Sitenizin ana rengiyle değiştirebilirsiniz */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 /* --- Form Elemanları Animasyonları (İletişim Sayfası) --- */
 .contact-form .form-group input:focus,
 .contact-form .form-group textarea:focus {
-    border-color: #007bff; /* Sitenizin ana rengiyle değiştirebilirsiniz */
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
 }
 
 
@@ -982,4 +999,9 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
 .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Görünür olduğunda bölüm başlığı animasyonunu tetikle */
+.fade-in-section.is-visible .section-title::after {
+    width: 80px;
 }
