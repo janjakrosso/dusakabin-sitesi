@@ -1043,6 +1043,14 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     transition: transform 0.3s ease;
 }
 
+/* Varsayılan olarak dropdown menüyü gizle ve temel stilleri sıfırla */
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 /* Masaüstü Görünümü (Hover ile açılır) */
 @media (min-width: 768px) {
     .dropdown:hover .dropdown-toggle i {
@@ -1050,15 +1058,12 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     }
 
     .dropdown-menu {
-        display: none;
         position: absolute;
         top: 150%; /* Biraz boşluk bırakarak aşağıda başlar */
         left: 50%;
         transform: translateX(-50%);
         background-color: var(--white);
-        list-style: none;
         padding: 10px 0;
-        margin: 0;
         min-width: 220px;
         box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         border-radius: 8px;
@@ -1095,7 +1100,6 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     }
 
     .dropdown-menu {
-        display: none;
         background-color: var(--secondary-bg-color);
     }
 
@@ -1103,5 +1107,3 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
         display: block;
     }
 }
-
-
