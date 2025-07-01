@@ -300,12 +300,6 @@ header .logo img {
     gap: 2rem;
 }
 
-/* Geniş masaüstü ekranlarda (992px ve üzeri) ızgarayı 3 sütuna sabitliyoruz */
-@media (min-width: 992px) {
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 .product-card {
     background-color: var(--white); /* Product card background */
     border: 1px solid var(--border-light); /* Product card border */
@@ -1207,4 +1201,73 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     width: 100%; /* Butonun kutuyu doldurması */
     padding: 15px;
     font-size: 1.1rem;
+}
+
+/* === SWIPER SLIDER (ÖNE ÇIKAN ÜRÜNLER) === */
+.featured-products .container {
+    position: relative; /* Navigasyon butonlarını konumlandırmak için */
+}
+
+.product-slider {
+    padding-bottom: 50px; /* Paginasyon için altta boşluk bırak */
+    padding-left: 15px; /* Soldaki butona yer aç */
+    padding-right: 15px; /* Sağdaki butona yer aç */
+    margin-left: -15px; /* Kapsayıcıya göre hizala */
+    margin-right: -15px; /* Kapsayıcıya göre hizala */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Kartların aynı yükseklikte olmasını sağlar */
+    height: auto; /* Yüksekliğin içeriğe göre ayarlanmasını sağlar */
+}
+
+.swiper-slide .product-link-wrapper {
+    width: 100%;
+    display: flex;
+}
+
+.swiper-slide .product-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* İçeriği dikeyde yay */
+}
+
+/* Swiper Navigasyon Butonları */
+.swiper-button-prev,
+.swiper-button-next {
+    color: var(--primary-color);
+    top: 45%; /* Dikeyde ortalamak için */
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 1.5rem; /* İkon boyutunu ayarla */
+    font-weight: 900;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 767px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none; /* Mobilde butonları gizle */
+    }
+}
+
+/* Swiper Paginasyon */
+.swiper-pagination-bullet {
+    background-color: var(--border-light);
+    opacity: 1;
+    transition: background-color 0.3s, width 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
+    width: 20px;
+    border-radius: 5px;
 }

@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
 
@@ -63,18 +66,55 @@
  <section class="featured-products fade-in-section">
             <div class="container">
                 <h2 class="section-title">Öne Çıkan Ürünler</h2>
-                <div class="product-grid">
-                    
-                    <!-- Ürün 3: Pleksi Dusakabin -->
-                    <a href="urun-detay-pleksi.html" class="product-link-wrapper">
-                        <div class="product-card"> 
-                            <img src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin Modeli"> <!-- Buradaki 'pleksi-dusakabin.jpg' dosya adını kontrol edin -->
-                            <h3>Pleksi Dusakabin</h3>
-                            <p>Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.</p>
-                            <p class="product-price">1.850 TL</p>
+                <!-- Swiper Slider Başlangıcı -->
+                <div class="swiper product-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Pleksi Duşakabin -->
+                        <div class="swiper-slide">
+                            <a href="urun-detay-pleksi.html" class="product-link-wrapper">
+                                <div class="product-card"> 
+                                    <img src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin Modeli">
+                                    <h3>Pleksi Duşakabin</h3>
+                                    <p>Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.</p>
+                                    <p class="product-price">1.850 TL</p>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                    <!-- Diğer ürünler buraya eklenebilir -->
+                        <!-- Slide 2: Cam Duşakabin (Örnek) -->
+                        <div class="swiper-slide">
+                            <a href="#" class="product-link-wrapper">
+                                <div class="product-card"> 
+                                    <img src="images/urun-placeholder-1.jpg" alt="Cam Duşakabin">
+                                    <h3>Cam Duşakabin</h3>
+                                    <p>Modern ve şık tasarımlı, temperli camdan üretilmiş duşakabinler.</p>
+                                    <p class="product-price">3.200 TL</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide 3: Kompakt Sistem (Örnek) -->
+                        <div class="swiper-slide">
+                            <a href="#" class="product-link-wrapper">
+                                <div class="product-card"> 
+                                    <img src="images/urun-placeholder-2.jpg" alt="Kompakt Sistem">
+                                    <h3>Kompakt Sistem</h3>
+                                    <p>Masaj jetleri ve tepe duşu ile spa keyfini banyonuza taşıyın.</p>
+                                    <p class="product-price">7.500 TL</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Slide 4: Duş Teknesi (Örnek) -->
+                        <div class="swiper-slide">
+                            <a href="#" class="product-link-wrapper">
+                                <div class="product-card"> 
+                                    <img src="images/urun-placeholder-3.jpg" alt="Duş Teknesi">
+                                    <h3>Akrilik Duş Teknesi</h3>
+                                    <p>Kaymaz yüzeyi ve antibakteriyel yapısıyla güvenli ve hijyenik kullanım.</p>
+                                    <p class="product-price">1.250 TL</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -140,7 +180,11 @@
 
 
     <!-- Diğer dinamik elementler (Yukarı Çık, Sosyal Medya) JavaScript ile eklenecek -->
-    
+
+    <!-- Swiper.js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <script src="js/main.js"></script>
+
 </body>
 </html>
