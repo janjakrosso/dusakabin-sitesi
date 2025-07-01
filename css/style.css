@@ -1460,3 +1460,32 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .footer-contact-info p a {
     padding-bottom: 0;
 }
+/* === İKONLU MODERN ÖZELLİKLER LİSTESİ === */
+.features-list.modern {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+.features-list.modern li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--text-medium);
+}
+.features-list.modern li i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    width: 30px; /* İkonların hizalı durması için */
+    text-align: center;
+}
+.features-list.modern li span strong {
+    color: var(--text-dark);
+}
+/* === YAPIŞKAN FİYAT/CTA KUTUSU === */
+.price-cta-box {
+    position: sticky;
+    top: 110px; /* Header yüksekliğine göre boşluk bırakır */
+    z-index: 10;
+}
