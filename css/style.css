@@ -1553,3 +1553,35 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .category-item:hover h4 {
     color: var(--white);
 }
+/* === HAREKETE GEÇİRİCİ MESAJ (CTA) STİLLERİ === */
+.cta-section {
+    background: linear-gradient(45deg, var(--primary-hover-color), var(--primary-color));
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.cta-btn {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cta-btn:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-3px) scale(1.05);
+}
