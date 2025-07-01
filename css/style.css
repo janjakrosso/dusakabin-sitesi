@@ -409,6 +409,24 @@ header .logo img {
     color: var(--white);
  } 
 
+ /* --- Sosyal Medya İkonları için Özel Renkler --- */
+ .social-links a[href*="wa.me"] {
+    background-color: #25D366; /* WhatsApp Yeşili */
+ }
+
+ .social-links a[href*="wa.me"]:hover {
+    background-color: #1DAA57; /* WhatsApp Koyu Yeşili */
+ }
+
+ .social-links a[href*="instagram.com"] {
+    /* Instagram'ın ikonik gradyanı */
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+ }
+
+ .social-links a[href*="instagram.com"]:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+ }
+
 /* Hakkımızda Sayfası İçeriği */
 .about-content {
     padding: 4rem 0;
