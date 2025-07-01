@@ -337,14 +337,18 @@ header .logo img {
 .product-image-container {
     position: relative;
     overflow: hidden;
+    height: 250px; /* Sabit bir yükseklik belirleyebilirsiniz */
+    display: flex;
+    align-items: center; /* Resimleri dikeyde ortalar */
+    justify-content: center; /* Resimleri yatayda ortalar (isteğe bağlı) */
 }
 
 .product-image-container img {
     width: 100%;
-    height: auto;
+    height: auto; /* Yüksekliği otomatik olarak ayarlar */
     display: block;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    aspect-ratio: auto; /* En boy oranını otomatik olarak korur */
+    object-fit: contain; /* Resmin tamamını Container içinde gösterir, gerekirse boşluklar oluşabilir */
     transition: transform 0.4s ease;
 }
 
@@ -1488,4 +1492,64 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     position: sticky;
     top: 110px; /* Header yüksekliğine göre boşluk bırakır */
     z-index: 10;
+}
+/* === RESİM ZOOM EFEKTİ === */
+.main-image-display {
+    overflow: hidden; /* Taşmaları gizle */
+}
+#mainProductImage {
+    transition: transform 0.4s ease;
+}
+.main-image-display:hover #mainProductImage {
+    transform: scale(1.2); /* Resim %20 büyür */
+}
+/* === HİZMET KATEGORİLERİ BÖLÜMÜ STİLLERİ === */
+.service-categories {
+    padding: 3rem 0;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    background-color: var(--secondary-bg-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.category-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(100, 116, 139, 0.1);
+    background-color: var(--primary-color);
+}
+
+.category-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.category-item h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.category-item:hover i,
+.category-item:hover h4 {
+    color: var(--white);
 }
