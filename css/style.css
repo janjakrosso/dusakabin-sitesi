@@ -313,62 +313,135 @@ header .logo img {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-.product-card {
-    background-color: var(--white); /* Product card background */
-    border: 1px solid var(--border-light); /* Product card border */
-    border-radius: 8px;
+
+
+/* === YENİ VE MODERN ÜRÜN KARTI STİLLERİ BAŞLANGICI === */
+
+.product-card.modern {
+    background-color: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-card:hover {
-    transform: translateY(-12px) scale(1.04); /* Efekti biraz daha belirginleştirelim */
-    box-shadow: 0 12px 28px rgba(30, 41, 59, 0.25), 0 0 15px rgba(13, 148, 136, 0.2); /* Daha belirgin gölge ve hafif bir "glow" efekti */
-    border-color: var(--primary-color); /* Kenarlık rengini değiştir */
+.product-card.modern:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(30, 41, 59, 0.1);
+    border-color: var(--primary-color);
 }
 
-.product-card img {
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image-container img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Resimler için 4:3 en-boy oranı belirler */
+    height: auto;
+    display: block;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
-    transition: transform 0.4s ease; /* Resim için geçiş efekti ekledik */
+    transition: transform 0.4s ease;
 }
 
-.product-card:hover img {
-    transform: scale(1.1); /* Fare üzerine gelince resim büyüyecek */
-}
-
-.product-card h3 {
-    margin: 1rem 0 0.5rem 0;
-}
-
-.product-card p {
-    padding: 0 1rem;
-    font-size: 0.9rem;
-    color: var(--text-medium);
-    margin-bottom: 1rem; /* Fiyat etiketi için altta boşluk bırak */
-}
-
-.product-card .product-price {
-    display: inline-block; /* Kendi genişliğinde olmasını sağlar */
-    background-color: #E0F2F1; /* Ana rengin çok açık bir tonu */
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.1rem; /* Fiyatı daha belirgin yap */
-    padding: 0.5rem 1.5rem;
-    border-radius: 30px; /* Hap şeklinde */
-    margin: 0.5rem 1rem 1rem 1rem; /* Üst, yan ve alt boşluklar */
-    transition: all 0.3s ease;
-}
-
-.product-card:hover .product-price {
-    background-color: var(--primary-color);
-    color: var(--white);
+.product-card.modern:hover .product-image-container img {
     transform: scale(1.05);
 }
 
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.product-info {
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Kartların alt alta hizalı ve eşit yükseklikte olmasını sağlar */
+}
+
+.product-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.product-title a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.product-title a:hover {
+    color: var(--primary-color);
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-bottom: 15px;
+    flex-grow: 1; /* Farklı uzunluktaki açıklamalara rağmen butonların hizalı kalmasını sağlar */
+    line-height: 1.5;
+}
+
+.product-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Kart içindeki "Ürünü İncele" butonu */
+.product-info .btn.btn-primary {
+    display: inline-block;
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.product-info .btn.btn-primary:hover {
+    background-color: var(--white);
+    color: var(--text-dark);
+    border-color: var(--text-dark);
+    transform: none; /* Genel .btn hover efektini sıfırla */
+    box-shadow: none; /* Genel .btn hover efektini sıfırla */
+}
+
+.product-info .btn.btn-primary i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product-info .btn.btn-primary:hover i {
+    transform: translateX(5px);
+}
+
+/* === YENİ VE MODERN ÜRÜN KARTI STİLLERİ BİTİŞİ === */
 .btn-secondary {
     display: inline-block;
     margin: 1rem 0;
@@ -1283,4 +1356,107 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     background-color: var(--primary-color);
     width: 20px;
     border-radius: 5px;
+}
+
+/* =============================================== */
+/* === TİPOGRAFİ GELİŞTİRMELERİ VE METİN STİLLERİ === */
+/* =============================================== */
+
+/* --- Genel Metin ve Paragraf İyileştirmeleri --- */
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7; /* Satır aralığını artırarak okunabilirliği iyileştiriyoruz */
+    background-color: var(--white);
+    color: var(--text-dark);
+    padding-top: 85px; 
+    -webkit-font-smoothing: antialiased; /* Fontların daha pürüzsüz görünmesini sağlar */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-medium); /* Paragraf metinleri için orta tonlu renk daha iyi okunabilirlik sağlar */
+}
+
+
+/* --- Başlık Hiyerarşisi ve Stilleri --- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Tüm başlıklar için daha tok bir görünüm */
+    line-height: 1.3;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 1.25rem; /* Tutarlı alt boşluk */
+}
+
+h1 { font-size: 2.8rem; letter-spacing: -1px; }
+h2 { font-size: 2.2rem; letter-spacing: -0.5px; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+
+
+/* --- Belirli Alanlar İçin Başlık Özelleştirmeleri --- */
+
+/* Hero Alanı Ana Başlığı */
+.hero h1 {
+    font-size: 3.5rem; /* Daha büyük ve etkili */
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Metne derinlik katan gölge */
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem; /* Mobilde başlığı biraz küçültüyoruz */
+    }
+}
+
+/* Sayfa Başlıkları (Ürünler, Hakkımızda vb.) */
+.page-header h1 {
+    font-size: 3rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Daha hafif bir gölge */
+}
+
+/* Bölüm Başlıkları (Öne Çıkan Ürünler vb.) */
+.section-title {
+    font-size: 2.5rem;
+    letter-spacing: -1px; /* Daha modern ve tok bir harf aralığı */
+}
+
+
+/* --- Dinamik Link Stilleri --- */
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+/* Navigasyon, butonlar ve kart başlıkları gibi özel linkler hariç genel linklere uygulanacak hover efekti */
+p a, .footer-contact-info a, .about-text a {
+    text-decoration: none;
+    background-image: linear-gradient(var(--primary-color), var(--primary-color));
+    background-size: 0% 2px;
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+p a:hover, .footer-contact-info a:hover, .about-text a:hover {
+    color: var(--primary-color);
+    background-size: 100% 2px;
+}
+
+/* Header, buton ve kartlardaki linklerin alt çizgi efektini sıfırlıyoruz */
+.nav-menu a, .btn, .product-title a, .social-links a, #scrollToTopBtn {
+    background-image: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* Footer'daki ikonlu linklerin altındaki boşluğu düzenle */
+.footer-contact-info p a {
+    padding-bottom: 0;
 }
