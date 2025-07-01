@@ -296,10 +296,23 @@ header .logo img {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr; /* Mobil için varsayılan tek sütun */
     gap: 2rem;
 }
 
+/* Tablet (768px ve üzeri) için 2 sütun */
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Masaüstü (992px ve üzeri) için 3 sütun */
+@media (min-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 .product-card {
     background-color: var(--white); /* Product card background */
     border: 1px solid var(--border-light); /* Product card border */
