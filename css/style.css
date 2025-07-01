@@ -1210,10 +1210,7 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
 
 .product-slider {
     padding-bottom: 50px; /* Paginasyon için altta boşluk bırak */
-    padding-left: 15px; /* Soldaki butona yer aç */
-    padding-right: 15px; /* Sağdaki butona yer aç */
-    margin-left: -15px; /* Kapsayıcıya göre hizala */
-    margin-right: -15px; /* Kapsayıcıya göre hizala */
+    overflow: visible; /* Dışarı taşan butonların görünmesini sağlar */
 }
 
 .swiper-slide {
@@ -1239,17 +1236,43 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
 .swiper-button-prev,
 .swiper-button-next {
     color: var(--primary-color);
-    top: 45%; /* Dikeyde ortalamak için */
+    /* Dikeyde, ürün kartlarının resim bölümüyle hizalamak için ayarlıyoruz */
+    top: 40%; 
+    transform: translateY(-50%); 
+}
+
+.swiper-button-prev {
+    left: -22px; /* Butonun yarısı kadar dışarı taşı */
+}
+.swiper-button-next {
+    right: -22px; /* Butonun yarısı kadar dışarı taşı */
 }
 
 .swiper-button-prev:after,
 .swiper-button-next:after {
-    font-size: 1.5rem; /* İkon boyutunu ayarla */
+    /* Boyutları küçültüp daha zarif hale getirelim */
+    font-size: 1.2rem; 
+    width: 44px;
+    height: 44px;
+
+    /* İkonu ortalamak için flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     font-weight: 900;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--white);
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover:after,
+.swiper-button-next:hover:after {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
 }
 
 @media (max-width: 767px) {
