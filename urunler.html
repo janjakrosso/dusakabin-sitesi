@@ -90,9 +90,9 @@
     </main>
 
     <footer>
-        <div class="container">
+       <div class="container">
             <div class="footer-top">
-                 <div class="footer-contact-info">
+                <div class="footer-contact-info">
                     <div class="details-wrapper">
                         <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Esenyurt+İstanbul" target="_blank" rel="noopener noreferrer">Esenyurt/İstanbul</a></p>
                         <p><i class="fas fa-phone"></i> <a href="tel:+905335805266">+905335805266</a></p>
@@ -115,6 +115,18 @@
         <a href="https://www.instagram.com/berkadus" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <!-- İhtiyacınıza göre diğer sosyal medya ikonlarını ekleyebilirsiniz -->
     </div>
+
+    <!-- Lightbox HTML -->
+    <div id="productLightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <button class="lightbox-nav-btn prev" id="lightboxPrevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav-btn next" id="lightboxNextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+
+    <!-- Diğer dinamik elementler (Yukarı Çık, Sosyal Medya) JavaScript ile eklenecek -->
+    
     <script src="js/main.js"></script>
 </body>
 </html>

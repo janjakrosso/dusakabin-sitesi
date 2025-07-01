@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
-</head>
+<meta charset="UTF-8">
+  <title>Dark Mode Örneği</title>
+  <link rel="stylesheet" href="style.css"></head>
 <body>
 
     <header>
-        <div class="container">
+       <div class="container">
             <a href="index.html" class="logo"><img src="images/logo.png" alt="Firma Adı Logosu"></a>
             <nav>
                 <!-- Mobil için Hamburger Menü Düğmesi -->
@@ -29,6 +31,17 @@
                 <!-- Navigasyon Menüsü -->
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Ana Sayfa</a></li>
+                    <!-- === KATEGORİLER DROPDOWN BAŞLANGIÇ === -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="urunler.html?kategori=tek-kanatli">Tek Kanatlı</a></li>
+                            <li><a href="urunler.html?kategori=surgulu">Sürgülü</a></li>
+                            <li><a href="urunler.html?kategori=kompakt">Kompakt Sistemler</a></li>
+                            <li><a href="urunler.html?kategori=pleksi">Pleksi</a></li>
+                        </ul>
+                    </li>
+                    <!-- === KATEGORİLER DROPDOWN BİTİŞ === -->
                     <li><a href="urunler.html">Ürünler</a></li>
                     <li><a href="hakkimizda.html">Hakkımızda</a></li>
                     <li><a href="iletisim.html">İletişim</a></li>
@@ -37,6 +50,7 @@
         </div>
     </header>
 
+   
     <main>
         <section class="hero">
             <div class="container">
@@ -45,7 +59,24 @@
                 <a href="urunler.html" class="btn">Kataloğu İncele</a>
             </div>
         </section>
-
+ <section class="featured-products fade-in-section">
+            <div class="container">
+                <h2 class="section-title">Öne Çıkan Ürünler</h2>
+                <div class="product-grid">
+                    
+                    <!-- Ürün 3: Pleksi Dusakabin -->
+                    <a href="urun-detay-pleksi.html" class="product-link-wrapper">
+                        <div class="product-card"> 
+                            <img src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin Modeli"> <!-- Buradaki 'pleksi-dusakabin.jpg' dosya adını kontrol edin -->
+                            <h3>Pleksi Dusakabin</h3>
+                            <p>Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.</p>
+                            <p class="product-price">1.850 TL</p>
+                        </div>
+                    </a>
+                    <!-- Diğer ürünler buraya eklenebilir -->
+                </div>
+            </div>
+        </section>
         <section class="why-us fade-in-section">
             <div class="container">
                 <h2 class="section-title">Neden Bizi Seçmelisiniz?</h2>
@@ -69,28 +100,11 @@
             </div>
         </section>
 
-        <section class="featured-products fade-in-section">
-            <div class="container">
-                <h2 class="section-title">Öne Çıkan Ürünler</h2>
-                <div class="product-grid">
-                    
-                    <!-- Ürün 3: Pleksi Dusakabin -->
-                    <a href="urun-detay-pleksi.html" class="product-link-wrapper">
-                        <div class="product-card"> 
-                            <img src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin Modeli"> <!-- Buradaki 'pleksi-dusakabin.jpg' dosya adını kontrol edin -->
-                            <h3>Pleksi Dusakabin</h3>
-                            <p>Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.</p>
-                            <p class="product-price">1.850 TL</p>
-                        </div>
-                    </a>
-                    <!-- Diğer ürünler buraya eklenebilir -->
-                </div>
-            </div>
-        </section>
+       
     </main>
 
     <footer>
-        <div class="container">
+         <div class="container">
             <div class="footer-top">
                 <div class="footer-contact-info">
                     <div class="details-wrapper">
@@ -103,10 +117,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 Firma Adı. Tüm Hakları Saklıdır.</p>
             </div>
-        </div>
-    </footer>
+        </div></footer>
 
-    <!-- Yukarı Çık Butonu -->
+        <!-- Yukarı Çık Butonu -->
     <button id="scrollToTopBtn" title="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
 
     <div class="social-links">
@@ -115,6 +128,18 @@
         <a href="https://www.instagram.com/berkadus" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <!-- İhtiyacınıza göre diğer sosyal medya ikonlarını ekleyebilirsiniz -->
     </div>
+
+    <!-- Lightbox HTML -->
+    <div id="productLightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <button class="lightbox-nav-btn prev" id="lightboxPrevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav-btn next" id="lightboxNextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+
+    <!-- Diğer dinamik elementler (Yukarı Çık, Sosyal Medya) JavaScript ile eklenecek -->
+    
     <script src="js/main.js"></script>
 </body>
 </html>

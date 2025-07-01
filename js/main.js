@@ -1,5 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // --- Hamburger Menu Logic ---
+/**
+ * Tüm sayfa içi JavaScript etkileşimlerini başlatan ana fonksiyon.
+ */
+function initializeApp() {
+ 
+    
+// --- Hamburger Menu Logic ---
     const hamburgerButton = document.getElementById('hamburger-button');
     const navMenu = document.getElementById('nav-menu');
 
@@ -23,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    
     // --- Product Gallery Logic ---
     const mainProductImage = document.getElementById('mainProductImage');
     const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
@@ -43,14 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const categorySelect = document.getElementById('category-select'); // Yeni: Kategori seçimi
 
-    let allProductsData = []; // This will store the original product HTML and parsed data
-
-    // --- Debugging logs ---
-    console.log('mainProductImage:', mainProductImage);
-    console.log('thumbnails:', thumbnails);
-    console.log('thumbnails.length:', thumbnails.length);
-    console.log('productLightbox:', productLightbox);
-    // --- End Debugging logs ---
+    let allProductsData = []; // Ürün verilerini saklamak için
 
     if (mainProductImage && thumbnails.length > 0) {
         let currentImageIndex = 0; // Keep track of the currently displayed image
@@ -151,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Product Filtering and Sorting Logic ---
     if (productGrid && (sortSelect || searchInput || categorySelect)) { // categorySelect'i de kontrol et
+        allProductsData = []; // Her başlangıçta diziyi sıfırla
         // Capture initial product data
         const productElements = productGrid.querySelectorAll('.product-link-wrapper');
         productElements.forEach(productEl => {
@@ -244,32 +242,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-});
-// --- Kaydırma ile Gelen Animasyonlar için JavaScript ---
-document.addEventListener('DOMContentLoaded', () => {
+    // --- Kaydırma ile Gelen Animasyonlar için JavaScript ---
     const fadeInSections = document.querySelectorAll('.fade-in-section');
-
     if (fadeInSections.length > 0) {
         const observerOptions = {
             root: null, // viewport'u referans al
             rootMargin: '0px',
             threshold: 0.1 // Elementin %10'u göründüğünde tetikle
         };
-
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                // Element ekrana girdiğinde
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Animasyon bir kez çalıştıktan sonra gözlemciyi kaldır
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-
-        // Her bir bölümü gözlemle
         fadeInSections.forEach(section => {
             observer.observe(section);
         });
     }
+
+    // --- Mobil menü dropdown işlevselliği ---
+    const dropdowns = document.querySelectorAll('.nav-menu .dropdown');
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        
+        if (toggle) {
+            toggle.addEventListener('click', function(e) {
+                // Sadece mobil görünümde (767px ve altı) çalışsın
+                if (window.innerWidth < 768) {
+                    e.preventDefault(); // Ana linkin çalışmasını engelle
+                    dropdown.classList.toggle('open');
+                }
+            });
+        }
+    });
+}
+
+/**
+ * Sayfa yüklendiğinde çalışacak ana olay dinleyici.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    initializeApp(); // Tüm JavaScript etkileşimlerini başlat
 });

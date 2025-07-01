@@ -300,6 +300,12 @@ header .logo img {
     gap: 2rem;
 }
 
+/* Geniş masaüstü ekranlarda (992px ve üzeri) ızgarayı 3 sütuna sabitliyoruz */
+@media (min-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 .product-card {
     background-color: var(--white); /* Product card background */
     border: 1px solid var(--border-light); /* Product card border */
@@ -311,14 +317,14 @@ header .logo img {
 }
 
 .product-card:hover {
-    transform: translateY(-10px) scale(1.03); /* Hem yukarı kalkma hem büyüme efekti */
-    box-shadow: 0 10px 25px rgba(30, 41, 59, 0.2); /* Daha yumuşak ve derin gölge */
+    transform: translateY(-12px) scale(1.04); /* Efekti biraz daha belirginleştirelim */
+    box-shadow: 0 12px 28px rgba(30, 41, 59, 0.25), 0 0 15px rgba(13, 148, 136, 0.2); /* Daha belirgin gölge ve hafif bir "glow" efekti */
     border-color: var(--primary-color); /* Kenarlık rengini değiştir */
 }
 
 .product-card img {
     width: 100%;
-    height: 250px; /* Existing style */
+    aspect-ratio: 4 / 3; /* Resimler için 4:3 en-boy oranı belirler */
     object-fit: cover;
     transition: transform 0.4s ease; /* Resim için geçiş efekti ekledik */
 }
@@ -334,7 +340,26 @@ header .logo img {
 .product-card p {
     padding: 0 1rem;
     font-size: 0.9rem;
-    color: var(--text-medium); /* Secondary text color */
+    color: var(--text-medium);
+    margin-bottom: 1rem; /* Fiyat etiketi için altta boşluk bırak */
+}
+
+.product-card .product-price {
+    display: inline-block; /* Kendi genişliğinde olmasını sağlar */
+    background-color: #E0F2F1; /* Ana rengin çok açık bir tonu */
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem; /* Fiyatı daha belirgin yap */
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px; /* Hap şeklinde */
+    margin: 0.5rem 1rem 1rem 1rem; /* Üst, yan ve alt boşluklar */
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-price {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.05);
 }
 
 .btn-secondary {
@@ -1005,3 +1030,78 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
 .fade-in-section.is-visible .section-title::after {
     width: 80px;
 }
+
+/* === DROPDOWN MENÜ STİLLERİ === */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+/* Masaüstü Görünümü (Hover ile açılır) */
+@media (min-width: 768px) {
+    .dropdown:hover .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 150%; /* Biraz boşluk bırakarak aşağıda başlar */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--white);
+        list-style: none;
+        padding: 10px 0;
+        margin: 0;
+        min-width: 220px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, top 0.3s ease, visibility 0.3s;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        top: 100%; /* Normal pozisyonuna gelir */
+        visibility: visible;
+    }
+
+    .dropdown-menu li a {
+        padding: 12px 20px !important; /* Diğer a stillerini ezmek için */
+        border: none !important;
+        color: var(--text-dark);
+        display: block;
+        white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: var(--secondary-bg-color) !important;
+    }
+}
+
+/* Mobil Görünüm (Tıklama ile açılır) */
+@media (max-width: 767px) {
+    .dropdown.open .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        display: none;
+        background-color: var(--secondary-bg-color);
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+}
+
+
