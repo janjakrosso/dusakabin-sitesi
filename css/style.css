@@ -211,25 +211,29 @@ header .logo img {
 
 /* Hero Alanı (Ana Sayfa Banner) */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/ana-sayfa-banner.jpg') no-repeat center center/cover;
+    /* Görselin üzerine daha belirgin bir yarı şeffaf siyah katman ekliyoruz. 
+       0.6 değeri kaplamanın koyuluğunu belirler, artırıp azaltabilirsiniz. */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg-banyo.jpg') no-repeat center center/cover;
+    
     color: var(--white);
-    height: 60vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative; /* İçerik konumlandırması için gerekli */
 }
 
+/* Hero alanındaki metinlerin okunabilirliğini artırmak için */
 .hero h1 {
-    font-size: 3rem; /* Existing style */
-    margin-bottom: 1rem; /* Existing style */
-    animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+    color: var(--white);
+    /* Metni arka plandan ayırmak için yumuşak bir gölge ekliyoruz */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
 }
 
 .hero p {
-    font-size: 1.2rem; /* Existing style */
-    margin-bottom: 2rem; /* Existing style */
-    animation: fadeInUp 1s ease-out 0.3s forwards; /* Apply animation with delay */
+    color: rgba(255, 255, 255, 0.9); /* Saf beyaz yerine hafif kırık beyaz */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .btn {
@@ -402,17 +406,6 @@ header .logo img {
     line-height: 1.5;
 }
 
-.product-meta {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.product-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
 
 /* Kart içindeki "Ürünü İncele" butonu */
 .product-info .btn.btn-primary {
@@ -1280,12 +1273,7 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     border: 1px solid var(--border-light);
 }
 
-.product-info .product-price {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
+
 
 .price-cta-box .btn {
     width: 100%; /* Butonun kutuyu doldurması */
@@ -1584,4 +1572,47 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .cta-btn:hover {
     background-color: var(--accent-hover-color);
     transform: translateY(-3px) scale(1.05);
+}
+/* === WHATSAPP BUTONLARI İÇİN EK STİLLER === */
+
+/* Genel Fiyat Teklifi Al Butonu */
+.product-info .btn-primary {
+    margin-top: auto; /* Butonu kartın en altına sabitler */
+}
+
+.product-info .btn-primary i.fa-whatsapp {
+    margin-left: 0;
+    margin-right: 8px; /* İkonu yazının soluna alır */
+    font-size: 1.2em;
+}
+
+/* Ürün Detay Sayfasındaki Teklif Kutusu */
+.price-cta-box h4 {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-cta-box p {
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.price-cta-box .btn.cta-whatsapp {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: #25D366; /* WhatsApp Yeşili */
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.price-cta-box .btn.cta-whatsapp:hover {
+    background-color: #1DAA57; /* Koyu WhatsApp Yeşili */
+    border-color: transparent;
+    color: var(--white);
 }
