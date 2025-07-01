@@ -1058,7 +1058,6 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     }
 
     .dropdown-menu {
-        display: block; /* Masaüstünde geçişlerin çalışması için 'block' yapıyoruz ve görünürlüğü opacity ile kontrol ediyoruz */
         position: absolute;
         top: 150%; /* Biraz boşluk bırakarak aşağıda başlar */
         left: 50%;
@@ -1075,6 +1074,7 @@ a, button, .product-card, .feature-item, .social-links a, .hamburger {
     }
 
     .dropdown:hover .dropdown-menu {
+        display: block;
         opacity: 1;
         top: 100%; /* Normal pozisyonuna gelir */
         visibility: visible;
