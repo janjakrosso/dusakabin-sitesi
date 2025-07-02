@@ -116,16 +116,18 @@ header .logo img {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 85px; /* Header yüksekliği kadar aşağıda başlar */
+    top: 85px;
     left: 0;
-    width: 100%; /* Full width */
+    width: 100%;
     background-color: var(--white);
     border-top: 1px solid var(--border-light);
-    /* Animasyon için güncellenmiş stiller */
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-15px); /* Başlangıçta biraz yukarıda ve görünmez */
+    transform: translateY(-15px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+
+    /* SORUNU ÇÖZEN TEK KURAL BUDUR: */
+    z-index: 999;
 }
 
 .nav-menu.active {
