@@ -222,6 +222,6 @@ function initializeThemeSwitcher() {
 // Ancak daha kolayı, mevcut document.addEventListener'ı güncellemek:
 
 document.addEventListener('DOMContentLoaded', () => {
-    initializeApp(); // Sitenin mevcut fonksiyonlarını çalıştırır
-    initializeThemeSwitcher(); // Koyu mod fonksiyonlarını çalıştırır
+    initializeApp();
+    initializeProductTabs(); 
 });

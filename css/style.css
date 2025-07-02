@@ -253,8 +253,8 @@ header .logo img {
 }
 
 /* Ürün Kartları ve Grid Yapısı */
- .featured-products, .product-gallery {
-    padding: 4rem 0;
+ , .product-gallery {
+  .featured-products  padding: 4rem 0;
     background-color: var(--secondary-bg-color); /* Section background color */
 }
 
@@ -1771,4 +1771,325 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 /* Açılan mobil menünün tüm içeriğin üzerinde görünmesini sağlar */
 .nav-menu {
     z-index: 999;
+}
+/* === BREADCRUMB NAVİGASYON STİLLERİ === */
+.breadcrumb-section {
+    background-color: var(--secondary-bg-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '/';
+    display: inline-block;
+    padding: 0 0.75rem;
+    color: var(--text-medium);
+}
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+.breadcrumb-item.active {
+    color: var(--text-medium);
+}
+/* Seçenek 3: Kontrastlı Koyu Arka Plan */
+.featured-products {
+    padding: 4rem 0;
+    background-color: var(--text-dark); /* #1E293B - Sitenizin en koyu rengi */
+}
+
+/* Koyu arka plan üzerinde bölüm başlığının beyaz görünmesi için */
+.featured-products .section-title {
+    color: var(--white);
+}
+
+/* Koyu arka plan üzerinde başlığın altındaki çizginin vurgu rengi olması için */
+.featured-products .section-title::after {
+    background-color: var(--accent-color); /* Sarı vurgu rengi */
+}
+/* ======================================================= */
+/* ===    KART KENAR & YAZI TİPİ GELİŞTİRMELERİ         === */
+/* ======================================================= */
+
+/* 1. Karta Daha Yumuşak, Saydam Geçişli Kenar Efekti Verme */
+
+.product-card.modern {
+    /* Mevcut gölgeyi daha yumuşak ve dağınık bir hale getiriyoruz */
+    box-shadow: 0 5px 25px rgba(30, 41, 59, 0.07);
+    
+    /* Kenarlık rengini daha da hafifletiyoruz */
+    border: 1px solid rgba(203, 213, 225, 0.5);
+    
+    /* Hover efektindeki gölgeyi de daha belirgin ama yumuşak yapıyoruz */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card.modern:hover {
+    box-shadow: 0 15px 35px rgba(30, 41, 59, 0.1);
+    transform: translateY(-8px);
+}
+
+
+/* 2. Kart Üzerindeki Yazıları Daha Estetik Hale Getirme */
+
+.product-info {
+    padding: 25px; /* İç boşluğu biraz artırarak daha ferah bir görünüm sağlıyoruz */
+}
+
+/* Ürün Başlığı Stili */
+.product-title a {
+    font-size: 1.15rem; /* Başlık fontunu hafifçe büyütüyoruz */
+    font-weight: 700; /* Kalın ve tok bir görünüm */
+    color: var(--text-dark);
+    letter-spacing: -0.5px; /* Harf aralarını hafifçe daraltarak modern bir görünüm */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.product-title a:hover {
+    color: var(--primary-color);
+}
+
+/* Ürün Açıklaması Stili */
+.product-description {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    line-height: 1.6; /* Satır aralığını artırarak okunabilirliği iyileştiriyoruz */
+    margin-top: 8px; /* Başlıkla arasına boşluk koyuyoruz */
+}
+/* ======================================================= */
+/* ===         FİNAL ve GRID UYUMLU KART TASARIMI        === */
+/* ======================================================= */
+
+/* Ana Grid Yapısı İçin Ayar (Bu kural zaten var, ama doğruluğunu teyit edelim) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Önerilen Yeni Ürün Kartı Stili */
+.product-card.modern-v2 {
+    background-color: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    
+    /* ÖNEMLİ: Kartın kendi içindeki flex yapısını koruyoruz */
+    display: flex;
+    flex-direction: column;
+    
+    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card.modern-v2:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(30, 41, 59, 0.1);
+}
+
+.product-image-link {
+    display: block;
+    background-color: #f8f9fa;
+    height: 250px; /* Sabit yükseklik, boyutların eşit olmasını sağlar */
+}
+
+.product-image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-content {
+    /* Bu bölümün kart içinde esneyerek kalan boşluğu doldurmasını sağlıyoruz */
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.product-info {
+    text-align: center;
+    /* Bu bölümün de kendi içinde esnemesini sağlıyoruz ki buton en alta itsin */
+    flex-grow: 1; 
+}
+
+.product-title a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-top: 0.5rem;
+}
+
+.btn-cta-card {
+    background-color: #25D366;
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 8px;
+    
+    /* Buton artık gizli değil, her zaman görünür ve en altta */
+    margin-top: 1rem; /* Üstündeki açıklama ile arasına boşluk koyar */
+    transition: background-color 0.3s ease;
+}
+
+.btn-cta-card:hover {
+    background-color: #1DAA57;
+}
+
+.btn-cta-card i {
+    margin-right: 8px;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card-final {
+    background-color: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.05);
+    
+    /* EFEKT İÇİN GEÇİŞ ÖZELLİĞİ EKLENDİ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* KARTIN HAVALANMA EFEKTİ */
+.product-card-final:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(30, 41, 59, 0.12);
+}
+
+.product-card-final .product-image-link {
+    display: block;
+    background-color: #f8f9fa;
+    height: 250px;
+    position: relative; /* Overlay'i konumlandırmak için gerekli */
+    overflow: hidden; /* Büyüyen resmin taşmasını engeller */
+}
+
+.product-card-final .product-image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease; /* Resim büyüme efekti için geçiş */
+}
+
+/* Kartın üzerine gelince resim de büyüsün */
+.product-card-final:hover .product-image-link img {
+    transform: scale(1.1);
+}
+
+/* BÜYÜTEÇ İKONU İÇİN GİZLİ KATMAN (OVERLAY) */
+.product-actions-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 41, 59, 0.4); /* Resmin üzerine gelen karartı */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Normalde görünmez */
+    transition: opacity 0.3s ease;
+}
+
+/* Kartın üzerine gelince overlay görünür olsun */
+.product-card-final:hover .product-actions-overlay {
+    opacity: 1;
+}
+
+.product-actions-overlay .action-btn {
+    background-color: var(--white);
+    color: var(--text-dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transform: scale(0.8); /* Başlangıçta küçük */
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Kartın üzerine gelince büyüteç de animasyonla gelsin */
+.product-card-final:hover .product-actions-overlay .action-btn {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* DİĞER KART STİLLERİ */
+.product-card-final .product-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.product-card-final .product-info {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.product-card-final .product-title a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.product-card-final .product-description {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-top: 0.5rem;
+}
+
+.product-card-final .btn-cta-card {
+    background-color: #25D366;
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.product-card-final .btn-cta-card:hover {
+    background-color: #1DAA57;
 }
