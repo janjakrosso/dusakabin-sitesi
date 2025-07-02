@@ -4,7 +4,7 @@
 function initializeApp() {
  
    // --- YENİ HAMBURGER MENÜ LOGIC (FİNAL) ---
-const menuToggle = document.getElementById('menu-toggle');
+const menuToggle = document.getElementById('hamburger-button');
 const navMenu = document.getElementById('nav-menu');
 
 if (menuToggle && navMenu) {
@@ -223,5 +223,5 @@ function initializeThemeSwitcher() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
-    initializeProductTabs(); 
+    initializeThemeSwitcher();
 });
