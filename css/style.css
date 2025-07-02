@@ -1771,9 +1771,7 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 /* ================================================== */
 
 /* Açılan mobil menünün tüm içeriğin üzerinde görünmesini sağlar */
-.nav-menu {
-    z-index: 999;
-}
+
 /* === BREADCRUMB NAVİGASYON STİLLERİ === */
 .breadcrumb-section {
     background-color: var(--secondary-bg-color);
@@ -2096,6 +2094,3 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     background-color: #1DAA57;
 }
 
-.nav-menu {
-    z-index: 999;
-}
