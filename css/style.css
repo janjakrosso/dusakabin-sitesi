@@ -2019,68 +2019,61 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 }
 
 /* ======================================================= */
-/* ===       ZARİF VE ESTETİK MENÜ GELİŞTİRMELERİ        === */
+/* ===       MENÜ ESTETİK FİNAL AYARLARI               === */
 /* ======================================================= */
 
-/* --- Mobil Menü Ana Paneli (Yeni Stil) --- */
 @media (max-width: 767px) {
+    /* --- Mobil Menü Ana Paneli (Daha Kompakt) --- */
     .nav-links {
-        /* Düz beyaz yerine modern "Buzlu Cam" efekti */
-        background-color: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px); /* Safari uyumluluğu için */
-        
-        /* Açılış animasyonunu daha yumuşak hale getiriyoruz */
-        transform: translateY(-100%); /* Yukarıdan kayarak gelsin */
-        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Yumuşak bir geçiş eğrisi */
+        /* Menünün tüm ekranı kaplaması yerine içeriğe göre boyutlanmasını sağlıyoruz */
+        height: auto; 
+        justify-content: flex-start; /* Linkleri yukarıdan başlatır */
+        padding: 1.5rem 0; /* Üst ve alt boşluğu azaltır */
+        gap: 0; /* Linkler arası otomatik boşluğu kaldırıyoruz, her link kendi boşluğunu yönetecek */
     }
 
-    /* Menü açıldığında uygulanacak stil */
-    .nav-links.is-open {
-        transform: translateY(0);
-    }
-
-    /* --- Mobil Menü Linkleri (Yeni Stil) --- */
+    /* --- Mobil Menü Linkleri (Daha Az Boşluklu) --- */
     .nav-links li {
-        width: 100%;
-        text-align: center;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid var(--border-light); /* Linkler arasına ince ayırıcı */
+        padding: 0; /* Ekstra boşlukları sıfırlıyoruz */
+        border-bottom: 1px solid var(--border-light);
     }
     
-    /* En son linkin altındaki çizgiyi kaldıralım */
-    .nav-links li:last-child {
+    .nav-links > li:last-child {
         border-bottom: none;
     }
 
     .nav-links a {
-        font-size: 1.3rem; /* Yazı boyutunu biraz küçülterek daha zarif hale getirelim */
-        font-weight: 700;
-        padding: 1rem;
-        width: 100%;
-        border-radius: 8px; /* Kenarları hafif yuvarlak */
-        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 1.2rem; /* Yazı boyutunu daha zarif bir boyuta indiriyoruz */
+        padding: 0.8rem 1rem; /* Dikey boşluğu azaltıyoruz */
     }
 
-    /* Üzerine gelince veya aktifken uygulanacak vurgu efekti */
-    .nav-links a:hover,
-    .nav-links a.active {
-        background-color: var(--secondary-bg-color); /* Hafif renkli arka plan */
-        color: var(--primary-color);
+    /* --- Mobil Dropdown Menü (Ortalı ve Zarif) --- */
+    .dropdown .dropdown-menu {
+        margin-top: 0;
+        padding: 0;
+        background-color: rgba(241, 245, 249, 0.95); /* Vurgu için hafif farklı bir ton */
     }
     
-    /* --- Mobil Dropdown Menü (Yeni Stil) --- */
-    .dropdown.open > .dropdown-toggle {
-        background-color: var(--secondary-bg-color);
-        color: var(--primary-color);
+    .dropdown-menu li {
+        border-bottom: 1px solid rgba(203, 213, 225, 0.5); /* Daha hafif bir ayırıcı */
     }
-    .dropdown .dropdown-menu {
-        background-color: rgba(241, 245, 249, 0.8); /* Ana menüden biraz daha farklı bir ton */
-        margin-top: 0;
-        padding: 0.5rem 0;
+    
+    .dropdown-menu li:last-child {
+        border-bottom: none;
     }
+
     .dropdown-menu a {
-        font-size: 1.1rem; /* Alt menü linkleri daha küçük */
-        font-weight: 400; /* Daha ince */
+        /* YAZILARIN SOLA YASLANMASI SORUNUNU ÇÖZER */
+        text-align: center;
+        
+        font-size: 1rem; /* Alt menü linkleri daha küçük */
+        font-weight: 400;
+        padding: 0.75rem 1rem; /* Dikey boşluğu daha da azaltıyoruz */
+        color: var(--text-medium);
+    }
+    
+    .dropdown-menu a:hover {
+        color: var(--primary-color);
+        background-color: var(--white);
     }
 }
