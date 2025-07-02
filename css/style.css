@@ -44,7 +44,7 @@ a {
 }
 
 /* ======================================================= */
-/* ===       SIFIRDAN YAZILMIŞ YENİ MENÜ SİSTEMİ         === */
+/* ===         GARANTİLİ YENİ MENÜ SİSTEMİ (FİNAL)       === */
 /* ======================================================= */
 
 /* --- Ana Header Yapısı --- */
@@ -62,34 +62,57 @@ a {
     justify-content: space-between;
     align-items: center;
 }
-.logo img {
-    height: 50px;
-    display: block;
-}
+.logo img { height: 50px; display: block; }
 
 /* --- Masaüstü Navigasyon --- */
 .main-nav { display: flex; align-items: center; }
 .nav-links { list-style: none; display: flex; align-items: center; gap: 25px; margin: 0; padding: 0; }
 .nav-links a { color: var(--text-dark); font-weight: bold; }
-.nav-links a:hover { color: var(--primary-color); }
 .dropdown { position: relative; }
-.dropdown-toggle i { margin-left: 5px; }
 .dropdown-menu { display: none; position: absolute; top: 120%; left: 50%; transform: translateX(-50%); background-color: var(--white); padding: 10px 0; min-width: 220px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border-radius: 8px; list-style: none; z-index: 1001; }
 .dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu a { display: block; padding: 12px 20px; white-space: nowrap; }
 
 /* --- Mobil Hamburger Butonu --- */
 .menu-toggle {
-    display: none; /* Masaüstünde gizli */
+    display: none; /* Masaüstünde her zaman gizli */
     background: none; border: none; cursor: pointer;
     width: 40px; height: 40px;
-    z-index: 1010; /* Her şeyin üzerinde */
+    z-index: 1010;
 }
-.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--text-dark); border-radius: 2px; transition: all 0.3s ease; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--text-dark); transition: all 0.3s ease; }
 .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
+/* --- Mobil Menü (Tablet ve Altı) --- */
+@media (max-width: 767px) {
+    .menu-toggle { display: block; } /* Hamburgeri sadece mobilde göster */
+    
+    .nav-links {
+        display: none; /* SORUNUN ANA ÇÖZÜMÜ: Menü varsayılan olarak gizli */
+        position: fixed;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 85px);
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        z-index: 1005;
+    }
+    
+    /* JavaScript tarafından eklenecek 'is-open' sınıfı menüyü görünür yapar */
+    .nav-links.is-open {
+        display: flex; /* 'display: none' kuralını ezerek menüyü gösterir */
+    }
+
+    .nav-links a { font-size: 1.5rem; }
+    .dropdown .dropdown-menu { display: none; position: static; background: transparent; box-shadow: none; text-align: center; }
+    .dropdown.open .dropdown-menu { display: block; }
+}
 /* --- Mobil Menü (Tablet ve Altı) --- */
 @media (max-width: 767px) {
     .menu-toggle { display: block; }
