@@ -3,48 +3,33 @@
  */
 function initializeApp() {
  
- // --- YENİ ve SORUNSUZ HAMBURGER MENÜ LOGIC ---
-function setupMobileMenu() {
+    // --- Hamburger Menu & Mobile Dropdown Logic ---
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
-
+ 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('is-active');
             navLinks.classList.toggle('is-open');
         });
     }
-    
-    // Dropdown menü için de mobil tıklama özelliği
+ 
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
+            // Sadece mobil ekranlarda tıklandığında alt menüyü aç/kapat
             if (window.innerWidth <= 767) {
-                e.preventDefault();
+                e.preventDefault(); // Linkin varsayılan davranışını engelle
                 toggle.parentElement.classList.toggle('open');
             }
         });
     });
-}
-
-// document.addEventListener bloğunu bulup içine setupMobileMenu() ekleyin
-// (Eğer initializeApp gibi başka fonksiyonlar varsa onları silmeyin)
-document.addEventListener('DOMContentLoaded', () => {
-    // initializeApp(); // Eğer bu satır varsa, olduğu gibi kalsın.
-    setupMobileMenu(); // YENİ MENÜ FONKSİYONUNU ÇAĞIRIN
-});
-
-// document.addEventListener bloğunu bulup içine setupMobileMenu() ekleyin
-document.addEventListener('DOMContentLoaded', () => {
-    initializeApp();
-    setupMobileMenu(); // YENİ MENÜ FONKSİYONUNU ÇAĞIRIN
-});
 
     // --- Active Navigation Link Logic ---
-    const navLinks = document.querySelectorAll('.nav-menu a');
+    const allNavLinks = document.querySelectorAll('.nav-links a');
     const currentURL = window.location.href;
 
-    navLinks.forEach(link => {
+    allNavLinks.forEach(link => {
         if (link.href === currentURL) {
             link.classList.add('active');
         }
@@ -176,20 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeInSections.forEach(section => observer.observe(section));
     }
 
-    // --- Mobil menü dropdown işlevselliği ---
-    const dropdowns = document.querySelectorAll('.nav-menu .dropdown');
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', e => {
-                if (window.innerWidth < 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('open');
-                }
-            });
-        }
-    });
-
     // --- Swiper Slider for Featured Products ---
     const productSlider = document.querySelector('.product-slider');
     if (productSlider) {
@@ -206,6 +177,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    initializeApp();
-});
+document.addEventListener('DOMContentLoaded', initializeApp);
