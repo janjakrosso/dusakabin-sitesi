@@ -319,123 +319,101 @@ header .logo img {
 }
 
 
-/* === YENİ VE MODERN ÜRÜN KARTI STİLLERİ BAŞLANGICI === */
+/* ================================================== */
+/* === FİNAL ÜRÜN KARTI STİLLERİ (TEMİZLENMİŞ) === */
+/* ================================================== */
 
 .product-card.modern {
-    background-color: var(--white);
+    background-color: var(--secondary-bg-color); /* Kartın ana arka planı (yumuşak gri) */
     border: 1px solid var(--border-light);
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.05);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
 .product-card.modern:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(30, 41, 59, 0.1);
-    border-color: var(--primary-color);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px rgba(30, 41, 59, 0.12);
 }
 
 .product-image-container {
-    position: relative;
     overflow: hidden;
-    height: 250px; /* Sabit bir yükseklik belirleyebilirsiniz */
-    display: flex;
-    align-items: center; /* Resimleri dikeyde ortalar */
-    justify-content: center; /* Resimleri yatayda ortalar (isteğe bağlı) */
+    position: relative;
+    background-color: #f8f9fa;
 }
 
 .product-image-container img {
     width: 100%;
-    height: auto; /* Yüksekliği otomatik olarak ayarlar */
+    height: 240px;
+    object-fit: contain;
     display: block;
-    aspect-ratio: auto; /* En boy oranını otomatik olarak korur */
-    object-fit: contain; /* Resmin tamamını Container içinde gösterir, gerekirse boşluklar oluşabilir */
-    transition: transform 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .product-card.modern:hover .product-image-container img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
-.product-tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 5px 12px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    border-radius: 20px;
-    z-index: 2;
-}
-
+/* Kartın metin alanı için yarı şeffaf arka plan */
 .product-info {
+    background-color: rgba(255, 255, 255, 0.6); /* %60 opaklığa sahip beyaz */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding: 20px;
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Kartların alt alta hizalı ve eşit yükseklikte olmasını sağlar */
+    flex-grow: 1;
 }
 
 .product-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: var(--text-dark);
 }
 
 .product-title a {
     text-decoration: none;
     color: inherit;
-    transition: color 0.2s;
-}
-
-.product-title a:hover {
-    color: var(--primary-color);
 }
 
 .product-description {
     font-size: 0.9rem;
     color: var(--text-medium);
-    margin-bottom: 15px;
-    flex-grow: 1; /* Farklı uzunluktaki açıklamalara rağmen butonların hizalı kalmasını sağlar */
-    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
 }
 
-
-/* Kart içindeki "Ürünü İncele" butonu */
+/* WhatsApp Butonu Stili */
 .product-info .btn.btn-primary {
-    display: inline-block;
-    background-color: var(--text-dark);
+    background-color: #25D366;
     color: var(--white);
-    padding: 12px 20px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
+    border: 2px solid #25D366;
     font-weight: 700;
-    border: 2px solid transparent;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
 .product-info .btn.btn-primary:hover {
-    background-color: var(--white);
-    color: var(--text-dark);
-    border-color: var(--text-dark);
-    transform: none; /* Genel .btn hover efektini sıfırla */
-    box-shadow: none; /* Genel .btn hover efektini sıfırla */
+    background-color: #1DAA57;
+    border-color: #1DAA57;
+    color: var(--white);
+    transform: scale(1.05) translateY(-2px);
 }
 
 .product-info .btn.btn-primary i {
-    margin-left: 8px;
-    transition: transform 0.3s ease;
-}
-
-.product-info .btn.btn-primary:hover i {
-    transform: translateX(5px);
+    margin: 0;
+    order: -1;
 }
 
 /* === YENİ VE MODERN ÜRÜN KARTI STİLLERİ BİTİŞİ === */
@@ -1617,21 +1595,24 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     color: var(--white);
 }
 
-/* ================================================== */
-/* === ULTRA MODERN ÜRÜN KARTI V2 STİLLERİ BAŞLANGICI === */
-/* ================================================== */
 
-/* Mevcut .product-card.modern tanımını ezip daha gelişmişini uyguluyoruz */
+
+/* ======================================================= */
+/* === SİTE İÇİN FİNAL STİL GÜNCELLEMELERİ (TEMİZ KOD) === */
+/* ======================================================= */
+
+/* --- 1. Modern Ürün Kartı Ana Yapısı --- */
+
 .product-card.modern {
-    background-color: var(--white);
+    background-color: var(--secondary-bg-color); /* Kartın ana arka planı (yumuşak gri) */
     border: 1px solid var(--border-light);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(30, 41, 59, 0.05);
-    overflow: hidden; /* İçerideki animasyonların taşmasını engeller */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* Eylem butonlarını konumlandırmak için */
+    position: relative;
 }
 
 .product-card.modern:hover {
@@ -1640,43 +1621,41 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 }
 
 .product-image-container {
-    overflow: hidden; /* Resim zoom efektinin taşmasını engeller */
+    overflow: hidden;
     position: relative;
-    background-color: #f8f9fa; /* Resimler yüklenirken boş görünmesin */
+    background-color: #f8f9fa;
 }
 
-/* Resimlerin orantısını koruyup tam görünmesini sağlayan stil */
 .product-image-container img {
     width: 100%;
-    height: 240px; /* Tüm kartlarda resim yüksekliğini eşitler */
-    object-fit: contain; /* Resmin tamamını gösterir, kırpmaz */
+    height: 240px;
+    object-fit: contain;
     display: block;
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .product-card.modern:hover .product-image-container img {
-    transform: scale(1.1); /* Fare üzerine gelince resim büyür */
+    transform: scale(1.1);
 }
 
-/* === YENİ: GİZLİ EYLEM BUTONLARI === */
 .product-actions-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(30, 41, 59, 0.3); /* Hafif karartma efekti */
+    background: rgba(30, 41, 59, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    opacity: 0; /* Normalde görünmez */
+    opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 3;
 }
 
 .product-card.modern:hover .product-actions-overlay {
-    opacity: 1; /* Fare üzerine gelince görünür olur */
+    opacity: 1;
 }
 
 .action-btn {
@@ -1691,15 +1670,12 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     font-size: 1rem;
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    transform: translateY(10px); /* Aşağıdan gelme efekti için başlangıç */
+    transform: translateY(10px);
     transition: transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.product-card.modern:hover .action-btn:nth-child(1) { transition-delay: 0.05s; }
-.product-card.modern:hover .action-btn:nth-child(2) { transition-delay: 0.1s; }
-
 .product-card.modern:hover .action-btn {
-    transform: translateY(0); /* Normal pozisyonuna gelir */
+    transform: translateY(0);
 }
 
 .action-btn:hover {
@@ -1707,20 +1683,26 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     color: var(--white);
 }
 
+/* --- 2. Göz Yormayan Metin Arka Plan Efekti --- */
 
-/* Ürün Bilgi Alanı İyileştirmeleri */
 .product-info {
+    /* İstenen Yarı Şeffaf Arka Plan Efekti */
+    background-color: rgba(255, 255, 255, 0.6); /* %60 opaklığa sahip beyaz */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+    /* Diğer stiller */
     padding: 20px;
-    text-align: center; /* Bilgileri ortala */
+    text-align: center;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .product-title {
-    font-size: 1.1rem; /* Boyutu biraz küçülterek daha zarif hale getirelim */
+    font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 8px;
+    color: var(--text-dark); /* Metin renginin koyu kalmasını sağlıyoruz */
 }
 
 .product-description {
@@ -1730,24 +1712,189 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     flex-grow: 1;
 }
 
-/* Fiyat Teklifi Al Butonu İyileştirmeleri */
+/* --- 3. WhatsApp Butonu Stili --- */
+
 .product-info .btn.btn-primary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background-color: #25D366; /* Canlı WhatsApp Yeşili */
+    color: var(--white);
+    border: 2px solid #25D366;
     font-weight: 700;
     padding: 10px 20px;
     width: 100%;
-    margin-top: auto; /* Butonu kartın en altına iter */
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     transition: all 0.3s ease;
 }
 
 .product-info .btn.btn-primary:hover {
-    background-color: var(--primary-color);
+    background-color: #1DAA57;
+    border-color: #1DAA57;
     color: var(--white);
-    transform: scale(1.03); /* Hafif büyüme efekti */
+    transform: scale(1.05) translateY(-2px);
 }
 
-.product-info .btn.btn-primary i {
-    margin-left: 8px;
+.product-info .btn.btn-primary i.fa-whatsapp {
+    margin: 0;
+    order: -1;
 }
+
+/* --- 4. Göz Yormayan Form Alanları --- */
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    background-color: var(--white);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+}
+/* ======================================================= */
+/* ===           KOYU MOD STİLLERİ BAŞLANGICI          === */
+/* ======================================================= */
+
+/* 1. Koyu Mod Renklerini Tanımlama */
+:root {
+    /* Açık mod renkleri zaten burada tanımlı... */
+
+    /* Koyu mod için yeni renk değişkenleri */
+    --dark-bg: #111827; /* Ana arka plan (Çok koyu gri/mavi) */
+    --dark-surface: #1F2937; /* Kart ve yüzeylerin rengi (Koyu gri/mavi) */
+    --dark-border: #374151; /* Kenarlık rengi */
+    --dark-text-primary: #F9FAFB; /* Ana metin rengi (Çok açık gri) */
+    --dark-text-secondary: #9CA3AF; /* İkincil metin rengi (Orta gri) */
+}
+
+/* 2. Koyu Mod Aktif Olduğunda Uygulanacak Stiller */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text-secondary);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode .product-title a {
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode p {
+    color: var(--dark-text-secondary);
+}
+
+/* Header */
+body.dark-mode header {
+    background-color: var(--dark-surface);
+    border-bottom-color: var(--dark-border);
+}
+
+/* Navigasyon & Menü */
+body.dark-mode .nav-menu {
+    background-color: var(--dark-surface);
+}
+
+body.dark-mode .nav-menu li a {
+    color: var(--dark-text-primary);
+    border-bottom-color: var(--dark-border);
+}
+
+body.dark-mode .nav-menu li a:hover,
+body.dark-mode .nav-menu li a.active {
+    color: var(--primary-color);
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .bar {
+    background-color: var(--dark-text-primary);
+}
+
+/* Bölüm Arka Planları */
+body.dark-mode .featured-products, 
+body.dark-mode .product-gallery,
+body.dark-mode .why-us,
+body.dark-mode .contact-info {
+    background-color: var(--dark-bg);
+}
+
+/* Ürün Kartları */
+body.dark-mode .product-card.modern {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .product-info {
+    background-color: rgba(17, 24, 39, 0.7); /* Koyu yarı şeffaf arka plan */
+    border-top-color: rgba(55, 65, 81, 0.5);
+}
+
+/* Form Alanları */
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .category-filter select,
+body.dark-mode .sort-options select {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus,
+body.dark-mode .category-filter select:focus,
+body.dark-mode .sort-options select:focus {
+    background-color: var(--dark-bg);
+}
+
+/* Footer */
+body.dark-mode footer {
+    background-color: var(--dark-surface);
+}
+
+body.dark-mode .footer-top {
+    border-bottom-color: var(--dark-border);
+}
+
+/* Tema Değiştirme Butonu */
+.theme-switcher {
+    background: none;
+    border: 1px solid var(--border-light);
+    color: var(--text-medium);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.theme-switcher:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+body.dark-mode .theme-switcher {
+    border-color: var(--dark-border);
+    color: var(--dark-text-secondary);
+}
+
+body.dark-mode .theme-switcher:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.theme-switcher .fa-moon { display: block; }
+.theme-switcher .fa-sun { display: none; }
+
+body.dark-mode .theme-switcher .fa-moon { display: none; }
+body.dark-mode .theme-switcher .fa-sun { display: block; }

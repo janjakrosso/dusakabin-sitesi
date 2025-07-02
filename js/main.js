@@ -182,3 +182,46 @@ function initializeApp() {
 }
 
 document.addEventListener('DOMContentLoaded', initializeApp);
+
+/* ======================================================= */
+/* ===           KOYU MOD JAVASCRIPT LOGIC             === */
+/* ======================================================= */
+
+function initializeThemeSwitcher() {
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const body = document.body;
+
+    // Sayfa yüklendiğinde kayıtlı temayı veya sistem tercihini uygula
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // Kullanıcının işletim sistemi koyu modda ise otomatik koyu modu aç
+        body.classList.add('dark-mode');
+    }
+
+    // Butona tıklama olayını dinle
+    if (themeSwitcher) {
+        themeSwitcher.addEventListener('click', () => {
+            // 'dark-mode' sınıfını body'den ekle/kaldır
+            body.classList.toggle('dark-mode');
+
+            // Kullanıcının tercihini localStorage'a kaydet
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                localStorage.removeItem('theme');
+            }
+        });
+    }
+}
+
+// initializeApp fonksiyonunun en sonuna bu yeni fonksiyonun çağrısını ekleyin
+// ÖNEMLİ: Bu satırı kopyalayıp initializeApp'in sonuna yapıştırın
+// initializeThemeSwitcher(); 
+// Ancak daha kolayı, mevcut document.addEventListener'ı güncellemek:
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeApp(); // Sitenin mevcut fonksiyonlarını çalıştırır
+    initializeThemeSwitcher(); // Koyu mod fonksiyonlarını çalıştırır
+});
