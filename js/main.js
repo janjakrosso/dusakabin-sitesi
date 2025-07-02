@@ -250,3 +250,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Yeni ürün detay sayfası fonksiyonumuzu da burada çağırıyoruz
     initializeProductDetailPage();
 });
+

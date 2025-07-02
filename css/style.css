@@ -2186,3 +2186,36 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 /* --- 5. İlgili Ürünler Bölümü --- */
 .related-products { background-color: var(--secondary-bg-color); padding: 4rem 0; }
 
+/* ======================================================= */
+/* ===    ÜRÜNLER SAYFASI BAŞLIK YAZI STİLİ GÜNCELLEMESİ   === */
+/* ======================================================= */
+
+/* Sadece ürünler sayfasındaki başlığa özel stil */
+.page-header.products-header {
+    /* Yazıların okunabilmesi için görselin üzerine karartma efekti ekliyoruz */
+    background: linear-gradient(rgba(30, 41, 59, 0.6), rgba(30, 41, 59, 0.6)), url('../images/banyo-dolabi.jpg') no-repeat center center/cover;
+    
+    padding: 5rem 0; /* Dikey boşluğu artırarak daha ferah bir görünüm */
+    min-height: 40vh; /* Başlık alanının yüksekliğini ayarlıyoruz */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Başlık yazısını daha büyük ve okunaklı yapıyoruz */
+.products-header h1 {
+    font-size: 3.2rem;
+    color: var(--white); /* Yazı rengini beyaz yapıyoruz */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Metne gölge ekleyerek okunurluğu artırıyoruz */
+    margin-bottom: 0.5rem;
+}
+
+/* Altındaki açıklama yazısını daha belirgin hale getiriyoruz */
+.products-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95); /* Saf beyazdan daha yumuşak bir ton */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    max-width: 600px; /* Yazının çok fazla yayılmasını engeller */
+}
