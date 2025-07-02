@@ -1898,3 +1898,58 @@ body.dark-mode .theme-switcher:hover {
 
 body.dark-mode .theme-switcher .fa-moon { display: none; }
 body.dark-mode .theme-switcher .fa-sun { display: block; }
+
+/* ======================================================= */
+/* ===      MOBİL MENÜ VE TEMA BUTONU FİNAL ÇÖZÜMÜ      === */
+/* ======================================================= */
+
+/* --- 1. Header'daki Navigasyon Alanını Düzenleme --- */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Butonlar ve menü arasına boşluk koyar */
+}
+
+/* --- 2. Mobil Menünün Açılma Sorununu Çözme --- */
+.nav-menu {
+    position: absolute;
+    top: 85px; /* Header yüksekliği kadar aşağıda başlar */
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    border-top: 1px solid var(--border-light);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+    
+    /* EKSİK OLAN VE SORUNU ÇÖZEN KURAL: */
+    z-index: 999; 
+}
+
+/* --- 3. Masaüstü Görünümünde Butonları Doğru Konumlandırma --- */
+@media (min-width: 768px) {
+    /* Hamburger ikonunu masaüstünde gizle */
+    .hamburger {
+        display: none;
+    }
+
+    /* Masaüstünde tema butonunu menünün solunda tut */
+    .theme-switcher {
+        order: -1; /* Flexbox'ta en başa alır */
+    }
+    
+    /* Masaüstü menüsü için temel hizalama */
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        border: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none;
+        z-index: auto;
+    }
+}
