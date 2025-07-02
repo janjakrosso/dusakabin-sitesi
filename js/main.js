@@ -22,18 +22,16 @@ function initializeApp() {
                 e.preventDefault(); // Linkin varsayılan davranışını engelle
                 
                 const currentDropdown = toggle.parentElement;
-                const wasOpen = currentDropdown.classList.contains('open');
 
-                // Önce açık olan diğer tüm dropdown'ları kapat
+                // Tıklanan menü dışındaki tüm açık menüleri kapat
                 document.querySelectorAll('.nav-links .dropdown.open').forEach(openDropdown => {
-                    openDropdown.classList.remove('open');
+                    if (openDropdown !== currentDropdown) {
+                        openDropdown.classList.remove('open');
+                    }
                 });
 
-                // Eğer tıkladığımız menü daha önce açık değilse, onu aç.
-                // Açıksa, yukarıdaki kod zaten kapattığı için kapalı kalacaktır.
-                if (!wasOpen) {
-                    currentDropdown.classList.add('open');
-                }
+                // Tıklanan menünün durumunu değiştir (açıksa kapat, kapalıysa aç)
+                currentDropdown.classList.toggle('open');
             }
         });
     });
