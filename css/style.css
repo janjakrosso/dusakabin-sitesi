@@ -2109,3 +2109,79 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
         background-color: var(--white);
     }
 }
+/* ======================================================= */
+/* ===       ÜRÜN DETAY SAYFASI ZENGİNLEŞTİRMELERİ       === */
+/* ======================================================= */
+
+/* --- 1. Breadcrumb Navigasyonu --- */
+.breadcrumb-section {
+    background-color: var(--secondary-bg-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+.breadcrumb {
+    display: flex; list-style: none; margin: 0; padding: 0;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '/'; padding: 0 0.75rem; color: var(--text-medium);
+}
+.breadcrumb-item a:hover { text-decoration: underline; }
+.breadcrumb-item.active { color: var(--text-medium); }
+
+
+/* --- 2. Ürün Detay Sayfası Ana Yapısı --- */
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+@media (min-width: 992px) {
+    .product-detail-grid { grid-template-columns: 6fr 5fr; gap: 3rem; }
+}
+
+.product-gallery-container, .product-info-container {
+    width: 100%;
+}
+
+.main-image-display {
+    width: 100%; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden;
+    margin-bottom: 1rem;
+}
+.main-image-display img { width: 100%; height: 100%; object-fit: cover; }
+
+.thumbnail-gallery { display: flex; gap: 10px; flex-wrap: wrap; }
+.thumbnail { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s; }
+.thumbnail:hover, .thumbnail.active { border-color: var(--primary-color); }
+
+
+/* --- 3. Ürün Bilgi Alanı Stilleri --- */
+.product-info-container h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+.product-info-container .product-description { font-size: 1.1rem; color: var(--text-medium); margin-bottom: 2rem; }
+.features-title { font-size: 1.3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-light); }
+.features-list { list-style: none; padding: 0; margin-bottom: 2rem; }
+.features-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+.features-list li i { color: var(--primary-color); }
+
+.price-cta-box { background-color: var(--secondary-bg-color); padding: 1.5rem; border-radius: 8px; text-align: center; }
+.price-cta-box h4 { margin-bottom: 0.5rem; }
+.price-cta-box p { margin-bottom: 1rem; font-size: 0.9rem; }
+.btn-whatsapp { background-color: #25D366; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+.btn-whatsapp:hover { background-color: #1DAA57; }
+
+
+/* --- 4. Sekmeli Bilgi Alanı --- */
+.product-tabs-section { padding: 2rem 0 4rem 0; }
+.tab-buttons { display: flex; border-bottom: 2px solid var(--border-light); margin-bottom: 2rem; }
+.tab-btn { padding: 1rem 1.5rem; cursor: pointer; background: none; border: none; font-size: 1rem; font-weight: 700; color: var(--text-medium); position: relative; bottom: -2px; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+.tab-btn:hover { color: var(--text-dark); }
+.tab-btn.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+.tab-pane ul { list-style: none; padding-left: 0; }
+.tab-pane ul li { padding: 0.5rem 0; border-bottom: 1px dashed var(--border-light); }
+.tab-pane ul li:last-child { border-bottom: none; }
+
+
+/* --- 5. İlgili Ürünler Bölümü --- */
+.related-products { background-color: var(--secondary-bg-color); padding: 4rem 0; }

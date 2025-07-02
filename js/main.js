@@ -189,3 +189,64 @@ function initializeApp() {
 }
 
 document.addEventListener('DOMContentLoaded', initializeApp);
+
+/* ======================================================= */
+/* ===       ÜRÜN DETAY SAYFASI FONKSİYONLARI            === */
+/* ======================================================= */
+
+function initializeProductDetailPage() {
+    // --- Küçük Resim Galerisi (Thumbnail) Logic ---
+    const mainImage = document.getElementById('mainProductImage');
+    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
+    
+    if (mainImage && thumbnails.length > 0) {
+        
+        // **SORUNU ÇÖZEN ADIM:** Sayfa yüklendiğinde ana resmi ayarla.
+        // Aktif olan ilk küçük resmin kaynağını al ve ana resme ata.
+        const activeThumbnail = document.querySelector('.thumbnail-gallery .thumbnail.active');
+        if (activeThumbnail) {
+            mainImage.src = activeThumbnail.src;
+        }
+
+        // Küçük resimlere tıklama olayını ekle
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                mainImage.src = this.src;
+                thumbnails.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    }
+
+    // --- Sekmeli Bilgi (Tabs) Logic ---
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    if (tabButtons.length > 0) {
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+                
+                button.classList.add('active');
+                const targetTab = document.getElementById(button.dataset.tab);
+                if (targetTab) {
+                    targetTab.classList.add('active');
+                }
+            });
+        });
+    }
+}
+
+// Bu satırı, main.js dosyasının en altındaki document.addEventListener içine ekleyin
+// initializeProductDetailPage();
+
+// Örnek:
+document.addEventListener('DOMContentLoaded', () => {
+    // Sitenin diğer fonksiyonları burada çalışmaya devam edecek
+    // initializeApp(); 
+    // setupMobileMenu();
+
+    // Yeni ürün detay sayfası fonksiyonumuzu da burada çağırıyoruz
+    initializeProductDetailPage();
+});
