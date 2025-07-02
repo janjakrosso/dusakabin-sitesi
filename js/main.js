@@ -17,10 +17,23 @@ function initializeApp() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
-            // Sadece mobil ekranlarda tıklandığında alt menüyü aç/kapat
+            // Sadece mobil ekranlarda çalışacak dropdown mantığı
             if (window.innerWidth <= 767) {
                 e.preventDefault(); // Linkin varsayılan davranışını engelle
-                toggle.parentElement.classList.toggle('open');
+                
+                const currentDropdown = toggle.parentElement;
+                const wasOpen = currentDropdown.classList.contains('open');
+
+                // Önce açık olan diğer tüm dropdown'ları kapat
+                document.querySelectorAll('.nav-links .dropdown.open').forEach(openDropdown => {
+                    openDropdown.classList.remove('open');
+                });
+
+                // Eğer tıkladığımız menü daha önce açık değilse, onu aç.
+                // Açıksa, yukarıdaki kod zaten kapattığı için kapalı kalacaktır.
+                if (!wasOpen) {
+                    currentDropdown.classList.add('open');
+                }
             }
         });
     });
