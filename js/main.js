@@ -3,7 +3,7 @@
  */
 function initializeApp() {
  
-  // --- YENİ ve SORUNSUZ HAMBURGER MENÜ LOGIC ---
+ // --- YENİ ve SORUNSUZ HAMBURGER MENÜ LOGIC ---
 function setupMobileMenu() {
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
@@ -26,6 +26,13 @@ function setupMobileMenu() {
         });
     });
 }
+
+// document.addEventListener bloğunu bulup içine setupMobileMenu() ekleyin
+// (Eğer initializeApp gibi başka fonksiyonlar varsa onları silmeyin)
+document.addEventListener('DOMContentLoaded', () => {
+    // initializeApp(); // Eğer bu satır varsa, olduğu gibi kalsın.
+    setupMobileMenu(); // YENİ MENÜ FONKSİYONUNU ÇAĞIRIN
+});
 
 // document.addEventListener bloğunu bulup içine setupMobileMenu() ekleyin
 document.addEventListener('DOMContentLoaded', () => {
