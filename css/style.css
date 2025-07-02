@@ -1764,3 +1764,11 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .nav-menu {
     z-index: 999;
 }
+/* ================================================== */
+/* ===      MOBİL MENÜ AÇILMA SORUNU FİNAL ÇÖZÜMÜ     === */
+/* ================================================== */
+
+/* Açılan mobil menünün tüm içeriğin üzerinde görünmesini sağlar */
+.nav-menu {
+    z-index: 999;
+}
