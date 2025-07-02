@@ -2095,3 +2095,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .product-card-final .btn-cta-card:hover {
     background-color: #1DAA57;
 }
+.nav-menu {
+    z-index: 999;
+}
