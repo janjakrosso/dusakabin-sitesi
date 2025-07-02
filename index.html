@@ -13,34 +13,35 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="Firma Adı Logosu"></a>
-            
-            <nav>
-                <button class="hamburger" id="hamburger-button" aria-label="Menüyü aç/kapat">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index.html">Ana Sayfa</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Hizmetlerimiz <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Duşakabinler</a></li>
-                            <li><a href="#">Duş Teknesi</a></li>
-                            <li><a href="#">Cam Balkon</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="urunler.html">Ürünler</a></li>
-                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                    <li><a href="iletisim.html">İletişim</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-   
+ <header class="site-header">
+    <div class="container header-container">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Firma Adı Logosu">
+        </a>
+        <nav class="main-nav">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü aç/kapat">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Hizmetlerimiz <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Duşakabinler</a></li>
+                        <li><a href="#">Duş Teknesi</a></li>
+                        <li><a href="#">Cam Balkon</a></li>
+                    </ul>
+                </li>
+                <li><a href="urunler.html">Ürünler</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
     <main>
         <section class="hero">
             <div class="container">
@@ -77,71 +78,83 @@
                 <h2 class="section-title">Öne Çıkan Ürünler</h2>
                 <div class="swiper product-slider">
                     <div class="swiper-wrapper">
+                        <!-- Kart 1: Pleksi Duşakabin -->
                         <div class="swiper-slide">
-                            <div class="product-card modern">
-                                <div class="product-card-final">
-                        <a href="urun-detay-pleksi.html" class="product-image-link">
-                            <img src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin Modeli">
-                            
-                            <div class="product-actions-overlay">
-                                <span class="action-btn" title="Detayları Gör">
-                                    <i class="fas fa-search-plus"></i>
-                                </span>
-                            </div>
-                        </a>
-                        <div class="product-content">
-                            <h3 class="product-title">
-                                <a href="urun-detay-pleksi.html">Pleksi Duşakabin</a>
-                            </h3>
-                            <p class="product-description">Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.</p>
-                            <a href="https://wa.me/905335805266?text=Merhaba%2C%20Pleksi%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="btn-cta-card">
-                                <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
-                            </a>
-                        </div>
-                    </div>
-                                <div class="product-image-container">
-                                    <a href="urun-detay-pleksi.html"><img src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin Modeli"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="urun-detay-pleksi.html">Pleksi Duşakabin</a></h3>
-                                    <p class="product-description">Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.</p>
-                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Pleksi%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="btn btn-primary">Fiyat Teklifi Al <i class="fab fa-whatsapp"></i></a>
+                            <div class="product-card-final">
+                                <a href="urun-detay-pleksi.html" class="product-image-link">
+                                    <img src="images/pleksi-dusakabin/pileksidusakabin.jpg" alt="Pleksi Duşakabin Modeli">
+                                    <div class="product-actions-overlay">
+                                        <span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span>
+                                    </div>
+                                </a>
+                                <div class="product-content">
+                                    <div class="product-info">
+                                        <h3 class="product-title"><a href="urun-detay-pleksi.html">Pleksi Duşakabin</a></h3>
+                                        <p class="product-description">Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.</p>
+                                    </div>
+                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Pleksi%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="btn-cta-card">
+                                        <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                        <!-- Kart 2: Cam Duşakabin -->
                         <div class="swiper-slide">
-                             <div class="product-card modern">
-                                <div class="product-image-container">
-                                    <a href="#"><img src="images/urun-placeholder-1.jpg" alt="Cam Duşakabin"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Cam Duşakabin</a></h3>
-                                    <p class="product-description">Modern ve şık tasarımlı, temperli camdan üretilmiş duşakabinler.</p>
-                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Cam%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="btn btn-primary">Fiyat Teklifi Al <i class="fab fa-whatsapp"></i></a>
+                            <div class="product-card-final">
+                                <a href="#" class="product-image-link">
+                                    <img src="images/urun-placeholder-1.jpg" alt="Cam Duşakabin">
+                                    <div class="product-actions-overlay">
+                                        <span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span>
+                                    </div>
+                                </a>
+                                <div class="product-content">
+                                    <div class="product-info">
+                                        <h3 class="product-title"><a href="#">Cam Duşakabin</a></h3>
+                                        <p class="product-description">Modern ve şık tasarımlı, temperli camdan üretilmiş duşakabinler.</p>
+                                    </div>
+                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Cam%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="btn-cta-card">
+                                        <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                        <!-- Kart 3: Kompakt Sistem -->
                         <div class="swiper-slide">
-                            <div class="product-card modern">
-                                <div class="product-image-container">
-                                    <a href="#"><img src="images/urun-placeholder-2.jpg" alt="Kompakt Sistem"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Kompakt Sistem</a></h3>
-                                    <p class="product-description">Masaj jetleri ve tepe duşu ile spa keyfini banyonuza taşıyın.</p>
-                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Kompakt%20Sistem%20modeli%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="btn btn-primary">Fiyat Teklifi Al <i class="fab fa-whatsapp"></i></a>
+                            <div class="product-card-final">
+                                <a href="#" class="product-image-link">
+                                    <img src="images/urun-placeholder-2.jpg" alt="Kompakt Sistem">
+                                    <div class="product-actions-overlay">
+                                        <span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span>
+                                    </div>
+                                </a>
+                                <div class="product-content">
+                                    <div class="product-info">
+                                        <h3 class="product-title"><a href="#">Kompakt Sistem</a></h3>
+                                        <p class="product-description">Masaj jetleri ve tepe duşu ile spa keyfini banyonuza taşıyın.</p>
+                                    </div>
+                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Kompakt%20Sistem%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="btn-cta-card">
+                                        <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                        <!-- Kart 4: Akrilik Duş Teknesi -->
                         <div class="swiper-slide">
-                            <div class="product-card modern">
-                                <div class="product-image-container">
-                                    <a href="#"><img src="images/urun-placeholder-3.jpg" alt="Duş Teknesi"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Akrilik Duş Teknesi</a></h3>
-                                    <p class="product-description">Kaymaz yüzeyi ve antibakteriyel yapısıyla güvenli ve hijyenik kullanım.</p>
-                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Akrilik%20Du%C5%9F%20Teknesi%20modeli%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="btn btn-primary">Fiyat Teklifi Al <i class="fab fa-whatsapp"></i></a>
+                            <div class="product-card-final">
+                                <a href="#" class="product-image-link">
+                                    <img src="images/urun-placeholder-3.jpg" alt="Duş Teknesi">
+                                    <div class="product-actions-overlay">
+                                        <span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span>
+                                    </div>
+                                </a>
+                                <div class="product-content">
+                                    <div class="product-info">
+                                        <h3 class="product-title"><a href="#">Akrilik Duş Teknesi</a></h3>
+                                        <p class="product-description">Kaymaz yüzeyi ve antibakteriyel yapısıyla güvenli ve hijyenik kullanım.</p>
+                                    </div>
+                                    <a href="https://wa.me/905335805266?text=Merhaba%2C%20Akrilik%20Du%C5%9F%20Teknesi%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="btn-cta-card">
+                                        <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
+                                    </a>
                                 </div>
                             </div>
                         </div>

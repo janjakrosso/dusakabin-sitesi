@@ -3,17 +3,35 @@
  */
 function initializeApp() {
  
-   // --- YENİ HAMBURGER MENÜ LOGIC (FİNAL) ---
-const menuToggle = document.getElementById('hamburger-button');
-const navMenu = document.getElementById('nav-menu');
+  // --- YENİ ve SORUNSUZ HAMBURGER MENÜ LOGIC ---
+function setupMobileMenu() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
 
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        // Butona ve menüye aktif sınıflarını ekleyip kaldırır
-        menuToggle.classList.toggle('is-active');
-        navMenu.classList.toggle('is-open');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('is-open');
+        });
+    }
+    
+    // Dropdown menü için de mobil tıklama özelliği
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 767) {
+                e.preventDefault();
+                toggle.parentElement.classList.toggle('open');
+            }
+        });
     });
-} 
+}
+
+// document.addEventListener bloğunu bulup içine setupMobileMenu() ekleyin
+document.addEventListener('DOMContentLoaded', () => {
+    initializeApp();
+    setupMobileMenu(); // YENİ MENÜ FONKSİYONUNU ÇAĞIRIN
+});
 
     // --- Active Navigation Link Logic ---
     const navLinks = document.querySelectorAll('.nav-menu a');
