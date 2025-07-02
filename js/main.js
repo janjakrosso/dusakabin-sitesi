@@ -3,17 +3,17 @@
  */
 function initializeApp() {
  
-    
-// --- Hamburger Menu Logic ---
-    const hamburgerButton = document.getElementById('hamburger-button');
-    const navMenu = document.getElementById('nav-menu');
+   // --- YENİ HAMBURGER MENÜ LOGIC (FİNAL) ---
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
 
-    if (hamburgerButton && navMenu) {
-        hamburgerButton.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburgerButton.classList.toggle('active');
-        });
-    }
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        // Butona ve menüye aktif sınıflarını ekleyip kaldırır
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('is-open');
+    });
+} 
 
     // --- Active Navigation Link Logic ---
     const navLinks = document.querySelectorAll('.nav-menu a');
