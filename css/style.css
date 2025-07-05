@@ -891,3 +891,71 @@ footer {
 .fade-in-section.is-visible .product-card-final:nth-child(4) { animation-delay: 0.45s; }
 .fade-in-section.is-visible .product-card-final:nth-child(5) { animation-delay: 0.6s; }
 .fade-in-section.is-visible .product-card-final:nth-child(6) { animation-delay: 0.75s; }
+
+/* === ÜRÜN KARTI İÇİ GALERİ STİLLERİ === */
+
+.product-image-link {
+    position: relative; /* Navigasyon elemanlarını konumlandırmak için gerekli */
+}
+
+.card-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.product-card-final:hover .card-nav-btn {
+    opacity: 1; /* Sadece kartın üzerine gelince görünür yap */
+}
+
+.card-nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card-nav-btn.prev {
+    left: 10px;
+}
+
+.card-nav-btn.next {
+    right: 10px;
+}
+
+.card-nav-btn i {
+    font-size: 0.9rem;
+}
+
+.card-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 5;
+}
+
+.card-pagination-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-pagination-dot.active {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+}

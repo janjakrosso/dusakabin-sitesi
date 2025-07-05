@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Detayı - Firma Adı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="urun-detay">
+
+<header class="site-header">
+    <div class="container header-container">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Firma Adı Logosu">
+        </a>
+        <nav class="main-nav">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü aç/kapat">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Hizmetlerimiz <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Duşakabinler</a></li>
+                        <li><a href="#">Duş Teknesi</a></li>
+                        <li><a href="#">Cam Balkon</a></li>
+                    </ul>
+                </li>
+                <li><a href="urunler.html">Ürünler</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    
+<main>
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb-container">
+                    </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="product-detail fade-in-section">
+        <div class="container">
+            <div class="product-detail-grid">
+                <div class="product-gallery-container">
+                    <div class="main-image-display"> 
+                        <img id="mainProductImage" src="" alt="Ürün resmi yükleniyor...">
+                    </div>
+                    <div class="thumbnail-gallery" id="thumbnail-gallery-container">
+                        </div>
+                </div>
+                <div class="product-info-container">
+                    <h1 id="productName">Ürün Yükleniyor...</h1>
+                    <p class="product-description" id="productLongDescription"></p>
+                    <h2 class="features-title">Öne Çıkan Özellikler</h2>
+                    <ul class="features-list" id="featuresList">
+                        </ul>
+                    <div class="price-cta-box">
+                        <a href="#" target="_blank" class="btn btn-whatsapp" id="whatsappLink">
+                            <i class="fab fa-whatsapp"></i> WhatsApp'tan Fiyat Al
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-tabs-section">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="tab-specs">Teknik Özellikler</button>
+                <button class="tab-btn" data-tab="tab-warranty">Garanti & Teslimat</button>
+                <button class="tab-btn" data-tab="tab-care">Bakım Talimatları</button>
+            </div>
+            <div class="tab-content-wrapper">
+                <div class="tab-pane active" id="tab-specs">
+                    <h4>Malzeme Detayları</h4>
+                    <ul id="specsList">
+                        </ul>
+                </div>
+                <div class="tab-pane" id="tab-warranty">
+                    <p id="warrantyText"></p>
+                </div>
+                <div class="tab-pane" id="tab-care">
+                    <p id="careText"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Bunlar da İlginizi Çekebilir</h2>
+            <div class="swiper product-slider" id="related-products-slider">
+                <div class="swiper-wrapper" id="related-products-wrapper">
+                    </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+</main>
+    
+<footer>
+    <div class="container">
+            <div class="footer-top">
+                <div class="footer-contact-info">
+                    <div class="details-wrapper">
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Esenyurt+İstanbul" target="_blank" rel="noopener noreferrer">Esenyurt/İstanbul</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+905335805266">+905335805266</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:berkakabin@outlook.com">berkakabin@outlook.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Firma Adı. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+        <div class="social-links">
+        <a href="https://wa.me/905335805266" target="_blank" aria-label="WhatsApp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/berkadus" target="_blank" aria-label="Instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
