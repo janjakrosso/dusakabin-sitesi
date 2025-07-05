@@ -93,7 +93,7 @@ a {
     .menu-toggle { display: block; } /* Hamburgeri sadece mobilde göster */
     
     .nav-links {
-        display: none; /* SORUNUN ANA ÇÖZÜMÜ: Menü varsayılan olarak gizli */
+        /* display: none; */ /* BU SATIRI SİLİN VEYA YORUM SATIRI YAPIN */
         position: fixed;
         top: 85px;
         left: 0;
@@ -105,12 +105,22 @@ a {
         justify-content: center;
         gap: 2rem;
         z-index: 1005;
+
+        /* Yeni gizleme ve animasyon kuralları */
+        visibility: hidden; /* Varsayılan olarak gizle */
+        opacity: 0; /* Saydamlığı sıfırla */
+        transition: visibility 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Geçiş efekti */
     }
     
     /* JavaScript tarafından eklenecek 'is-open' sınıfı menüyü görünür yapar */
     .nav-links.is-open {
-        display: flex; /* 'display: none' kuralını ezerek menüyü gösterir */
+        visibility: visible; /* Görünür yap */
+        opacity: 1; /* Tamamen görünür yap */
+        /* display: flex; */ /* Bu satırı da silebilirsiniz, çünkü flex-direction zaten tanımlı */
     }
+    // ... (diğer mobil menü stilleri) ...
+}
+
 
     .nav-links a { font-size: 1.5rem; }
     .dropdown .dropdown-menu { display: none; position: static; background: transparent; box-shadow: none; text-align: center; }
