@@ -1,18 +1,62 @@
 /**
- * main.js - İyileştirilmiş ve Birleştirilmiş Versiyon
+ * main.js - Geliştirilmiş Final Versiyon
+ * - Aktif sayfa vurgulama
+ * - Scroll'da header stili değişimi
+ * - Mobil menüde linke tıklayınca otomatik kapanma
+ * - Diğer tüm önceki fonksiyonlar
  */
 
-// Tüm JavaScript kodlarımız, sayfa tamamen yüklendiğinde bir kez çalışır.
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Header Stili ve Aktif Sayfa Belirleme ---
+    const siteHeader = document.querySelector('.site-header');
+    const navLinksList = document.querySelectorAll('.nav-links > li');
+    const currentPage = window.location.pathname.split('/').pop(); // Mevcut sayfa adını alır (örn: "urunler.html")
+
+    // 1. Scroll Event'i ile Header'a 'scrolled' class'ı ekleme/kaldırma
+    if (siteHeader) {
+        window.addEventListener('scroll', () => {
+            // 50 pikselden fazla kaydırıldıysa 'scrolled' class'ını ekle
+            siteHeader.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    }
+
+    // 2. Aktif Sayfa Vurgulama
+    navLinksList.forEach(li => {
+        const link = li.querySelector('a');
+        if (link && link.getAttribute('href') === currentPage) {
+            li.classList.add('active-page');
+        }
+        // Eğer Ana Sayfa'daysak (index.html veya boş path)
+        if (currentPage === 'index.html' || currentPage === '') {
+            if (link && link.getAttribute('href') === 'index.html') {
+                 li.classList.add('active-page');
+            }
+        }
+    });
+
 
     // --- Hamburger Menü & Mobil Dropdown Logic ---
     const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
+    const navLinksContainer = document.getElementById('nav-links');
  
-    if (menuToggle && navLinks) {
+    if (menuToggle && navLinksContainer) {
+        // Menü açma/kapama butonu
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('is-active');
-            navLinks.classList.toggle('is-open');
+            navLinksContainer.classList.toggle('is-open');
+        });
+
+        // YENİ: Mobil menüdeki bir linke tıklanınca menüyü kapat
+        const allNavLinks = navLinksContainer.querySelectorAll('a');
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Sadece dropdown toggle değilse kapat (açılır menünün kendisi kapanmasın)
+                if (!link.classList.contains('dropdown-toggle')) {
+                    menuToggle.classList.remove('is-active');
+                    navLinksContainer.classList.remove('is-open');
+                }
+            });
         });
     }
  
@@ -24,16 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 
                 const currentDropdown = toggle.parentElement;
-                // Tıkladığımız menünün zaten açık olup olmadığını kontrol ediyoruz.
                 const isAlreadyOpen = currentDropdown.classList.contains('open');
 
-                // 1. Önce, açık olan tüm dropdown menüleri kapatıyoruz.
                 document.querySelectorAll('.nav-links .dropdown.open').forEach(openDropdown => {
                     openDropdown.classList.remove('open');
                 });
 
-                // 2. Eğer tıkladığımız menü zaten açık değilse, onu açıyoruz.
-                // Eğer zaten açıksa, yukarıdaki komut onu kapattığı için kapalı kalacaktır.
                 if (!isAlreadyOpen) {
                     currentDropdown.classList.add('open');
                 }
@@ -41,7 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Scroll to Top Button Logic ---
+    // --- Diğer Fonksiyonlar (Aynı kalıyor) ---
+
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (scrollToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -52,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Kaydırma ile Gelen Animasyonlar ---
     const fadeInSections = document.querySelectorAll('.fade-in-section');
     if (fadeInSections.length > 0) {
         const observer = new IntersectionObserver((entries, observer) => {
@@ -65,64 +105,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.1 });
         fadeInSections.forEach(section => observer.observe(section));
     }
-
-    // --- Öne Çıkan Ürünler Slider (Sadece Ana Sayfada Çalışır) ---
-    // Sayfada bu slider varsa, kodu çalıştır.
+    
+    // Slider'lar (Tüm sayfalarda hata vermeden çalışır)
     if (document.querySelector('.featured-products .product-slider')) {
-        new Swiper('.featured-products .product-slider', {
-            loop: true,
-            spaceBetween: 20,
-            slidesPerView: 1, // Mobil için varsayılan
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 25
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
-                }
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
+        new Swiper('.featured-products .product-slider', { loop: true, spaceBetween: 20, slidesPerView: 1, breakpoints: { 768: { slidesPerView: 2, spaceBetween: 25 }, 992: { slidesPerView: 3, spaceBetween: 30 } }, pagination: { el: '.swiper-pagination', clickable: true, }, });
     }
     
-    // --- İlgili Ürünler Slider (Sadece Ürün Detay Sayfasında Çalışır) ---
-    // Sayfada bu slider varsa, kodu çalıştır.
     if (document.querySelector('.related-products .product-slider')) {
-        new Swiper('.related-products .product-slider', {
-            loop: true,
-            spaceBetween: 20,
-            slidesPerView: 1, // Mobil için varsayılan
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 25
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
-                }
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
+        new Swiper('.related-products .product-slider', { loop: true, spaceBetween: 20, slidesPerView: 1, breakpoints: { 768: { slidesPerView: 2, spaceBetween: 25 }, 992: { slidesPerView: 3, spaceBetween: 30 } }, pagination: { el: '.swiper-pagination', clickable: true, }, });
     }
 
-    // --- Ürün Detay Sayfası Galerisi ve Sekmeler ---
+    // Ürün Detay Sayfası Galerisi ve Sekmeler
     const mainImage = document.getElementById('mainProductImage');
     const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
     
     if (mainImage && thumbnails.length > 0) {
         const activeThumbnail = document.querySelector('.thumbnail-gallery .thumbnail.active');
-        if (activeThumbnail) {
-            mainImage.src = activeThumbnail.src;
-        }
+        if (activeThumbnail) { mainImage.src = activeThumbnail.src; }
 
         thumbnails.forEach(thumb => {
             thumb.addEventListener('click', function() {
@@ -144,13 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 button.classList.add('active');
                 const targetTab = document.getElementById(button.dataset.tab);
-                if (targetTab) {
-                    targetTab.classList.add('active');
-                }
+                if (targetTab) { targetTab.classList.add('active'); }
             });
         });
     }
-
-    // Not: Ürünler sayfasındaki filtreleme kodunuz buraya eklenebilir.
-    // Şimdilik ayrı tutulması bir sorun teşkil etmiyor.
 });
