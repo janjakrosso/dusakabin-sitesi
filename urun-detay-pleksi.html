@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -121,45 +121,74 @@
     <section class="related-products fade-in-section">
         <div class="container">
             <h2 class="section-title">Bunlar da İlginizi Çekebilir</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <a href="#" class="product-image-link">
-                        <img src="images/siyah-cizgili/1.jpeg" alt="Cam Duşakabin">
-                    </a>
-                    <div class="product-content">
-                        <h3 class="product-title"><a href="#">Temperli Cam Duşakabin</a></h3>
-                        <p class="product-description">Şık ve modern banyolar için 6mm temperli, güvenli cam seçenekleri.</p>
-                        <a href="https://wa.me/905335805266?text=Merhaba" target="_blank" class="btn-cta-card">
-                            <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
-                        </a>
+            
+            <div class="swiper product-slider">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="product-card-final">
+                            <a href="#" class="product-image-link">
+                                <img src="images/siyah-cizgili/1.jpeg" alt="Cam Duşakabin">
+                                <div class="product-actions-overlay">
+                                    <span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span>
+                                </div>
+                            </a>
+                            <div class="product-content">
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Temperli Cam Duşakabin</a></h3>
+                                    <p class="product-description">Şık ve modern banyolar için 6mm temperli, güvenli cam seçenekleri.</p>
+                                </div>
+                                <a href="https://wa.me/905335805266?text=Merhaba" target="_blank" class="btn-cta-card">
+                                    <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="product-card">
-                    <a href="#" class="product-image-link">
-                        <img src="images/kompakt-dusakabin/kompakt-model-1.jpg" alt="Kompakt Sistem">
-                    </a>
-                    <div class="product-content">
-                        <h3 class="product-title"><a href="#">Kompakt Sistem</a></h3>
-                        <p class="product-description">Masaj jetleri ve tepe duşu ile spa keyfini banyonuza taşıyın.</p>
-                        <a href="https://wa.me/905335805266?text=Merhaba" target="_blank" class="btn-cta-card">
-                            <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
-                        </a>
+
+                    <div class="swiper-slide">
+                        <div class="product-card-final">
+                            <a href="#" class="product-image-link">
+                                <img src="images/kompakt-dusakabin/kompakt-model-1.jpg" alt="Kompakt Sistem">
+                                <div class="product-actions-overlay">
+                                    <span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span>
+                                </div>
+                            </a>
+                            <div class="product-content">
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Kompakt Sistem</a></h3>
+                                    <p class="product-description">Masaj jetleri ve tepe duşu ile spa keyfini banyonuza taşıyın.</p>
+                                </div>
+                                <a href="https://wa.me/905335805266?text=Merhaba" target="_blank" class="btn-cta-card">
+                                    <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="product-card">
-                    <a href="#" class="product-image-link">
-                        <img src="images/urun-placeholder-3.jpg" alt="Duş Teknesi">
-                    </a>
-                    <div class="product-content">
-                        <h3 class="product-title"><a href="#">Akrilik Duş Teknesi</a></h3>
-                        <p class="product-description">Kaymaz yüzeyi ve antibakteriyel yapısıyla güvenli ve hijyenik kullanım.</p>
-                        <a href="https://wa.me/905335805266?text=Merhaba" target="_blank" class="btn-cta-card">
-                            <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
-                        </a>
+
+                    <div class="swiper-slide">
+                        <div class="product-card-final">
+                            <a href="#" class="product-image-link">
+                                <img src="images/urun-placeholder-3.jpg" alt="Duş Teknesi">
+                                <div class="product-actions-overlay">
+                                    <span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span>
+                                </div>
+                            </a>
+                             <div class="product-content">
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Akrilik Duş Teknesi</a></h3>
+                                    <p class="product-description">Kaymaz yüzeyi ve antibakteriyel yapısıyla güvenli ve hijyenik kullanım.</p>
+                                </div>
+                                <a href="https://wa.me/905335805266?text=Merhaba" target="_blank" class="btn-cta-card">
+                                    <i class="fab fa-whatsapp"></i> Fiyat Teklifi Al
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
-        </div>
+            </div>
     </section>
 
 </main>
@@ -188,7 +217,7 @@
         </a>
     </div>
     </footer>
-
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

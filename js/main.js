@@ -1,9 +1,11 @@
 /**
- * Tüm sayfa içi JavaScript etkileşimlerini başlatan ana fonksiyon.
+ * main.js - İyileştirilmiş ve Birleştirilmiş Versiyon
  */
-function initializeApp() {
- 
-    // --- Hamburger Menu & Mobile Dropdown Logic ---
+
+// Tüm JavaScript kodlarımız, sayfa tamamen yüklendiğinde bir kez çalışır.
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Hamburger Menü & Mobil Dropdown Logic ---
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
  
@@ -17,135 +19,18 @@ function initializeApp() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
-            // Sadece mobil ekranlarda çalışacak dropdown mantığı
             if (window.innerWidth <= 767) {
-                e.preventDefault(); // Linkin varsayılan davranışını engelle
-                
+                e.preventDefault();
                 const currentDropdown = toggle.parentElement;
-
-                // Tıklanan menü dışındaki tüm açık menüleri kapat
                 document.querySelectorAll('.nav-links .dropdown.open').forEach(openDropdown => {
                     if (openDropdown !== currentDropdown) {
                         openDropdown.classList.remove('open');
                     }
                 });
-
-                // Tıklanan menünün durumunu değiştir (açıksa kapat, kapalıysa aç)
                 currentDropdown.classList.toggle('open');
             }
         });
     });
-
-    // --- Active Navigation Link Logic ---
-    const allNavLinks = document.querySelectorAll('.nav-links a');
-    const currentURL = window.location.href;
-
-    allNavLinks.forEach(link => {
-        if (link.href === currentURL) {
-            link.classList.add('active');
-        }
-    });
-
-    // --- Product Gallery Logic ---
-    const mainProductImage = document.getElementById('mainProductImage');
-    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
-    const inPagePrevBtn = document.getElementById('prevImageBtn');
-    const inPageNextBtn = document.getElementById('nextImageBtn');
-
-    const productLightbox = document.getElementById('productLightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const closeBtn = document.querySelector('.lightbox .close-btn');
-    const lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
-    const lightboxNextBtn = document.getElementById('lightboxNextBtn');
-
-    if (mainProductImage && thumbnails.length > 0) {
-        let currentImageIndex = 0;
-    
-        function updateMainImage(index) {
-            if (thumbnails.length === 0) return;
-            currentImageIndex = (index + thumbnails.length) % thumbnails.length;
-            const selectedThumbnail = thumbnails[currentImageIndex];
-            mainProductImage.src = selectedThumbnail.dataset.fullSrc;
-            mainProductImage.alt = selectedThumbnail.alt;
-            thumbnails.forEach(t => t.classList.remove('active'));
-            selectedThumbnail.classList.add('active');
-        }
-    
-        function openLightbox() {
-            if (mainProductImage && productLightbox && lightboxImage) {
-                productLightbox.style.display = 'block';
-                lightboxImage.src = mainProductImage.src;
-                lightboxImage.alt = mainProductImage.alt;
-            }
-        }
-    
-        function closeLightbox() {
-            if (productLightbox) {
-                productLightbox.style.display = 'none';
-            }
-        }
-    
-        updateMainImage(0);
-        thumbnails.forEach((thumbnail, index) => {
-            thumbnail.addEventListener('click', () => updateMainImage(index));
-        });
-        if (inPagePrevBtn) inPagePrevBtn.addEventListener('click', () => updateMainImage(currentImageIndex - 1));
-        if (inPageNextBtn) inPageNextBtn.addEventListener('click', () => updateMainImage(currentImageIndex + 1));
-        mainProductImage.addEventListener('click', openLightbox);
-        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-        if (productLightbox) productLightbox.addEventListener('click', e => { if (e.target === productLightbox) closeLightbox(); });
-        document.addEventListener('keydown', e => { if (productLightbox && e.key === 'Escape' && productLightbox.style.display === 'block') closeLightbox(); });
-        if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', () => { updateMainImage(currentImageIndex - 1); lightboxImage.src = mainProductImage.src; lightboxImage.alt = mainProductImage.alt; });
-        if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', () => { updateMainImage(currentImageIndex + 1); lightboxImage.src = mainProductImage.src; lightboxImage.alt = mainProductImage.alt; });
-    }
-
-    // --- Product Filtering and Sorting Logic GÜNCELLENDİ ---
-    const productGrid = document.querySelector('.product-grid');
-    const sortSelect = document.getElementById('sort-by');
-    const searchInput = document.getElementById('search-input');
-    const categorySelect = document.getElementById('category-select');
-
-    if (productGrid && (sortSelect || searchInput || categorySelect)) {
-        const allProductsData = Array.from(productGrid.querySelectorAll('.product-card.modern')).map(productEl => ({
-            name: productEl.dataset.name || '',
-            category: productEl.dataset.category || 'uncategorized',
-            element: productEl
-        }));
-
-        function renderProducts() {
-            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-            const sortBy = sortSelect ? sortSelect.value : 'default';
-            const selectedCategory = categorySelect ? categorySelect.value : 'all';
-
-            // Filtreleme ve Sıralama
-            let filteredProducts = allProductsData.filter(product => {
-                const matchesSearch = product.name.toLowerCase().includes(searchTerm);
-                const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
-                return matchesSearch && matchesCategory;
-            });
-
-            // Sıralama
-            if (sortBy === 'name-asc') {
-                filteredProducts.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
-            } else if (sortBy === 'name-desc') {
-                filteredProducts.sort((a, b) => b.name.localeCompare(a.name, 'tr'));
-            }
-            
-            // Grid'i güncelleme
-            productGrid.innerHTML = '';
-            if (filteredProducts.length === 0) {
-                productGrid.innerHTML = '<p class="no-results">Aramanızla eşleşen ürün bulunamadı.</p>';
-            } else {
-                filteredProducts.forEach(product => {
-                    productGrid.appendChild(product.element);
-                });
-            }
-        }
-
-        if (searchInput) searchInput.addEventListener('input', renderProducts);
-        if (sortSelect) sortSelect.addEventListener('change', renderProducts);
-        if (categorySelect) categorySelect.addEventListener('change', renderProducts);
-    }
 
     // --- Scroll to Top Button Logic ---
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -172,43 +57,64 @@ function initializeApp() {
         fadeInSections.forEach(section => observer.observe(section));
     }
 
-    // --- Swiper Slider for Featured Products ---
-    const productSlider = document.querySelector('.product-slider');
-    if (productSlider) {
-        new Swiper(productSlider, {
+    // --- Öne Çıkan Ürünler Slider (Sadece Ana Sayfada Çalışır) ---
+    // Sayfada bu slider varsa, kodu çalıştır.
+    if (document.querySelector('.featured-products .product-slider')) {
+        new Swiper('.featured-products .product-slider', {
             loop: true,
-            spaceBetween: 30,
+            spaceBetween: 20,
+            slidesPerView: 1, // Mobil için varsayılan
             breakpoints: {
-                320: { slidesPerView: 1, spaceBetween: 20 },
-                768: { slidesPerView: 2, spaceBetween: 30 },
-                992: { slidesPerView: 3, spaceBetween: 30 }
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
             },
-            pagination: { el: '.swiper-pagination', clickable: true },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
         });
     }
-}
+    
+    // --- İlgili Ürünler Slider (Sadece Ürün Detay Sayfasında Çalışır) ---
+    // Sayfada bu slider varsa, kodu çalıştır.
+    if (document.querySelector('.related-products .product-slider')) {
+        new Swiper('.related-products .product-slider', {
+            loop: true,
+            spaceBetween: 20,
+            slidesPerView: 1, // Mobil için varsayılan
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', initializeApp);
-
-/* ======================================================= */
-/* ===       ÜRÜN DETAY SAYFASI FONKSİYONLARI            === */
-/* ======================================================= */
-
-function initializeProductDetailPage() {
-    // --- Küçük Resim Galerisi (Thumbnail) Logic ---
+    // --- Ürün Detay Sayfası Galerisi ve Sekmeler ---
     const mainImage = document.getElementById('mainProductImage');
     const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
     
     if (mainImage && thumbnails.length > 0) {
-        
-        // **SORUNU ÇÖZEN ADIM:** Sayfa yüklendiğinde ana resmi ayarla.
-        // Aktif olan ilk küçük resmin kaynağını al ve ana resme ata.
         const activeThumbnail = document.querySelector('.thumbnail-gallery .thumbnail.active');
         if (activeThumbnail) {
             mainImage.src = activeThumbnail.src;
         }
 
-        // Küçük resimlere tıklama olayını ekle
         thumbnails.forEach(thumb => {
             thumb.addEventListener('click', function() {
                 mainImage.src = this.src;
@@ -218,7 +124,6 @@ function initializeProductDetailPage() {
         });
     }
 
-    // --- Sekmeli Bilgi (Tabs) Logic ---
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
@@ -236,18 +141,7 @@ function initializeProductDetailPage() {
             });
         });
     }
-}
 
-// Bu satırı, main.js dosyasının en altındaki document.addEventListener içine ekleyin
-// initializeProductDetailPage();
-
-// Örnek:
-document.addEventListener('DOMContentLoaded', () => {
-    // Sitenin diğer fonksiyonları burada çalışmaya devam edecek
-    // initializeApp(); 
-    // setupMobileMenu();
-
-    // Yeni ürün detay sayfası fonksiyonumuzu da burada çağırıyoruz
-    initializeProductDetailPage();
+    // Not: Ürünler sayfasındaki filtreleme kodunuz buraya eklenebilir.
+    // Şimdilik ayrı tutulması bir sorun teşkil etmiyor.
 });
-
