@@ -19,15 +19,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
+            // Sadece mobil görünümde çalışmasını sağlıyoruz
             if (window.innerWidth <= 767) {
                 e.preventDefault();
+                
                 const currentDropdown = toggle.parentElement;
+                // Tıkladığımız menünün zaten açık olup olmadığını kontrol ediyoruz.
+                const isAlreadyOpen = currentDropdown.classList.contains('open');
+
+                // 1. Önce, açık olan tüm dropdown menüleri kapatıyoruz.
                 document.querySelectorAll('.nav-links .dropdown.open').forEach(openDropdown => {
-                    if (openDropdown !== currentDropdown) {
-                        openDropdown.classList.remove('open');
-                    }
+                    openDropdown.classList.remove('open');
                 });
-                currentDropdown.classList.toggle('open');
+
+                // 2. Eğer tıkladığımız menü zaten açık değilse, onu açıyoruz.
+                // Eğer zaten açıksa, yukarıdaki komut onu kapattığı için kapalı kalacaktır.
+                if (!isAlreadyOpen) {
+                    currentDropdown.classList.add('open');
+                }
             }
         });
     });
