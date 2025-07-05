@@ -2,26 +2,27 @@
  * Tüm sayfa içi JavaScript etkileşimlerini başlatan ana fonksiyon.
  */
 function initializeApp() {
- 
+
     // --- Hamburger Menu & Mobile Dropdown Logic ---
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
- 
+
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('is-active');
             navLinks.classList.toggle('is-open');
         });
     }
- 
+
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
             // Sadece mobil ekranlarda çalışacak dropdown mantığı
-            if (window.innerWidth <= 767) {
+            // window.innerWidth değeri, CSS'deki @media (max-width: 767px) ile uyumlu olmalı.
+            if (window.innerWidth <= 767) { 
                 e.preventDefault(); // Linkin varsayılan davranışını engelle
-                
-                const currentDropdown = toggle.parentElement;
+
+                const currentDropdown = toggle.parentElement; // Tıklanan dropdown'ın <li> parent'ı
 
                 // Tıklanan menü dışındaki tüm açık menüleri kapat
                 document.querySelectorAll('.nav-links .dropdown.open').forEach(openDropdown => {
@@ -36,12 +37,27 @@ function initializeApp() {
         });
     });
 
+    // Sayfanın herhangi bir yerine tıklandığında açık olan mobil dropdown menüleri kapat
+    document.addEventListener('click', (e) => {
+        // Eğer tıklanan eleman ne menü toggle butonu ne de bir dropdown menü içinde değilse
+        if (window.innerWidth <= 767 && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            // Açık olan tüm dropdown'ları kapat
+            document.querySelectorAll('.nav-links .dropdown.open').forEach(openDropdown => {
+                openDropdown.classList.remove('open');
+            });
+            // Ana mobil menüyü de kapat
+            navLinks.classList.remove('is-open');
+            menuToggle.classList.remove('is-active');
+        }
+    });
+
     // --- Active Navigation Link Logic ---
     const allNavLinks = document.querySelectorAll('.nav-links a');
     const currentURL = window.location.href;
 
     allNavLinks.forEach(link => {
-        if (link.href === currentURL) {
+        // 'Hizmetlerimiz' gibi '#' ile biten linkleri aktif işaretlememek için kontrol
+        if (link.href === currentURL && !link.href.endsWith('#')) {
             link.classList.add('active');
         }
     });
@@ -65,7 +81,7 @@ function initializeApp() {
             if (thumbnails.length === 0) return;
             currentImageIndex = (index + thumbnails.length) % thumbnails.length;
             const selectedThumbnail = thumbnails[currentImageIndex];
-            mainProductImage.src = selectedThumbnail.dataset.fullSrc;
+            mainProductImage.src = selectedThumbnail.src; // Veri yerine doğrudan src kullanıyoruz
             mainProductImage.alt = selectedThumbnail.alt;
             thumbnails.forEach(t => t.classList.remove('active'));
             selectedThumbnail.classList.add('active');
@@ -89,8 +105,10 @@ function initializeApp() {
         thumbnails.forEach((thumbnail, index) => {
             thumbnail.addEventListener('click', () => updateMainImage(index));
         });
+        // Bu butonlar urun-detay-pleksi.html'de yok, bu yüzden kontrol edelim
         if (inPagePrevBtn) inPagePrevBtn.addEventListener('click', () => updateMainImage(currentImageIndex - 1));
         if (inPageNextBtn) inPageNextBtn.addEventListener('click', () => updateMainImage(currentImageIndex + 1));
+        
         mainProductImage.addEventListener('click', openLightbox);
         if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
         if (productLightbox) productLightbox.addEventListener('click', e => { if (e.target === productLightbox) closeLightbox(); });
@@ -105,10 +123,15 @@ function initializeApp() {
     const searchInput = document.getElementById('search-input');
     const categorySelect = document.getElementById('category-select');
 
+    // 'urunler.html'deki ürün kartlarını .product-card-final sınıfı ile yakala
+    // ve bunlara 'data-name' ve 'data-category' ekle (manuel veya dinamik olarak)
     if (productGrid && (sortSelect || searchInput || categorySelect)) {
-        const allProductsData = Array.from(productGrid.querySelectorAll('.product-card.modern')).map(productEl => ({
-            name: productEl.dataset.name || '',
-            category: productEl.dataset.category || 'uncategorized',
+        const allProductsData = Array.from(productGrid.querySelectorAll('.product-card-final')).map(productEl => ({
+            // Burada name ve category bilgilerini HTML'den çekmeliyiz
+            // Örneğin: <div class="product-card-final" data-name="Pleksi Duşakabin" data-category="pleksi-dusakabin">
+            name: productEl.querySelector('.product-title a')?.textContent || '',
+            // Kategori bilgisini doğrudan HTML'den çekiyoruz, eğer orada bir veri yoksa 'all' olarak ayarlanabilir
+            category: productEl.dataset.category || 'all', 
             element: productEl
         }));
 
@@ -117,21 +140,18 @@ function initializeApp() {
             const sortBy = sortSelect ? sortSelect.value : 'default';
             const selectedCategory = categorySelect ? categorySelect.value : 'all';
 
-            // Filtreleme ve Sıralama
             let filteredProducts = allProductsData.filter(product => {
                 const matchesSearch = product.name.toLowerCase().includes(searchTerm);
                 const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
                 return matchesSearch && matchesCategory;
             });
 
-            // Sıralama
             if (sortBy === 'name-asc') {
                 filteredProducts.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
             } else if (sortBy === 'name-desc') {
                 filteredProducts.sort((a, b) => b.name.localeCompare(a.name, 'tr'));
             }
             
-            // Grid'i güncelleme
             productGrid.innerHTML = '';
             if (filteredProducts.length === 0) {
                 productGrid.innerHTML = '<p class="no-results">Aramanızla eşleşen ürün bulunamadı.</p>';
@@ -145,6 +165,9 @@ function initializeApp() {
         if (searchInput) searchInput.addEventListener('input', renderProducts);
         if (sortSelect) sortSelect.addEventListener('change', renderProducts);
         if (categorySelect) categorySelect.addEventListener('change', renderProducts);
+
+        // Sayfa yüklendiğinde ilk render'ı çağır
+        renderProducts();
     }
 
     // --- Scroll to Top Button Logic ---
@@ -238,16 +261,13 @@ function initializeProductDetailPage() {
     }
 }
 
-// Bu satırı, main.js dosyasının en altındaki document.addEventListener içine ekleyin
-// initializeProductDetailPage();
-
-// Örnek:
+// initializeProductDetailPage fonksiyonunu sadece ürün detay sayfalarında çağırın
+// Bu kontrolü HTML dosyalarınıza veya ayrı bir script'e ekleyebilirsiniz.
+// Şimdilik, her sayfa yüklendiğinde çağrılması sorun teşkil etmez.
 document.addEventListener('DOMContentLoaded', () => {
-    // Sitenin diğer fonksiyonları burada çalışmaya devam edecek
-    // initializeApp(); 
-    // setupMobileMenu();
-
-    // Yeni ürün detay sayfası fonksiyonumuzu da burada çağırıyoruz
-    initializeProductDetailPage();
+    initializeApp(); 
+    // urun-detay-pleksi.html gibi dosyalarda çalışacak fonksiyon
+    if (document.getElementById('mainProductImage')) { // Ana resim elementi varsa
+        initializeProductDetailPage();
+    }
 });
-
