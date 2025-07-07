@@ -53,7 +53,10 @@
     "name": "Şeffaf Cam Duşakabin",
     "category": "Duşakabin",
     "mainImage": "images/seffaf-cam-dusakabin/1.jpeg",
-    "thumbnails": [ "images/seffaf-cam-dusakabin/1.jpeg" ],
+    "thumbnails": [ "images/seffaf-cam-dusakabin/1.jpeg",
+     "images/seffaf-cam-dusakabin/2.jpeg",
+      "images/seffaf-cam-dusakabin/3.jpeg"
+    ],
     "shortDescription": "Modern ve şık banyolar için temperli cam ve sade tasarım.",
     "longDescription": "Banyonuza ferahlık katmak için tasarlanan şeffaf temperli cam duşakabin modelimiz, 5mm kalınlığındaki güvenli camı ve parlak krom profilleri ile hem minimalist hem de dayanıklı bir seçenektir.",
     "features": [
@@ -79,13 +82,15 @@
     "shortDescription": "Kaymaz yüzeyli, hijyenik ve dayanıklı akrilik duş tekneleri.",
     "longDescription": "Banyonuza modern ve güvenli bir zemin sunan akrilik duş teknemiz, leke tutmaz ve kolay temizlenir yüzeyi ile uzun ömürlü kullanım sağlar.",
     "features": [
-      { "icon": "fa-check-square", "text": "<strong>Yüzey:</strong> Kaydırmaz Yüzey" }
+      { "icon": "fa-check-square", "text": "<strong>Güvenlik:</strong> Kırılmaya Karşı Temperli Cam" },
+      { "icon": "fa-paint-brush", "text": "<strong>Tasarım:</strong> Mat Siyah Endüstriyel Çizgiler" },
+      { "icon": "fa-door-open", "text": "<strong>Kapı Tipi:</strong> Sürgülü veya Menteşeli Seçeneği" }
     ],
     "specs": [
       { "label": "Malzeme", "value": "Antibakteriyel Akrilik" }
     ],
     "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz.",
-    "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Du%C5%9F%20Teknesi%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+    "whatsappLink": "https://wa.me/905335805266?text=Merhaba Desenli Cam Duşakabin modeliniz hakkında bilgi almak istiyorum."
   }
   
 ]
