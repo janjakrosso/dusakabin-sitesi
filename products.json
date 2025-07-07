@@ -2,7 +2,7 @@
   {
     "id": "pleksi-dusakabin",
     "name": "Pleksi Duşakabin",
-    "category": "pleksi-dusakabin",
+    "category": "Duşakabin",
     "mainImage": "images/pleksi-dusakabin/pileksidusakabin.jpg",
     "thumbnails": [
       "images/pleksi-dusakabin/pileksidusakabin.jpg",
@@ -22,16 +22,16 @@
       { "label": "Tekerlek Sistemi", "value": "Pirinç Rulmanlı Tekerlekler" },
       { "label": "Su Sızdırmazlık", "value": "Mıknatıslı Fitil Sistemi" }
     ],
-    "warrantyInfo": "Tüm duşakabinlerimiz, üretim ve montaj hatalarına karşı <strong>2 yıl</strong> süreyle Berka Kabin garantisi altındadır. İstanbul içi teslimat ve montaj hizmetimiz ücretsizdir. Detaylı bilgi için bizimle iletişime geçebilirsiniz.",
+    "warrantyInfo": "",
     "careInfo": "Duşakabininizi temizlerken ağartıcı veya aşındırıcı kimyasallar kullanmaktan kaçının. Her kullanımdan sonra yumuşak bir bez veya çekpas yardımıyla su lekelerini kurutmak, kireç oluşumunu önleyerek ürününüzün ömrünü uzatacaktır.",
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Pleksi%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   },
   {
     "id": "siyah-cizgili-cam-dusakabin",
     "name": "Cam Duşakabin Siyah Çizgili",
-    "category": "cam-dusakabin",
+    "category": "Duşakabin",
     "mainImage": "images/siyah-cizgili/1.jpeg",
-    "thumbnails": [ "images/siyah-cizgili/1.jpeg" ],
+    "thumbnails": [ "images/siyah-cizgili/1.jpeg", "images/siyah-cizgili/2.jpeg", "images/siyah-cizgili/3.jpeg", "images/siyah-cizgili/4.jpeg", "images/siyah-cizgili/5.jpeg", "images/siyah-cizgili/6.jpeg" ],
     "shortDescription": "Modern ve şık banyolar için temperli cam ve siyah desenli tasarım.",
     "longDescription": "Banyonuza modern bir dokunuş katmak için tasarlanan siyah çizgili temperli cam duşakabin modelimiz, 6mm kalınlığındaki güvenli camı ve mat siyah profilleri ile hem estetik hem de dayanıklılık sunar.",
     "features": [
@@ -44,8 +44,46 @@
       { "label": "Profil Rengi", "value": "Mat Siyah Alüminyum" },
       { "label": "Yükseklik", "value": "190cm (Standart)" }
     ],
-    "warrantyInfo": "Tüm temperli cam duşakabinlerimiz, üretim ve montaj hatalarına karşı <strong>3 yıl</strong> süreyle garantilidir. Ücretsiz keşif, teslimat ve montaj hizmetimizden yararlanabilirsiniz.",
+    "warrantyInfo": "",
     "careInfo": "Temizlik için sadece yumuşak bir bez ve cam temizleyici kullanınız. Kireç önleyici özel kaplaması sayesinde temizliği oldukça kolaydır.",
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Siyah%20%C3%87izgili%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+  },
+  {
+    "id": "seffaf-cam-dusakabin",
+    "name": "Şeffaf Cam Duşakabin",
+    "category": "Duşakabin",
+    "mainImage": "images/seffaf-cam-dusakabin/1.jpeg",
+    "thumbnails": [ "images/seffaf-cam-dusakabin/1.jpeg" ],
+    "shortDescription": "Modern ve şık banyolar için temperli cam ve sade tasarım.",
+    "longDescription": "Banyonuza ferahlık katmak için tasarlanan şeffaf temperli cam duşakabin modelimiz, 5mm kalınlığındaki güvenli camı ve parlak krom profilleri ile hem minimalist hem de dayanıklı bir seçenektir.",
+    "features": [
+      { "icon": "fa-check-square", "text": "<strong>Güvenlik:</strong> Kırılmaya Karşı Temperli Cam" },
+      { "icon": "fa-door-open", "text": "<strong>Kapı Tipi:</strong> Sürgülü veya Menteşeli Seçeneği" }
+    ],
+    "specs": [
+      { "label": "Cam Kalınlığı", "value": "5mm Temperli Şeffaf Cam" },
+      { "label": "Profil Rengi", "value": "Parlak Krom Alüminyum" },
+      { "label": "Yükseklik", "value": "190cm (Standart)" }
+    ],
+    "warrantyInfo": "",
+    "careInfo": "Temizlik için sadece yumuşak bir bez ve cam temizleyici kullanınız.",
+    "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20%C5%9Eeffaf%20Cam%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+  },
+  {
+    "id": "akrilik-dus-teknesi",
+    "name": "Akrilik Dikdörtgen Duş Teknesi",
+    "category": "Duş Teknesi",
+    "mainImage": "images/dus-teknesi/1.jpg",
+    "thumbnails": [ "images/dus-teknesi/1.jpg" ],
+    "shortDescription": "Kaymaz yüzeyli, hijyenik ve dayanıklı akrilik duş tekneleri.",
+    "longDescription": "Banyonuza modern ve güvenli bir zemin sunan akrilik duş teknemiz, leke tutmaz ve kolay temizlenir yüzeyi ile uzun ömürlü kullanım sağlar.",
+    "features": [
+      { "icon": "fa-check-square", "text": "<strong>Yüzey:</strong> Kaydırmaz Yüzey" }
+    ],
+    "specs": [
+      { "label": "Malzeme", "value": "Antibakteriyel Akrilik" }
+    ],
+    "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz.",
+    "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Du%C5%9F%20Teknesi%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   }
 ]
