@@ -1095,3 +1095,28 @@ footer {
 .product-card-final:hover .product-card-image {
     transform: scale(1.1);
 }
+
+/* === MOBİL BREADCRUMB DÜZELTMESİ (ALTERNATİF: ÜÇ NOKTA İLE KISALTMA) === */
+
+/* Bu kuralı sadece mobil ekranlar için geçerli yapıyoruz */
+@media (max-width: 768px) {
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        width: 100%; /* Taşıyıcının tam genişliği kullanmasını sağlar */
+        overflow: hidden; /* Taşan kısmı gizler */
+    }
+
+    .breadcrumb-item {
+        white-space: nowrap; /* "Ana Sayfa", "Ürünler" gibi linklerin kırılmasını engeller */
+    }
+
+    /* Son ve aktif olan ürün ismine özel kurallar */
+    .breadcrumb-item.active {
+        flex-shrink: 1; /* Esneyerek küçülebilmesini sağlar */
+        min-width: 0; /* Küçülme yeteneği için gerekli bir kural */
+        overflow: hidden; /* Taşan metni gizle */
+        text-overflow: ellipsis; /* Gizlenen metnin sonuna '...' ekle */
+        white-space: nowrap; /* Metnin kendisinin alt satıra inmesini engelle */
+    }
+}
