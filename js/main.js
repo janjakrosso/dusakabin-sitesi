@@ -1,6 +1,6 @@
 /**
- * main.js - Swiper'sız Ürün Kartları Sürümü
- * Bu dosya, ürün kartlarında basit ok'lu galeri mantığını kullanır.
+ * main.js - Mobil Dropdown Düzeltmesi Dahil SON SÜRÜM
+ * Dropdown kodu doğru yere taşındı.
  */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -23,86 +23,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Basit ok'lu galeri yapısıyla ürün kartlarını oluşturan fonksiyon.
-     */
     function renderProductGrid(products, containerId) {
         const gridContainer = document.getElementById(containerId);
         if (!gridContainer) return;
-
         if (products.length === 0) {
             gridContainer.innerHTML = '<p class="no-results">Gösterilecek ürün bulunamadı.</p>';
             return;
         }
-        
         const isMainSlider = gridContainer.classList.contains('swiper-wrapper');
-
         gridContainer.innerHTML = products.map(product => {
-            // Küçük resimlerden yola çıkarak pagination noktalarını oluştur
             const paginationDots = product.thumbnails.map((thumb, index) => `<span class="card-pagination-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></span>`).join('');
-            
-            const cardHTML = `
-                <div class="product-card-final" data-images='${JSON.stringify(product.thumbnails)}' data-current-index="0">
-                    <a href="urun-detay.html?id=${product.id}" class="product-image-link-wrapper">
-                        <img src="${product.mainImage}" alt="${product.name}" class="product-card-image">
-                        <button class="card-nav-btn prev" aria-label="Önceki Resim"><i class="fas fa-chevron-left"></i></button>
-                        <button class="card-nav-btn next" aria-label="Sonraki Resim"><i class="fas fa-chevron-right"></i></button>
-                        <div class="card-pagination">${paginationDots}</div>
-                        <div class="product-actions-overlay"><span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span></div>
-                    </a>
-                    <div class="product-content">
-                        <div class="product-info">
-                            <h3 class="product-title"><a href="urun-detay.html?id=${product.id}">${product.name}</a></h3>
-                            <p class="product-description">${product.shortDescription}</p>
-                        </div>
-                        <a href="${product.whatsappLink}" target="_blank" class="btn-cta-card"><i class="fab fa-whatsapp"></i> Fiyat Teklifi Al</a>
-                    </div>
-                </div>`;
-            
+            const cardHTML = `<div class="product-card-final" data-images='${JSON.stringify(product.thumbnails)}' data-current-index="0"><a href="urun-detay.html?id=${product.id}" class="product-image-link-wrapper"><img src="${product.mainImage}" alt="${product.name}" class="product-card-image"><button class="card-nav-btn prev" aria-label="Önceki Resim"><i class="fas fa-chevron-left"></i></button><button class="card-nav-btn next" aria-label="Sonraki Resim"><i class="fas fa-chevron-right"></i></button><div class="card-pagination">${paginationDots}</div><div class="product-actions-overlay"><span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span></div></a><div class="product-content"><div class="product-info"><h3 class="product-title"><a href="urun-detay.html?id=${product.id}">${product.name}</a></h3><p class="product-description">${product.shortDescription}</p></div><a href="${product.whatsappLink}" target="_blank" class="btn-cta-card"><i class="fab fa-whatsapp"></i> Fiyat Teklifi Al</a></div></div>`;
             return isMainSlider ? `<div class="swiper-slide">${cardHTML}</div>` : cardHTML;
         }).join('');
     }
 
-    /**
-     * Kategori filtresini doldurur.
-     */
     function populateCategoryFilter() {
         const categorySelect = document.getElementById('category-select');
         if (!categorySelect) return;
         const categories = [...new Set(allProducts.map(product => product.category))];
         categories.forEach(category => {
             const option = document.createElement('option');
-            option.value = category; 
+            option.value = category;
             option.textContent = category;
             categorySelect.appendChild(option);
         });
     }
 
-    /**
-     * Ürün kartlarındaki basit ok'lu galeriyi çalıştırır.
-     */
     function setupProductCardGallery(containerSelector) {
         const productsContainer = document.querySelector(containerSelector);
         if (!productsContainer) return;
-
         productsContainer.addEventListener('click', (e) => {
             const navButton = e.target.closest('.card-nav-btn');
             if (navButton) {
                 e.preventDefault();
                 e.stopPropagation();
-                
                 const card = navButton.closest('.product-card-final');
                 const imageElement = card.querySelector('.product-card-image');
                 const paginationDots = card.querySelectorAll('.card-pagination-dot');
                 const images = JSON.parse(card.dataset.images);
                 let currentIndex = parseInt(card.dataset.currentIndex, 10);
-                
                 if (navButton.classList.contains('next')) {
                     currentIndex = (currentIndex + 1) % images.length;
                 } else {
                     currentIndex = (currentIndex - 1 + images.length) % images.length;
                 }
-                
                 card.dataset.currentIndex = currentIndex;
                 imageElement.src = images[currentIndex];
                 paginationDots.forEach((dot, index) => {
@@ -112,15 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /**
-     * Ürünler sayfasındaki filtreleri ayarlar.
-     */
     function setupProductFilters() {
         const searchInput = document.getElementById('search-input');
         const categorySelect = document.getElementById('category-select');
         const sortSelect = document.getElementById('sort-by');
         if (!searchInput || !categorySelect || !sortSelect) return;
-
         const applyFilters = () => {
             let filtered = [...allProducts];
             const term = searchInput.value.toLowerCase();
@@ -138,27 +99,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 filtered.sort((a, b) => b.name.localeCompare(a.name));
             }
             renderProductGrid(filtered, 'product-grid-container');
-            setupProductCardGallery('.product-gallery'); // Filtreleme sonrası galeri butonlarını tekrar aktif et
+            setupProductCardGallery('.product-gallery');
         };
-
         [searchInput, categorySelect, sortSelect].forEach(el => el.addEventListener('change', applyFilters));
         searchInput.addEventListener('input', applyFilters);
     }
     
-    /**
-     * Ürün detay sayfasını doldurur.
-     */
     async function populateProductDetails() {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
         if (!productId) return;
-        
         const products = await fetchProducts();
         const product = products.find(p => p.id === productId);
         if (!product) return;
-
         document.title = `${product.name} - Berka Kabin`;
-        //... (Diğer detay sayfası kodları aynı kalır)
         const breadcrumb = document.getElementById('breadcrumb-container');
         if (breadcrumb) breadcrumb.innerHTML = `<li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li><li class="breadcrumb-item"><a href="urunler.html">Ürünler</a></li><li class="breadcrumb-item active" aria-current="page">${product.name}</li>`;
         document.getElementById('productName').textContent = product.name;
@@ -174,16 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (specsList) specsList.innerHTML = product.specs.map(spec => `<li><strong>${spec.label}:</strong> ${spec.value}</li>`).join('');
         const careText = document.getElementById('careText');
         if(careText) careText.textContent = product.careInfo;
-
         const relatedProducts = products.filter(p => p.category === product.category && p.id !== productId).slice(0, 5);
         renderProductGrid(relatedProducts.length > 0 ? relatedProducts : products.filter(p => p.id !== productId).slice(0,5), 'related-products-wrapper');
-        
         setupImageZoomAndGallery();
         initializeRelatedProductsSlider();
-        setupProductCardGallery('#related-products-slider'); // Benzer ürünler için de basit galeriyi kur
+        setupProductCardGallery('#related-products-slider');
     }
     
-    //... Diğer tüm yardımcı fonksiyonlar (setupImageZoomAndGallery, initializeRelatedProductsSlider, vs.) aynı kalır.
      function setupImageZoomAndGallery() {
         const mainImage = document.getElementById('mainProductImage');
         const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
@@ -242,11 +193,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+    // =======================================================
+    // === BÖLÜM 2: SİTE GENELİ KÜÇÜK İŞLEVLER
+    // =======================================================
+
     const siteHeader = document.querySelector('.site-header');
     if (siteHeader) window.addEventListener('scroll', () => { siteHeader.classList.toggle('scrolled', window.scrollY > 50); });
+    
+    // Mobil menü ana aç/kapat butonu
     const menuToggle = document.getElementById('menu-toggle');
     const navLinksContainer = document.getElementById('nav-links');
-    if (menuToggle && navLinksContainer) menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('is-active'); navLinksContainer.classList.toggle('is-open'); });
+    if (menuToggle && navLinksContainer) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinksContainer.classList.toggle('is-open');
+        });
+    }
+
+    // *** KOD BURAYA TAŞINDI ***
+    // Mobil menüdeki alt menülerin (dropdown) açılıp kapanmasını yöneten kod
+    const dropdowns = document.querySelectorAll('.main-nav .dropdown');
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        toggle.addEventListener('click', (e) => {
+            // Sadece mobil görünümde (767px ve altı) çalışır
+            if (window.innerWidth <= 767) {
+                e.preventDefault(); // Sayfanın üste atmasını engeller
+                dropdown.classList.toggle('open'); // Alt menüyü açar/kapatır
+            }
+        });
+    });
+    // *** TAŞIMA İŞLEMİ BİTTİ ***
+
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (scrollToTopBtn) {
         window.addEventListener('scroll', () => { scrollToTopBtn.classList.toggle('show', window.scrollY > 300); });
@@ -272,14 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // =======================================================
     // === BÖLÜM 3: SAYFA YÖNETİCİSİ
     // =======================================================
 
     const page = document.body.dataset.page;
     const bodyId = document.body.id;
-
     if (bodyId === 'home-page') {
         fetchProducts().then(() => {
             renderProductGrid(allProducts, 'featured-products-wrapper');
@@ -293,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setupProductCardGallery('.featured-products');
         });
     }
-
     if (page === 'urunler') {
         fetchProducts().then(() => {
             populateCategoryFilter();
@@ -310,26 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('category-select').dispatchEvent(new Event('change'));
         });
     }
-    
     if (page === 'urun-detay') {
         populateProductDetails();
     }
-});
-// YENİ EKLENECEK KOD - MOBİL DROPDOWN MENÜ LOGİĞİ
-
-const dropdowns = document.querySelectorAll('.main-nav .dropdown');
-
-dropdowns.forEach(dropdown => {
-    const toggle = dropdown.querySelector('.dropdown-toggle');
-
-    toggle.addEventListener('click', (e) => {
-        // Sadece mobil görünümde çalışmasını sağla (CSS'teki kırılma noktası 767px)
-        if (window.innerWidth <= 767) {
-            // a etiketinin normal davranışını (sayfayı yenileme/# adresine gitme) engelle
-            e.preventDefault();
-            
-            // Tıklanan dropdown'ın alt menüsünü aç/kapat
-            dropdown.classList.toggle('open');
-        }
-    });
-});
+}); // <-- DOMContentLoaded SONUs
