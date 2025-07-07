@@ -1052,3 +1052,46 @@ footer {
         right: 15px;
     }
 }
+/* === ÜRÜN KARTI BOYUT DÜZELTMESİ === */
+
+/* Swiper'ı içeren sarmalayıcıya (<a> etiketi) sabit bir yükseklik veriyoruz.
+  Bu, tüm kartların resim alanlarının aynı boyutta olmasını sağlar.
+*/
+.product-card-final .product-image-link-wrapper {
+    display: block;
+    height: 250px; /* Kartların resim alanına sabit bir yükseklik veriyoruz. */
+    background-color: #f8f9fa; /* Resim yüklenene kadar boş görünmemesi için arkaplan rengi */
+    position: relative;
+    overflow: hidden;
+}
+
+/* İçindeki Swiper slider'ının bu alanı tamamen doldurmasını sağlıyoruz.
+  Bu kural zaten mevcuttu, ancak bütünlük için burada da belirtmekte fayda var.
+*/
+
+/* === ÜRÜN KARTI RESİM BOYUTU DÜZELTMESİ (SON HALİ) === */
+
+/* 1. Adım: Resmin içinde bulunduğu <a> etiketine sabit bir yükseklik veriyoruz.
+   Bu, tüm kartların aynı boyutta kalmasını sağlar. */
+.product-card-final .product-image-link-wrapper {
+    display: block;
+    height: 250px; /* Kartların resim alanına sabit bir yükseklik veriyoruz. */
+    position: relative;
+    overflow: hidden;
+    background-color: #f8f9fa; /* Resim yüklenene kadar bir arka plan rengi */
+}
+
+/* 2. Adım: Resmin (<img>), bu 250px'lik alanı tamamen kaplamasını sağlıyoruz.
+   object-fit: cover; -> Resmi en-boy oranını koruyarak ve gerekirse kırparak alanı doldurur. Boşluk bırakmaz.
+*/
+.product-card-final .product-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Bu kural resmin alanı doldurmasını sağlar */
+    transition: transform 0.4s ease;
+}
+
+/* Kartın üzerine gelince resmin büyüme efektini koruyoruz */
+.product-card-final:hover .product-card-image {
+    transform: scale(1.1);
+}

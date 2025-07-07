@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ürünlerimiz - Firma Adı</title>
+    <title>Sineklik Sistemleri - Berka Kabin</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="urunler">
+<body>
+
    <header class="site-header">
     <div class="container header-container">
         <a href="index.html" class="logo">
@@ -41,50 +45,61 @@
     </div>
 </header>
     <main>
-       <section class="breadcrumb-section">
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Ürünler</li>
-                </ol>
-            </nav>
-        </div>
-    </section>
-        <section class="page-header products-header">
+        <section class="page-header">
             <div class="container">
-                <h1>Tüm Ürünlerimiz</h1>
-                <p>Her banyoya uygun, zengin model seçeneklerimizi keşfedin.</p>
+                <h1>Sineklik Sistemleri</h1>
+                <p>Evinizi haşerelerden korurken, doğal havalandırmanın keyfini çıkarın.</p>
             </div>
         </section>
 
-        <section class="product-gallery fade-in-section">
+        <section class="cam-balkon-cesitleri fade-in-section">
             <div class="container">
-                <div class="controls-container">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="search" id="search-input" placeholder="Ürünlerde ara...">
-                    </div>
-        <div class="category-filter">
-             <label for="category-select">Kategori:</label>
-             <select id="category-select">
-             <option value="all">Tüm Kategoriler</option>
-             </select>
-        </div>
-
-                    <div class="sort-options">
-                        <label for="sort-by">Sırala:</label>
-                        <select id="sort-by">
-                            <option value="default">Varsayılan</option>
-                            <option value="name-asc">İsme Göre (A-Z)</option>
-                            <option value="name-desc">İsme Göre (Z-A)</option>                        
-                        </select>
-                    </div>
-                </div>
                 
-                <div class="product-grid" id="product-grid-container">
-                    <p>Ürünler yükleniyor...</p>
+                <div class="balkon-tipi">
+                    <div class="balkon-resim">
+                        <img src="https://via.placeholder.com/500x350.png?text=Pileli+Sineklik" alt="Pileli Sineklik">
+                    </div>
+                    <div class="balkon-aciklama">
+                        <h2>Pileli (Plise) Sineklik</h2>
+                        <p>Modern ve estetik bir çözüm olan pileli sineklikler, akordeon gibi katlanarak açılıp kapanır. Kapı ve pencereler için idealdir, hem yatay hem de dikey olarak uygulanabilir.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Şık ve dekoratif görünüm</li>
+                            <li><i class="fas fa-check"></i> Kolay kullanım ve yerden tasarruf</li>
+                            <li><i class="fas fa-check"></i> Geniş açıklıklar için mükemmel çözüm</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="balkon-tipi image-right">
+                    <div class="balkon-resim">
+                        <img src="https://via.placeholder.com/500x350.png?text=Stor+Sineklik" alt="Stor Sineklik">
+                    </div>
+                    <div class="balkon-aciklama">
+                        <h2>Stor Sineklik</h2>
+                        <p>Yaylı bir mekanizma ile çalışan stor sineklikler, kullanılmadığı zamanlarda kendi kutusuna sarılarak kaybolur. Özellikle pencereler için pratik ve kullanışlı bir sistemdir.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Kullanılmadığında görünmez olur</li>
+                            <li><i class="fas fa-check"></i> Dikey ve yatay çalışma imkanı</li>
+                            <li><i class="fas fa-check"></i> Otomatik sarma mekanizması</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="balkon-tipi">
+                    <div class="balkon-resim">
+                        <img src="https://via.placeholder.com/500x350.png?text=Mente%C5%9Feli+Sineklik" alt="Menteşeli Sineklik">
+                    </div>
+                    <div class="balkon-aciklama">
+                        <h2>Menteşeli Sineklik</h2>
+                        <p>En ekonomik ve klasik çözümlerden biridir. Bir kapı gibi dışa veya içe doğru açılır. Özellikle sık kullanılan kapılar ve pencereler için dayanıklı ve uzun ömürlü bir seçenektir.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Ekonomik ve uygun maliyetli</li>
+                            <li><i class="fas fa-check"></i> Kolayca takılıp çıkarılabilir</li>
+                            <li><i class="fas fa-check"></i> Yüksek dayanıklılık</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
@@ -110,7 +125,8 @@
         <a href="https://wa.me/905335805266" target="_blank" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.instagram.com/berkadus" target="_blank" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
-    
+
     <script src="js/main.js"></script>
+
 </body>
 </html>
