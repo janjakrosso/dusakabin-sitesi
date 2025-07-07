@@ -315,3 +315,21 @@ document.addEventListener('DOMContentLoaded', () => {
         populateProductDetails();
     }
 });
+// YENİ EKLENECEK KOD - MOBİL DROPDOWN MENÜ LOGİĞİ
+
+const dropdowns = document.querySelectorAll('.main-nav .dropdown');
+
+dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+
+    toggle.addEventListener('click', (e) => {
+        // Sadece mobil görünümde çalışmasını sağla (CSS'teki kırılma noktası 767px)
+        if (window.innerWidth <= 767) {
+            // a etiketinin normal davranışını (sayfayı yenileme/# adresine gitme) engelle
+            e.preventDefault();
+            
+            // Tıklanan dropdown'ın alt menüsünü aç/kapat
+            dropdown.classList.toggle('open');
+        }
+    });
+});

@@ -1120,3 +1120,14 @@ footer {
         white-space: nowrap; /* Metnin kendisinin alt satıra inmesini engelle */
     }
 }
+/* === MOBİL DROPDOWN AÇILMA STİLİ === */
+
+/* JS tarafından .open sınıfı eklendiğinde, alt menüyü görünür yap */
+.dropdown.open > .dropdown-menu {
+    display: block;
+}
+
+/* Bonus: Menü açıldığında yanındaki ok işaretini yukarı döndür */
+.dropdown.open > .dropdown-toggle i {
+    transform: rotate(180deg);
+}
