@@ -1131,3 +1131,34 @@ footer {
 .dropdown.open > .dropdown-toggle i {
     transform: rotate(180deg);
 }
+
+/* === İKİLİ RESİM GALERİSİ STİLLERİ (SİNEKLİK SAYFASI İÇİN) === */
+
+.resim-galeri-ikili {
+    display: flex; /* Resimleri yan yana getirmek için flexbox kullanıyoruz */
+    gap: 1rem; /* İki resim arasına boşluk koyuyoruz */
+    width: 100%;
+}
+
+.resim-galeri-ikili img {
+    width: 50%; /* Her resmin, boşluklar çıktıktan sonra kalan alanın yarısını kaplamasını sağlıyoruz */
+    height: 400px; /* TÜM resimlerin yüksekliğini sabitliyoruz. Bu sayede aynı boyutta olurlar. */
+    object-fit: cover; /* Resmin en-boy oranını koruyarak alanı doldurmasını sağlıyoruz. */
+    border-radius: 8px; /* Kenarları yumuşatıyoruz */
+    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.08); /* Hafif bir gölge ekliyoruz */
+}
+
+/* Mobil Cihazlar için Duyarlılık */
+@media (max-width: 992px) {
+    .resim-galeri-ikili {
+       /* Orta boy ekranlarda resim yüksekliğini biraz azaltabiliriz */
+       height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .resim-galeri-ikili img {
+       /* Mobil cihazlarda resim yüksekliğini daha da azaltıyoruz */
+       height: 280px;
+    }
+}

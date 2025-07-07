@@ -70,11 +70,12 @@
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20%C5%9Eeffaf%20Cam%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   },
   {
-    "id": "akrilik-dus-teknesi",
-    "name": "Akrilik Dikdörtgen Duş Teknesi",
-    "category": "Duş Teknesi",
-    "mainImage": "images/dus-teknesi/1.jpg",
-    "thumbnails": [ "images/dus-teknesi/1.jpg" ],
+    "id": "desenli-cam-dusakabin",
+    "name": "Desenli Cam Duşakabin",
+    "category": "Cam Duşakabin",
+    "mainImage": "images/desenli-cam-dusakabin/6.jpeg",
+    "thumbnails": [ "images/desenli-cam-dusakabin/1.jpeg",
+      "images/desenli-cam-dusakabin/2.jpeg", "images/desenli-cam-dusakabin/3.jpeg", "images/desenli-cam-dusakabin/4.jpeg",  "images/desenli-cam-dusakabin/5.jpeg", "images/desenli-cam-dusakabin/6.jpeg" ],
     "shortDescription": "Kaymaz yüzeyli, hijyenik ve dayanıklı akrilik duş tekneleri.",
     "longDescription": "Banyonuza modern ve güvenli bir zemin sunan akrilik duş teknemiz, leke tutmaz ve kolay temizlenir yüzeyi ile uzun ömürlü kullanım sağlar.",
     "features": [
@@ -86,4 +87,5 @@
     "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz.",
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Du%C5%9F%20Teknesi%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   }
+  
 ]
