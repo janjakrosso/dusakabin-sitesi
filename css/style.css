@@ -616,14 +616,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .gallery-nav-btn.prev { left: 10px; }
 .gallery-nav-btn.next { right: 10px; }
 
-.thumbnail-gallery { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-.thumbnail-gallery img, .thumbnail {
-    width: 80px; height: 80px; object-fit: cover; border-radius: 8px;
-    cursor: pointer; border: 2px solid transparent;
-    transition: border-color 0.3s ease, transform 0.2s ease;
-}
-.thumbnail-gallery img:hover, .thumbnail:hover { border-color: var(--primary-color); transform: scale(1.05); }
-.thumbnail-gallery img.active, .thumbnail.active { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.3); }
 
 @media (min-width: 768px) {
     /* Galeri ana taşıyıcısını flex container yapar */
@@ -1162,3 +1154,4 @@ footer {
        height: 280px;
     }
 }
+
