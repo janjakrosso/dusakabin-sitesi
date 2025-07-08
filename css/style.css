@@ -248,17 +248,61 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 }
 
 .page-header {
-    background-color: var(--primary-color);
+    position: relative; /* Renk katmanı için gerekli */
     color: var(--white);
-    padding: 2rem 0;
+    padding: 5rem 20px; /* Daha ferah bir görünüm için iç boşlukları artırdık */
     text-align: center;
+    background-size: cover; /* Görselin alanı kaplamasını sağlar */
+    background-position: center center; /* Görseli ortalar */
+    overflow: hidden; /* Taşmaları engeller */
 }
+
+/* Görselin üzerine yarı şeffaf renk katmanı ekliyoruz */
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Sitenizin ana rengini kullanarak modern bir gradyan oluşturuyoruz */
+    background: linear-gradient(45deg, rgba(13, 148, 136, 0.85), rgba(15, 118, 110, 0.9));
+    z-index: 1; /* Yazıların arkasında kalması için */
+}
+
+/* Yazıların renk katmanının üzerinde görünmesini sağlıyoruz */
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Başlık (H1) ve Paragraf (p) stillerini okunabilirlik için güncelliyoruz */
 .page-header h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     color: var(--white);
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    /* Yazıyı arka plandan ayıran daha belirgin bir gölge */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5rem;
 }
-.page-header p { font-size: 1.1rem; }
+
+.page-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    max-width: 600px; /* Paragrafın çok geniş olmasını engeller */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobil cihazlar için başlık boyutunu ayarlıyoruz */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 4rem 20px;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+}
 
 .products-header {
     background: linear-gradient(rgba(30, 41, 59, 0.6), rgba(30, 41, 59, 0.6)), url('../images/banyo-dolabi.jpg') no-repeat center center/cover;
@@ -1155,3 +1199,256 @@ footer {
     }
 }
 
+/* === SAYFA ÜSTÜ GALERİ SLIDER === */
+.page-gallery-slider {
+    padding: 2.5rem 0; /* Üstten ve alttan boşluk */
+    background-color: var(--secondary-bg-color); /* Arka plan rengi */
+    border-bottom: 1px solid var(--border-light);
+}
+
+.top-gallery-swiper {
+    width: 100%;
+    height: 550px; /* Galerinin yüksekliği */
+    border-radius: 12px;
+    overflow: hidden; /* Köşelerin yuvarlak kalmasını sağlar */
+    box-shadow: 0 8px 25px rgba(30, 41, 59, 0.1);
+}
+
+/* YENİ HALİ */
+.top-gallery-swiper .swiper-slide {
+    /* Slaytın arka planına yumuşak bir renk veriyoruz ki resim kenarları boş kalırsa sırıtmasın. */
+    background-color: #f1f5f9; 
+
+    /* Resimlerin slayt kenarlarına yapışmasını önlemek için küçük bir iç boşluk. */
+    padding: 10px;
+}
+
+.top-gallery-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+
+    /* BU EN ÖNEMLİ KURALDIR: */
+    /* Resmi kırpmadan, en-boy oranını koruyarak alana sığdırır. */
+    object-fit: contain; 
+
+    border-radius: 8px; /* Resimlerin köşelerini hafifçe yuvarlaklaştırır. */
+}
+
+/* === YENİ: SAYFA ÜSTÜ GALERİ İÇİN ÖZEL YÖN TUŞLARI === */
+
+/* Tuşları ortalamak için sarmalayıcı div */
+.swiper-navigation-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; /* İki tuş arasındaki boşluk */
+    margin-top: 1.5rem; /* Galerinin altına boşluk bırakır */
+}
+
+/* Her bir tuşun genel stili */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color); /* Sitenin ana rengi */
+    color: var(--white); /* Ok rengi */
+    border-radius: 50%; /* Yuvarlak şekil */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.15); /* Hafif bir gölge */
+    transition: all 0.3s ease;
+}
+
+/* Üzerine gelince (hover) efekti */
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+    background-color: var(--primary-hover-color); /* Ana rengin koyu tonu */
+    transform: scale(1.1); /* Hafifçe büyüme efekti */
+    box-shadow: 0 6px 16px rgba(30, 41, 59, 0.2);
+}
+
+/* İçindeki ikonun boyutu */
+.swiper-button-prev-custom i,
+.swiper-button-next-custom i {
+    font-size: 1.2rem;
+}
+
+/* Swiper tarafından otomatik eklenen 'disabled' sınıfı için stil */
+/* Not: loop:true olduğu için bu stil görünmez ama iyi bir pratiktir. */
+.swiper-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: scale(1);
+    box-shadow: none;
+}
+
+/* Mobil cihazlar için galeri yüksekliğini ayarla */
+@media (max-width: 768px) {
+    .top-gallery-swiper {
+        height: 350px;
+    }
+}
+
+/* === GENEL HİZMET AÇIKLAMA BÖLÜMÜ === */
+.service-description {
+    padding: 3rem 0 4rem 0;
+    max-width: 850px; /* İçerik genişliğini okunaklılık için sınırlıyoruz */
+    margin: 0 auto;
+    text-align: center; /* Tüm içeriği merkeze hizalıyoruz */
+}
+
+.service-description h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.service-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+}
+
+.service-description ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block; /* Liste elemanlarının merkezde kalmasını sağlar */
+    text-align: left; /* Liste içindeki metinleri sola hizalar */
+    margin: 2rem 0;
+}
+
+.service-description ul li {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* İkon ve metin arası boşluk */
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+
+.service-description ul li i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    width: 25px; /* İkonların aynı hizada durması için */
+}
+
+.service-description .btn {
+    margin-top: 1.5rem;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+}
+
+/* === ÜRÜN DETAY SAYFASI - RESİM İSMİ STİLİ === */
+.image-variant-name {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    background-color: var(--secondary-bg-color);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    min-height: 45px; /* Tıklamalar arası yükseklik oynamasını engeller */
+    transition: background-color 0.3s ease;
+}
+
+/* === ÜRÜN DETAY GALERİSİ - NİHAİ DÜZEN (MASAÜSTÜ) === */
+
+/* Bu kurallar sadece 992px ve üzeri genişlikteki ekranlarda (masaüstü) geçerli olacak */
+@media (min-width: 992px) {
+    
+    /* Ana galeriyi yan yana iki sütuna ayırır */
+    .product-gallery-container {
+        display: flex;
+        align-items: flex-start; /* Sütunları yukarıdan hizalar */
+        gap: 20px; /* Sütunlar arasına boşluk bırakır */
+    }
+
+    /* SOL SÜTUN (Büyük resim ve desen adını içerir) */
+    .main-image-wrapper {
+        flex: 1; /* Esneyerek mevcut alanın çoğunu kaplar */
+        min-width: 0; /* Esneme yeteneği için gerekli */
+    }
+
+    /* SAĞ SÜTUN (Küçük resimler) */
+    .thumbnail-gallery {
+        display: flex;
+        flex-direction: column; /* Küçük resimleri dikey olarak sıralar */
+        gap: 10px; /* Resimler arası boşluk */
+        flex: 0 0 100px; /* Genişliğini sabit 100px yapar, büyümez/küçülmez */
+    }
+
+    /* Küçük resimlerin kendisi */
+    .thumbnail-gallery .thumbnail {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 3px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    /* Seçili olan küçük resmin çerçevesi */
+    .thumbnail-gallery .thumbnail.active {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 10px rgba(13, 148, 136, 0.4);
+    }
+}
+
+/* Bu kural tüm ekran boyutlarında geçerlidir */
+/* Desen adının yazdığı metin alanı */
+.image-variant-name {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    background-color: var(--secondary-bg-color);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    min-height: 45px; /* Yükseklik oynamasını engellemek için */
+}
+
+/* === NİHAİ DÜZEN - BÖLÜM 1: Desen Adı Metni === */
+/* Bu kural desen adının stilini belirler ve tüm ekran boyutlarında geçerlidir. */
+.image-variant-name {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    background-color: var(--secondary-bg-color);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    min-height: 45px; /* Yükseklik oynamasını engellemek için */
+}
+
+/* === NİHAİ DÜZEN - BÖLÜM 2: Yatay Küçük Resim Galerisi === */
+/* Bu kurallar küçük resimleri büyük resmin altında yatay olarak sıralar. */
+.thumbnail-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Dar ekranlarda resimlerin alt satıra kaymasını sağlar */
+    justify-content: center; /* Resimleri yatayda ortalar */
+    gap: 10px; /* Resimler arası boşluk */
+    margin-top: 1rem; /* Üstteki isimden biraz boşluk bırakır */
+}
+
+/* Her bir küçük resmin stili */
+.thumbnail-gallery .thumbnail {
+    width: 80px;
+    height: 80px;
+    border: 3px solid transparent; /* Çerçeveyi başlangıçta şeffaf yapar */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    object-fit: cover;
+}
+
+/* Seçili olan küçük resmin çerçevesini belirginleştirir */
+.thumbnail-gallery .thumbnail.active {
+    border-color: var(--primary-color); /* Ana renkte çerçeve */
+}

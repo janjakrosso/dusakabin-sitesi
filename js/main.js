@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.addEventListener('input', applyFilters);
     }
     
+    // Bu fonksiyonu bulun ve tamamen değiştirin
     async function populateProductDetails() {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
@@ -120,8 +121,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('mainProductImage').src = product.mainImage;
         document.getElementById('mainProductImage').alt = product.name;
         document.getElementById('whatsappLink').href = product.whatsappLink;
+
+        // === DEĞİŞİKLİK BURADA BAŞLIYOR ===
+        const imageVariantName = document.getElementById('image-variant-name');
         const thumbnailContainer = document.getElementById('thumbnail-gallery-container');
-        if (thumbnailContainer) thumbnailContainer.innerHTML = product.thumbnails.map((thumb, index) => `<img class="thumbnail ${index === 0 ? 'active' : ''}" src="${thumb}" alt="${product.name} - Görünüm ${index + 1}">`).join('');
+        
+        if (thumbnailContainer) {
+            thumbnailContainer.innerHTML = product.thumbnails.map((thumb, index) => 
+                `<img class="thumbnail ${index === 0 ? 'active' : ''}" src="${thumb.src}" alt="${thumb.name}" data-name="${thumb.name}">`
+            ).join('');
+        }
+
+        // Sayfa ilk yüklendiğinde ilk resmin adını yazdır
+        if (imageVariantName && product.thumbnails.length > 0) {
+            imageVariantName.textContent = product.thumbnails[0].name;
+        }
+        // === DEĞİŞİKLİK BURADA BİTİYOR ===
+
         const featuresList = document.getElementById('featuresList');
         if (featuresList) featuresList.innerHTML = product.features.map(feature => `<li><i class="fas ${feature.icon}"></i> <span>${feature.text}</span></li>`).join('');
         const specsList = document.getElementById('specsList');
@@ -135,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setupProductCardGallery('#related-products-slider');
     }
     
+    // Bu fonksiyonu da bulun ve tamamen değiştirin
      function setupImageZoomAndGallery() {
         const mainImage = document.getElementById('mainProductImage');
         const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
@@ -144,22 +161,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevFullscreenButton = document.querySelector('.prev-fullscreen');
         const nextFullscreenButton = document.querySelector('.next-fullscreen');
         const openFullscreenLink = document.getElementById('openFullscreen');
+        
+        // === YENİ DEĞİŞKEN ===
+        const imageVariantName = document.getElementById('image-variant-name');
+
         if (!mainImage || !fullscreenOverlay) return;
         let currentImageIndex = 0;
-        let productThumbnails = Array.from(thumbnails).map(t => t.src);
+        let productThumbnails = Array.from(thumbnails).map(t => {
+            return { src: t.src, name: t.dataset.name };
+        });
+
         thumbnails.forEach((thumb, index) => {
             thumb.addEventListener('click', () => {
                 mainImage.src = thumb.src;
+                mainImage.alt = thumb.alt; // Ana resmin alt metnini de güncelleyelim
+                
+                // === YENİ EKLENEN SATIR ===
+                // Tıklanan resmin adını metin alanına yazdır
+                if (imageVariantName) {
+                    imageVariantName.textContent = thumb.dataset.name;
+                }
+
                 thumbnails.forEach(t => t.classList.remove('active'));
                 thumb.classList.add('active');
                 currentImageIndex = index;
             });
         });
+
         if (openFullscreenLink) {
             openFullscreenLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 if(productThumbnails.length > 0) {
-                    fullscreenImage.src = productThumbnails[currentImageIndex];
+                    fullscreenImage.src = productThumbnails[currentImageIndex].src;
                     fullscreenOverlay.classList.add('open');
                 }
             });
@@ -168,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navigateGallery = (direction) => {
             if (!productThumbnails || productThumbnails.length === 0) return;
             currentImageIndex = (currentImageIndex + direction + productThumbnails.length) % productThumbnails.length;
-            fullscreenImage.src = productThumbnails[currentImageIndex];
+            fullscreenImage.src = productThumbnails[currentImageIndex].src;
         };
         if(closeFullscreenButton) closeFullscreenButton.addEventListener('click', closeGallery);
         if(prevFullscreenButton) prevFullscreenButton.addEventListener('click', () => navigateGallery(-1));
@@ -211,6 +244,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    // === YENİ: SAYFA ÜSTÜ GALERİLERİ AKTİF ETME ===
+    const topGallery = document.querySelector('.top-gallery-swiper');
+    if (topGallery) {
+        new Swiper(topGallery, {
+            // Sonsuz döngü
+            loop: true,
+            
+            // Fare ile sürükleme imkanı
+            grabCursor: true,
+            
+            // Geçiş efekti (fade daha şık durabilir)
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            
+            // Otomatik oynatma
+            autoplay: {
+              delay: 4000,
+              disableOnInteraction: false,
+            },
+
+            // Sayfalama (noktalar)
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // Navigasyon (oklar)
+            // Navigasyon (oklar) - Artık özel butonlarımızı kullanıyoruz
+            navigation: {
+                nextEl: '.swiper-button-next-custom',
+                prevEl: '.swiper-button-prev-custom',
+            },
+        });
+    }
     // *** KOD BURAYA TAŞINDI ***
     // Mobil menüdeki alt menülerin (dropdown) açılıp kapanmasını yöneten kod
     const dropdowns = document.querySelectorAll('.main-nav .dropdown');

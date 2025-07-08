@@ -5,9 +5,9 @@
     "category": "Duşakabin",
     "mainImage": "images/pleksi-dusakabin/pileksidusakabin.jpg",
     "thumbnails": [
-      "images/pleksi-dusakabin/pileksidusakabin.jpg",
-      "images/pleksi-dusakabin/pileksidusakabin2.jpg",
-      "images/pleksi-dusakabin/pileksidusakabin3.jpg"
+      { "src": "images/pleksi-dusakabin/pileksidusakabin.jpg", "name": "Buzlu Pleksi Standart Görünüm" },
+      { "src": "images/pleksi-dusakabin/pileksidusakabin2.jpg", "name": "Köşe Detayı" },
+      { "src": "images/pleksi-dusakabin/pileksidusakabin3.jpg", "name": "Profil ve Tekerlek Detayı" }
     ],
     "shortDescription": "Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.",
     "longDescription": "Ekonomik ve pratik çözüm arayanlar için ideal. Pleksi duşakabinler, hafif ve dayanıklı yapısıyla kolay kurulum ve kullanım sunar.",
@@ -31,7 +31,14 @@
     "name": "Cam Duşakabin Siyah Çizgili",
     "category": "Duşakabin",
     "mainImage": "images/siyah-cizgili/1.jpeg",
-    "thumbnails": [ "images/siyah-cizgili/1.jpeg", "images/siyah-cizgili/2.jpeg", "images/siyah-cizgili/3.jpeg", "images/siyah-cizgili/4.jpeg", "images/siyah-cizgili/5.jpeg", "images/siyah-cizgili/6.jpeg" ],
+    "thumbnails": [ 
+      { "src": "images/siyah-cizgili/1.jpeg", "name": "Siyah Çizgili - Model 1" },
+      { "src": "images/siyah-cizgili/2.jpeg", "name": "Siyah Çizgili - Model 2" },
+      { "src": "images/siyah-cizgili/3.jpeg", "name": "Siyah Çizgili - Model 3" },
+      { "src": "images/siyah-cizgili/4.jpeg", "name": "Siyah Çizgili - Model 4" },
+      { "src": "images/siyah-cizgili/5.jpeg", "name": "Siyah Çizgili - Model 5" },
+      { "src": "images/siyah-cizgili/6.jpeg", "name": "Siyah Çizgili - Model 6" }
+    ],
     "shortDescription": "Modern ve şık banyolar için temperli cam ve siyah desenli tasarım.",
     "longDescription": "Banyonuza modern bir dokunuş katmak için tasarlanan siyah çizgili temperli cam duşakabin modelimiz, 6mm kalınlığındaki güvenli camı ve mat siyah profilleri ile hem estetik hem de dayanıklılık sunar.",
     "features": [
@@ -53,11 +60,12 @@
     "name": "Şeffaf Cam Duşakabinler",
     "category": "Duşakabin",
     "mainImage": "images/seffaf-cam-dusakabin/1.jpeg",
-    "thumbnails": [ "images/seffaf-cam-dusakabin/1.jpeg",
-     "images/seffaf-cam-dusakabin/2.jpeg",
-      "images/seffaf-cam-dusakabin/3.jpeg",
-      "images/seffaf-cam-dusakabin/4.jpeg",
-      "images/seffaf-cam-dusakabin/5.jpeg"
+    "thumbnails": [ 
+      { "src": "images/seffaf-cam-dusakabin/1.jpeg", "name": "Şeffaf Cam - Model 1" },
+      { "src": "images/seffaf-cam-dusakabin/2.jpeg", "name": "Şeffaf Cam - Model 2" },
+      { "src": "images/seffaf-cam-dusakabin/3.jpeg", "name": "Şeffaf Cam - Model 3" },
+      { "src": "images/seffaf-cam-dusakabin/4.jpeg", "name": "Şeffaf Cam - Model 4" },
+      { "src": "images/seffaf-cam-dusakabin/5.jpeg", "name": "Şeffaf Cam - Model 5" }
     ],
     "shortDescription": "Modern ve şık banyolar için temperli cam ve sade tasarım.",
     "longDescription": "Banyonuza ferahlık katmak için tasarlanan şeffaf temperli cam duşakabin modelimiz, 5mm kalınlığındaki güvenli camı ve parlak krom profilleri ile hem minimalist hem de dayanıklı bir seçenektir.",
@@ -79,8 +87,17 @@
     "name": "Desenli Cam Duşakabinler",
     "category": "Duşakabin",
     "mainImage": "images/desenli-cam-dusakabin/6.jpeg",
-    "thumbnails": [ "images/desenli-cam-dusakabin/1.jpeg",
-      "images/desenli-cam-dusakabin/2.jpeg", "images/desenli-cam-dusakabin/3.jpeg", "images/desenli-cam-dusakabin/4.jpeg",  "images/desenli-cam-dusakabin/5.jpeg", "images/desenli-cam-dusakabin/6.jpeg", "images/desenli-cam-dusakabin/7.jpeg", "images/desenli-cam-dusakabin/8.jpeg", "images/desenli-cam-dusakabin/9.jpeg", "images/desenli-cam-dusakabin/10.jpeg", "images/desenli-cam-dusakabin/11.jpeg", "images/desenli-cam-dusakabin/12.jpeg", "images/desenli-cam-dusakabin/13.jpeg", "images/desenli-cam-dusakabin/14.jpeg", "images/desenli-cam-dusakabin/15.jpeg", "images/desenli-cam-dusakabin/16.jpeg", "images/desenli-cam-dusakabin/17.jpeg", "images/desenli-cam-dusakabin/18.jpeg", "images/desenli-cam-dusakabin/19.jpeg", "images/desenli-cam-dusakabin/20.jpeg", "images/desenli-cam-dusakabin/21.jpeg", "images/desenli-cam-dusakabin/22.jpeg", "images/desenli-cam-dusakabin/23.jpeg"],
+    "thumbnails": [ 
+      { "src": "images/desenli-cam-dusakabin/1.jpeg", "name": "Damla Desen" },
+      { "src": "images/desenli-cam-dusakabin/2.jpeg", "name": "Yunuslu Desen" },
+      { "src": "images/desenli-cam-dusakabin/3.jpeg", "name": "Çizgili Desen" },
+      { "src": "images/desenli-cam-dusakabin/4.jpeg", "name": "Kare Desen" },
+      { "src": "images/desenli-cam-dusakabin/5.jpeg", "name": "Yaprak Desen" },
+      { "src": "images/desenli-cam-dusakabin/6.jpeg", "name": "Menekşe Desen" },
+      { "src": "images/desenli-cam-dusakabin/7.jpeg", "name": "Örümcek Ağı Desen" },
+      { "src": "images/desenli-cam-dusakabin/8.jpeg", "name": "Mozaik Desen" },
+      { "src": "images/desenli-cam-dusakabin/9.jpeg", "name": "Akarsu Desen" }
+    ],
     "shortDescription": "Kaymaz yüzeyli, hijyenik ve dayanıklı akrilik duş tekneleri.",
     "longDescription": "Banyonuza modern ve güvenli bir zemin sunan akrilik duş teknemiz, leke tutmaz ve kolay temizlenir yüzeyi ile uzun ömürlü kullanım sağlar.",
     "features": [
@@ -94,5 +111,4 @@
     "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz.",
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba Desenli Cam Duşakabin modeliniz hakkında bilgi almak istiyorum."
   }
-  
 ]
