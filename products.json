@@ -1,7 +1,7 @@
 [
   {
     "id": "pleksi-dusakabin",
-    "name": "Pleksi Duşakabin",
+    "name": "Pleksi Duşakabinler",
     "category": "Duşakabin",
     "mainImage": "images/pleksi-dusakabin/pileksidusakabin.jpg",
     "thumbnails": [
@@ -27,7 +27,7 @@
   },
   {
     "id": "siyah-cizgili-cam-dusakabin",
-    "name": "Siyah Çizgili Cam Duşakabin",
+    "name": "Siyah Çizgili Cam Duşakabinler",
     "category": "Duşakabin",
     "mainImage": "images/siyah-cizgili/1.jpeg",
     "thumbnails": [ 
@@ -56,7 +56,7 @@
   },
   {
     "id": "seffaf-cam-dusakabin",
-    "name": "Şeffaf Cam Duşakabin",
+    "name": "Şeffaf Cam Duşakabinler",
     "category": "Duşakabin",
     "mainImage": "images/seffaf-cam-dusakabin/1.jpeg",
     "thumbnails": [ 
@@ -145,7 +145,7 @@
   },
   {
     "id": "gold-profil-dusakabin",
-    "name": "Gold Profil Duşakabin",
+    "name": "Gold Profil Duşakabinler",
     "category": "Duşakabin",
     "mainImage": "images/gold-profil/1.jpeg",
     "thumbnails": [ 
@@ -174,7 +174,7 @@
   },
   {
     "id": "katlanir-akordiyon",
-    "name": "Katlanır Akordiyon Duşakabin",
+    "name": "Katlanır Akordiyon Duşakabinler",
     "category": "Duşakabin",
     "mainImage": "images/katlanir-akordiyon/1.jpeg",
     "thumbnails": [ 

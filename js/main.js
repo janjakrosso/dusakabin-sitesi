@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentIndex = (currentIndex - 1 + images.length) % images.length;
                 }
                 card.dataset.currentIndex = currentIndex;
-                imageElement.src = images[currentIndex];
-                paginationDots.forEach((dot, index) => {
+                imageElement.src = images[currentIndex].src;
+paginationDots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentIndex);
                 });
             }
