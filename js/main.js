@@ -153,68 +153,84 @@ paginationDots.forEach((dot, index) => {
     
     // Bu fonksiyonu da bulun ve tamamen değiştirin
      function setupImageZoomAndGallery() {
-        const mainImage = document.getElementById('mainProductImage');
-        const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
-        const fullscreenOverlay = document.getElementById('fullscreen-overlay');
-        const fullscreenImage = document.getElementById('fullscreen-image');
-        const closeFullscreenButton = document.querySelector('.close-fullscreen');
-        const prevFullscreenButton = document.querySelector('.prev-fullscreen');
-        const nextFullscreenButton = document.querySelector('.next-fullscreen');
-        const openFullscreenLink = document.getElementById('openFullscreen');
-        
-        // === YENİ DEĞİŞKEN ===
-        const imageVariantName = document.getElementById('image-variant-name');
+    const mainImage = document.getElementById('mainProductImage');
+    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
+    const fullscreenOverlay = document.getElementById('fullscreen-overlay');
+    const fullscreenImage = document.getElementById('fullscreen-image');
+    const closeFullscreenButton = document.querySelector('.close-fullscreen');
+    const prevFullscreenButton = document.querySelector('.prev-fullscreen');
+    const nextFullscreenButton = document.querySelector('.next-fullscreen');
+    const openFullscreenLink = document.getElementById('openFullscreen');
+    const imageVariantName = document.getElementById('image-variant-name');
 
-        if (!mainImage || !fullscreenOverlay) return;
-        let currentImageIndex = 0;
-        let productThumbnails = Array.from(thumbnails).map(t => {
-            return { src: t.src, name: t.dataset.name };
+    if (!mainImage || !fullscreenOverlay) return;
+    let currentImageIndex = 0;
+    let productThumbnails = Array.from(thumbnails).map(t => {
+        return { src: t.src, name: t.dataset.name };
+    });
+
+    thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => {
+            mainImage.src = thumb.src;
+            mainImage.alt = thumb.alt;
+            if (imageVariantName) {
+                imageVariantName.textContent = thumb.dataset.name;
+            }
+            thumbnails.forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+            currentImageIndex = index;
         });
+    });
 
-        thumbnails.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-                mainImage.src = thumb.src;
-                mainImage.alt = thumb.alt; // Ana resmin alt metnini de güncelleyelim
-                
-                // === YENİ EKLENEN SATIR ===
-                // Tıklanan resmin adını metin alanına yazdır
-                if (imageVariantName) {
-                    imageVariantName.textContent = thumb.dataset.name;
-                }
-
-                thumbnails.forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-                currentImageIndex = index;
-            });
-        });
-
-        if (openFullscreenLink) {
-            openFullscreenLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                if(productThumbnails.length > 0) {
-                    fullscreenImage.src = productThumbnails[currentImageIndex].src;
-                    fullscreenOverlay.classList.add('open');
-                }
-            });
-        }
-        const closeGallery = () => fullscreenOverlay.classList.remove('open');
-        const navigateGallery = (direction) => {
-            if (!productThumbnails || productThumbnails.length === 0) return;
-            currentImageIndex = (currentImageIndex + direction + productThumbnails.length) % productThumbnails.length;
-            fullscreenImage.src = productThumbnails[currentImageIndex].src;
-        };
-        if(closeFullscreenButton) closeFullscreenButton.addEventListener('click', closeGallery);
-        if(prevFullscreenButton) prevFullscreenButton.addEventListener('click', () => navigateGallery(-1));
-        if(nextFullscreenButton) nextFullscreenButton.addEventListener('click', () => navigateGallery(1));
-        fullscreenOverlay.addEventListener('click', (e) => { if (e.target === fullscreenOverlay) closeGallery(); });
-        document.addEventListener('keydown', (e) => {
-            if (fullscreenOverlay.classList.contains('open')) {
-                if (e.key === 'ArrowLeft') navigateGallery(-1);
-                else if (e.key === 'ArrowRight') navigateGallery(1);
-                else if (e.key === 'Escape') closeGallery();
+    if (openFullscreenLink) {
+        openFullscreenLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            if(productThumbnails.length > 0) {
+                fullscreenImage.src = productThumbnails[currentImageIndex].src;
+                fullscreenOverlay.classList.add('open');
             }
         });
     }
+
+    // --- DEĞİŞTİRİLEN FONKSİYON ---
+    const closeGallery = () => {
+        fullscreenOverlay.classList.remove('open');
+        
+        // Ana resmi, galerideki son kalınan resimle güncelle
+        if (mainImage && productThumbnails[currentImageIndex]) {
+            mainImage.src = productThumbnails[currentImageIndex].src;
+            mainImage.alt = productThumbnails[currentImageIndex].name;
+        }
+
+        // Desen adını güncelle
+        if (imageVariantName && productThumbnails[currentImageIndex]) {
+            imageVariantName.textContent = productThumbnails[currentImageIndex].name;
+        }
+        
+        // Aktif olan küçük resmi (thumbnail) güncelle
+        thumbnails.forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === currentImageIndex);
+        });
+    };
+
+    const navigateGallery = (direction) => {
+        if (!productThumbnails || productThumbnails.length === 0) return;
+        currentImageIndex = (currentImageIndex + direction + productThumbnails.length) % productThumbnails.length;
+        fullscreenImage.src = productThumbnails[currentImageIndex].src;
+    };
+    
+    if(closeFullscreenButton) closeFullscreenButton.addEventListener('click', closeGallery);
+    if(prevFullscreenButton) prevFullscreenButton.addEventListener('click', () => navigateGallery(-1));
+    if(nextFullscreenButton) nextFullscreenButton.addEventListener('click', () => navigateGallery(1));
+    fullscreenOverlay.addEventListener('click', (e) => { if (e.target === fullscreenOverlay) closeGallery(); });
+    document.addEventListener('keydown', (e) => {
+        if (fullscreenOverlay.classList.contains('open')) {
+            if (e.key === 'ArrowLeft') navigateGallery(-1);
+            else if (e.key === 'ArrowRight') navigateGallery(1);
+            else if (e.key === 'Escape') closeGallery();
+        }
+    });
+}
 
     function initializeRelatedProductsSlider() {
         if (document.querySelector('#related-products-slider')) {
