@@ -9,77 +9,76 @@
       { "src": "images/pleksi-dusakabin/pileksidusakabin2.jpg", "name": "Köşe Detayı" },
       { "src": "images/pleksi-dusakabin/pileksidusakabin3.jpg", "name": "Profil ve Tekerlek Detayı" }
     ],
-    "shortDescription": "Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik çözümler.",
-    "longDescription": "Ekonomik ve pratik çözüm arayanlar için ideal. Pleksi duşakabinler, hafif ve dayanıklı yapısıyla kolay kurulum ve kullanım sunar.",
+    "shortDescription": "Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik banyo çözümleri.",
+    "longDescription": "Ekonomik ve pratik bir çözüm arayanlar için ideal olan pleksi duşakabinler, hafif ve dayanıklı yapısıyla kolay kurulum ve kullanım sunar. Buzlu yüzeyi sayesinde mahremiyet sağlar.",
     "features": [
-      { "icon": "fa-layer-group", "text": "<strong>Malzeme:</strong> 2.8mm Dayanıklı Pleksi" },
-      { "icon": "fa-palette", "text": "<strong>Profil Rengi:</strong> Parlak Beyaz" },
-      { "icon": "fa-ruler-combined", "text": "<strong>Boyut:</strong> Standart ve Özel Üretim" }
+      { "icon": "fa-layer-group", "text": "<strong>Malzeme:</strong> 2.8mm Çizilmeye Dirençli Pleksi Panel" },
+      { "icon": "fa-lira-sign", "text": "<strong>Ekonomik Çözüm:</strong> Kaliteyi uygun fiyata sunar." },
+      { "icon": "fa-ruler-combined", "text": "<strong>Esnek Boyutlar:</strong> Standart ve özel ölçülerde üretim imkanı." }
     ],
     "specs": [
-      { "label": "Cam Tipi", "value": "2.8mm Buzlu Pleksi Panel" },
-      { "label": "Profil Malzemesi", "value": "Paslanmaz Alüminyum" },
-      { "label": "Tekerlek Sistemi", "value": "Pirinç Rulmanlı Tekerlekler" },
+      { "label": "Panel Tipi", "value": "2.8mm Buzlu Pleksi Panel" },
+      { "label": "Profil Malzemesi", "value": "Paslanmaz Alüminyum (Beyaz Boyalı)" },
+      { "label": "Tekerlek Sistemi", "value": "Aşınmaya dayanıklı rulmanlı tekerlekler" },
       { "label": "Su Sızdırmazlık", "value": "Mıknatıslı Fitil Sistemi" }
     ],
-    "warrantyInfo": "",
-    "careInfo": "Duşakabininizi temizlerken ağartıcı veya aşındırıcı kimyasallar kullanmaktan kaçının. Her kullanımdan sonra yumuşak bir bez veya çekpas yardımıyla su lekelerini kurutmak, kireç oluşumunu önleyerek ürününüzün ömrünü uzatacaktır.",
+    "careInfo": "Duşakabininizi temizlerken ağartıcı veya aşındırıcı kimyasallar kullanmaktan kaçının. Her kullanımdan sonra yumuşak bir bezle kurulamak ömrünü uzatacaktır.",
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Pleksi%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   },
   {
     "id": "siyah-cizgili-cam-dusakabin",
-    "name": "Cam Duşakabin Siyah Çizgili",
+    "name": "Siyah Çizgili Cam Duşakabin",
     "category": "Duşakabin",
     "mainImage": "images/siyah-cizgili/1.jpeg",
     "thumbnails": [ 
-      { "src": "images/siyah-cizgili/1.jpeg", "name": "Siyah Çizgili - Model 1" },
-      { "src": "images/siyah-cizgili/2.jpeg", "name": "Siyah Çizgili - Model 2" },
-      { "src": "images/siyah-cizgili/3.jpeg", "name": "Siyah Çizgili - Model 3" },
-      { "src": "images/siyah-cizgili/4.jpeg", "name": "Siyah Çizgili - Model 4" },
-      { "src": "images/siyah-cizgili/5.jpeg", "name": "Siyah Çizgili - Model 5" },
-      { "src": "images/siyah-cizgili/6.jpeg", "name": "Siyah Çizgili - Model 6" }
+      { "src": "images/siyah-cizgili/1.jpeg", "name": "Endüstriyel Tasarım Köşe Kabin" },
+      { "src": "images/siyah-cizgili/2.jpeg", "name": "Mat Siyah Profil ve Cam Detayı" },
+      { "src": "images/siyah-cizgili/3.jpeg", "name": "Sürgülü Kapı Modeli" },
+      { "src": "images/siyah-cizgili/4.jpeg", "name": "Banyo İçi Uygulama" },
+      { "src": "images/siyah-cizgili/5.jpeg", "name": "İki Duvar Arası Model" },
+      { "src": "images/siyah-cizgili/6.jpeg", "name": "Kulp ve Tekerlek Detayı" }
     ],
-    "shortDescription": "Modern ve şık banyolar için temperli cam ve siyah desenli tasarım.",
-    "longDescription": "Banyonuza modern bir dokunuş katmak için tasarlanan siyah çizgili temperli cam duşakabin modelimiz, 6mm kalınlığındaki güvenli camı ve mat siyah profilleri ile hem estetik hem de dayanıklılık sunar.",
+    "shortDescription": "Modern ve endüstriyel banyolar için 6mm temperli cam ve mat siyah desenli tasarım.",
+    "longDescription": "Banyonuza endüstriyel ve modern bir dokunuş katmak için tasarlanan siyah çizgili temperli cam duşakabin modelimiz, 6mm kalınlığındaki güvenli camı ve mat siyah profilleri ile hem estetik hem de dayanıklılık sunar.",
     "features": [
-      { "icon": "fa-check-square", "text": "<strong>Güvenlik:</strong> Kırılmaya Karşı Temperli Cam" },
-      { "icon": "fa-paint-brush", "text": "<strong>Tasarım:</strong> Mat Siyah Endüstriyel Çizgiler" },
-      { "icon": "fa-door-open", "text": "<strong>Kapı Tipi:</strong> Sürgülü veya Menteşeli Seçeneği" }
+      { "icon": "fa-check-square", "text": "<strong>Yüksek Güvenlik:</strong> Kırılmaya karşı dayanıklı 6mm temperli cam." },
+      { "icon": "fa-paint-brush", "text": "<strong>Modern Tasarım:</strong> Mat siyah endüstriyel çizgiler." },
+      { "icon": "fa-door-open", "text": "<strong>Kapı Seçenekleri:</strong> Sürgülü veya Menteşeli olarak üretilebilir." }
     ],
     "specs": [
       { "label": "Cam Kalınlığı", "value": "6mm Temperli Şeffaf Cam" },
       { "label": "Profil Rengi", "value": "Mat Siyah Alüminyum" },
+      { "label": "Desen", "value": "Serigrafi Baskı (Soyulmaz)" },
       { "label": "Yükseklik", "value": "190cm (Standart)" }
     ],
-    "warrantyInfo": "",
-    "careInfo": "Temizlik için sadece yumuşak bir bez ve cam temizleyici kullanınız. Kireç önleyici özel kaplaması sayesinde temizliği oldukça kolaydır.",
+    "careInfo": "Temizlik için sadece yumuşak bir bez ve cam temizleyici kullanınız. Profillerin çizilmemesi için aşındırıcı kimyasallardan kaçınınız.",
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Siyah%20%C3%87izgili%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   },
   {
     "id": "seffaf-cam-dusakabin",
-    "name": "Şeffaf Cam Duşakabinler",
+    "name": "Şeffaf Cam Duşakabin",
     "category": "Duşakabin",
     "mainImage": "images/seffaf-cam-dusakabin/1.jpeg",
     "thumbnails": [ 
-      { "src": "images/seffaf-cam-dusakabin/1.jpeg", "name": "Şeffaf Cam - Model 1" },
-      { "src": "images/seffaf-cam-dusakabin/2.jpeg", "name": "Şeffaf Cam - Model 2" },
-      { "src": "images/seffaf-cam-dusakabin/3.jpeg", "name": "Şeffaf Cam - Model 3" },
-      { "src": "images/seffaf-cam-dusakabin/4.jpeg", "name": "Şeffaf Cam - Model 4" },
-      { "src": "images/seffaf-cam-dusakabin/5.jpeg", "name": "Şeffaf Cam - Model 5" }
+      { "src": "images/seffaf-cam-dusakabin/1.jpeg", "name": "Sürgülü Şeffaf Model" },
+      { "src": "images/seffaf-cam-dusakabin/2.jpeg", "name": "Minimalist Krom Profil" },
+      { "src": "images/seffaf-cam-dusakabin/3.jpeg", "name": "Menteşeli Kapı Detayı" },
+      { "src": "images/seffaf-cam-dusakabin/4.jpeg", "name": "Köşe Uygulaması" },
+      { "src": "images/seffaf-cam-dusakabin/5.jpeg", "name": "Ferah ve Aydınlık Görünüm" }
     ],
-    "shortDescription": "Modern ve şık banyolar için temperli cam ve sade tasarım.",
-    "longDescription": "Banyonuza ferahlık katmak için tasarlanan şeffaf temperli cam duşakabin modelimiz, 5mm kalınlığındaki güvenli camı ve parlak krom profilleri ile hem minimalist hem de dayanıklı bir seçenektir.",
+    "shortDescription": "Banyosunda ferah ve minimalist bir görünüm isteyenler için sade ve şık tasarım.",
+    "longDescription": "Banyonuza ferahlık ve modern bir sadelik katmak için tasarlanan şeffaf temperli cam duşakabin modelimiz, 5mm kalınlığındaki güvenli camı ve parlak krom profilleri ile hem minimalist hem de dayanıklı bir seçenektir.",
     "features": [
-      { "icon": "fa-check-square", "text": "<strong>Güvenlik:</strong> Kırılmaya Karşı Temperli Cam" },
-      { "icon": "fa-door-open", "text": "<strong>Kapı Tipi:</strong> Sürgülü veya Menteşeli Seçeneği" }
+      { "icon": "fa-check-square", "text": "<strong>Güvenli Cam:</strong> Kırılmaya karşı 5mm temperli cam." },
+      { "icon": "fa-sun", "text": "<strong>Ferah Tasarım:</strong> Alanı daha geniş ve aydınlık gösterir." },
+      { "icon": "fa-door-open", "text": "<strong>Kapı Tipi:</strong> Sürgülü veya Menteşeli Seçeneği." }
     ],
     "specs": [
       { "label": "Cam Kalınlığı", "value": "5mm Temperli Şeffaf Cam" },
       { "label": "Profil Rengi", "value": "Parlak Krom Alüminyum" },
       { "label": "Yükseklik", "value": "190cm (Standart)" }
     ],
-    "warrantyInfo": "",
-    "careInfo": "Temizlik için sadece yumuşak bir bez ve cam temizleyici kullanınız.",
+    "careInfo": "Her kullanım sonrası çekpas ile kurulanması kireç lekelerini önler. Temizlik için sadece yumuşak bir bez ve cam temizleyici kullanınız.",
     "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20%C5%9Eeffaf%20Cam%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   },
   {
@@ -98,17 +97,107 @@
       { "src": "images/desenli-cam-dusakabin/8.jpeg", "name": "Mozaik Desen" },
       { "src": "images/desenli-cam-dusakabin/9.jpeg", "name": "Akarsu Desen" }
     ],
-    "shortDescription": "Kaymaz yüzeyli, hijyenik ve dayanıklı akrilik duş tekneleri.",
-    "longDescription": "Banyonuza modern ve güvenli bir zemin sunan akrilik duş teknemiz, leke tutmaz ve kolay temizlenir yüzeyi ile uzun ömürlü kullanım sağlar.",
+    "shortDescription": "Gizlilik ve estetiği bir arada sunan, çeşitli kumlama desenlerine sahip temperli cam duşakabinler.",
+    "longDescription": "Banyonuza hem şık bir görünüm kazandırmak hem de mahremiyet sağlamak için idealdir. Kumlama tekniği ile cama işlenen birbirinden zarif desenler, ışığı geçirirken net görüntüyü engeller. 5mm temperli cam ile güvenli kullanım sunar.",
     "features": [
-      { "icon": "fa-check-square", "text": "<strong>Güvenlik:</strong> Kırılmaya Karşı Temperli Cam" },
-      { "icon": "fa-paint-brush", "text": "<strong>Tasarım:</strong> Zarif Cam Desenleri" },
-      { "icon": "fa-door-open", "text": "<strong>Kapı Tipi:</strong> Sürgülü veya Menteşeli Seçeneği" }
+      { "icon": "fa-eye-slash", "text": "<strong>Mahremiyet:</strong> Kumlama desenler ile gizlilik sağlar." },
+      { "icon": "fa-paint-brush", "text": "<strong>Zengin Desen Seçeneği:</strong> Her zevke uygun farklı desenler." },
+      { "icon": "fa-check-square", "text": "<strong>Güvenli Kullanım:</strong> 5mm temperli cam." }
     ],
     "specs": [
-      { "label": "Malzeme", "value": "Antibakteriyel Akrilik" }
+      { "label": "Cam Kalınlığı", "value": "5mm Temperli Desenli Cam" },
+      { "label": "Profil Rengi", "value": "Parlak Krom" },
+      { "label": "Desen Tipi", "value": "Kumlama (Baskı değil, kalıcıdır)" },
+      { "label": "Yükseklik", "value": "190cm (Standart)" }
     ],
-    "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz.",
-    "whatsappLink": "https://wa.me/905335805266?text=Merhaba Desenli Cam Duşakabin modeliniz hakkında bilgi almak istiyorum."
+    "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz. Desenli yüzeyin temizliğinde yumuşak bez kullanılması tavsiye edilir.",
+    "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Desenli%20Cam%20Du%C5%9Fakabin%20modeliniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+  },
+  {
+    "id": "dus-teknesi",
+    "name": "Duş Tekneleri ve Küvetler",
+    "category": "Duş Teknesi",
+    "mainImage": "images/dus-teknesi/6.jpeg",
+    "thumbnails": [ 
+      { "src": "images/dus-teknesi/1.jpeg", "name": "Oval Akrilik Tekne" },
+      { "src": "images/dus-teknesi/2.jpeg", "name": "Kare Akrilik Tekne" },
+      { "src": "images/dus-teknesi/3.jpeg", "name": "Dikdörtgen Akrilik Tekne" },
+      { "src": "images/dus-teknesi/4.jpeg", "name": "Oturmalı Oval Küvet" },
+      { "src": "images/dus-teknesi/5.jpeg", "name": "Standart Oval Küvet" },
+      { "src": "images/dus-teknesi/6.jpeg", "name": "Flat (Zemine Sıfır) Dikdörtgen Tekne" },
+      { "src": "images/dus-teknesi/7.jpeg", "name": "Flat (Zemine Sıfır) Kare Tekne" }
+    ],
+    "shortDescription": "Kaymaz yüzeyli, hijyenik ve dayanıklı akrilik malzemeden üretilmiş duş tekneleri ve küvetler.",
+    "longDescription": "Banyonuza modern ve güvenli bir zemin sunan akrilik duş teknelerimiz, leke tutmaz ve kolay temizlenir yüzeyi ile uzun ömürlü kullanım sağlar. Farklı boyut ve şekillerde seçenekler mevcuttur.",
+    "features": [
+      { "icon": "fa-grip-lines", "text": "<strong>Kaymaz Yüzey:</strong> Güvenli kullanım için özel dokulu yüzey." },
+      { "icon": "fa-soap", "text": "<strong>Hijyenik ve Kolay Temizlik:</strong> Leke tutmayan antibakteriyel akrilik malzeme." },
+      { "icon": "fa-ruler-combined", "text": "<strong>Çeşitli Boyutlar:</strong> Her banyoya uygun kare, oval, dikdörtgen seçenekleri." }
+    ],
+    "specs": [
+      { "label": "Malzeme", "value": "Antibakteriyel Akrilik" },
+      { "label": "Yapı", "value": "Panelli (Ayaklı) veya Flat (Zemine Sıfır)" },
+      { "label": "Renk", "value": "Parlak Beyaz" },
+      { "label": "Sifon", "value": "Ürünle birlikte verilmektedir." }
+    ],
+    "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz. Tıkanmaları önlemek için sifon düzenli olarak temizlenmelidir.",
+    "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Du%C5%9F%20Teknesi%20modelleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+  },
+  {
+    "id": "gold-profil-dusakabin",
+    "name": "Gold Profil Duşakabin",
+    "category": "Duşakabin",
+    "mainImage": "images/gold-profil/1.jpeg",
+    "thumbnails": [ 
+      { "src": "images/gold-profil/1.jpeg", "name": "Lüks Gold Profil Tasarım" },
+      { "src": "images/gold-profil/2.jpeg", "name": "Parlak Altın Profil Detayı" },
+      { "src": "images/gold-profil/3.jpeg", "name": "Menteşeli Kapı Uygulaması" },
+      { "src": "images/gold-profil/4.jpeg", "name": "Zarif Kulp Detayı" },
+      { "src": "images/gold-profil/5.jpeg", "name": "Banyo İçi Şık Görünüm" },
+      { "src": "images/gold-profil/6.jpeg", "name": "Köşe Kabin Modeli" }
+    ],
+    "shortDescription": "Banyonuza lüks ve göz alıcı bir dokunuş katacak parlak altın renkli profil detaylarına sahip duşakabinler.",
+    "longDescription": "Zarafet ve şıklığı bir araya getiren Gold Profil serisi, banyonuzu bir spa alanına dönüştürür. PVD kaplama teknolojisi ile üretilen parlak altın renkli profiller, kararma ve paslanmaya karşı dayanıklıdır. 6mm temperli cam ile lüks görünümü güvenlikle birleştirir.",
+    "features": [
+      { "icon": "fa-gem", "text": "<strong>Lüks Tasarım:</strong> Göz alıcı parlak altın renkli profiller." },
+      { "icon": "fa-shield-alt", "text": "<strong>Dayanıklı Kaplama:</strong> Kararma ve paslanmaya karşı PVD kaplama." },
+      { "icon": "fa-check-square", "text": "<strong>Premium Kalite:</strong> 6mm temperli cam ve metal aksesuarlar." }
+    ],
+    "specs": [
+      { "label": "Cam Kalınlığı", "value": "6mm Temperli Şeffaf Cam" },
+      { "label": "Profil Rengi", "value": "Parlak Altın (Gold)" },
+      { "label": "Kaplama", "value": "PVD (Physical Vapor Deposition)" },
+      { "label": "Yükseklik", "value": "195cm (Standart)" }
+    ],
+    "careInfo": "Kaplamanın ömrünü korumak için kesinlikle aşındırıcı, asitli veya ağartıcılı kimyasallar kullanmayınız. Sadece pH derecesi nötr temizleyiciler ve yumuşak bir bez kullanın.",
+    "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Gold%20Profil%20Du%C5%9Fakabin%20modeliniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+  },
+  {
+    "id": "katlanir-akordiyon",
+    "name": "Katlanır Akordiyon Duşakabin",
+    "category": "Duşakabin",
+    "mainImage": "images/katlanir-akordiyon/1.jpeg",
+    "thumbnails": [ 
+      { "src": "images/katlanir-akordiyon/1.jpeg", "name": "Akordiyon Katlanır Model 1" },
+      { "src": "images/katlanir-akordiyon/2.jpeg", "name": "Akordiyon Katlanır Model 2" },
+      { "src": "images/katlanir-akordiyon/3.jpeg", "name": "Akordiyon Katlanır Model 3" },
+      { "src": "images/katlanir-akordiyon/4.jpeg", "name": "Akordiyon Katlanır Model 4" },
+      { "src": "images/katlanir-akordiyon/5.jpeg", "name": "Akordiyon Katlanır Model 5" }
+    ],
+    "shortDescription": "Dar alanlar için yerden tasarruf sağlayan, pratik ve şık katlanır duşakabin.",
+    "longDescription": "Özellikle küçük banyolar veya duş alanları için tasarlanmış olan katlanır akordiyon duşakabinler, kullanılmadığı zamanlarda tamamen katlanarak minimum yer kaplar. Fonksiyonelliği ve estetiği bir araya getirerek banyonuza modern bir çözüm sunar.",
+    "features": [
+      { "icon": "fa-compress-arrows-alt", "text": "<strong>Maksimum Alan:</strong> Kullanılmadığında tamamen katlanarak yerden tasarruf sağlar." },
+      { "icon": "fa-layer-group", "text": "<strong>Malzeme:</strong> Güvenli temperli cam veya hafif pleksi panel seçenekleri mevcuttur." },
+      { "icon": "fa-cogs", "text": "<strong>Kolay Kullanım:</strong> Pürüzsüz çalışan ve pratik katlanma mekanizması." }
+    ],
+    "specs": [
+      { "label": "Cam/Panel Tipi", "value": "5mm Temperli Cam veya 2.8mm Pleksi Panel" },
+      { "label": "Profil Rengi", "value": "Parlak Krom / Mat Siyah / Beyaz" },
+      { "label": "Açılım Tipi", "value": "İçe ve Dışa Katlanır (Akordiyon)" },
+      { "label": "Yükseklik", "value": "190cm (Standart)" }
+    ],
+    "careInfo": "Aşındırıcı olmayan temizlik ürünleri ile kolayca temizleyebilirsiniz. Menteşe ve birleşim noktalarını düzenli olarak kontrol ediniz.",
+    "whatsappLink": "https://wa.me/905335805266?text=Merhaba%2C%20Katlan%C4%B1r%20Akordiyon%20Du%C5%9Fakabin%20modeli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
   }
 ]
