@@ -1429,26 +1429,53 @@ footer {
 
 /* === NİHAİ DÜZEN - BÖLÜM 2: Yatay Küçük Resim Galerisi === */
 /* Bu kurallar küçük resimleri büyük resmin altında yatay olarak sıralar. */
+/* === NİHAİ DÜZEN - BÖLÜM 2: Dikey Sütunlu Küçük Resim Galerisi === */
 .thumbnail-gallery {
-    display: flex;
-    flex-wrap: wrap; /* Dar ekranlarda resimlerin alt satıra kaymasını sağlar */
-    justify-content: center; /* Resimleri yatayda ortalar */
+    display: grid; /* Layout sistemini Grid olarak değiştiriyoruz */
+    grid-auto-flow: column; /* Öğelerin önce dikeyde (sütun içinde) sıralanmasını sağlar */
+    grid-template-rows: repeat(5, auto); /* Her sütunda 5 satır (resim) olacağını belirtir */
     gap: 10px; /* Resimler arası boşluk */
-    margin-top: 1rem; /* Üstteki isimden biraz boşluk bırakır */
+    
+    /* Çok fazla resim olduğunda yatay kaydırma çubuğu çıkması için */
+    overflow-x: auto; 
+    overflow-y: hidden;
+    
+    /* Kaydırma çubuğu içeriğe yapışmasın diye alttan küçük bir boşluk */
+    padding-bottom: 15px; 
+    
+    /* Mobil cihazlarda daha iyi bir görünüm için sola hizalama */
+    justify-content: flex-start; 
+    
+    margin-top: 1rem;
 }
 
-/* Her bir küçük resmin stili */
+/* Her bir küçük resmin stili (Bu kısım aynı kalıyor) */
 .thumbnail-gallery .thumbnail {
     width: 80px;
     height: 80px;
-    border: 3px solid transparent; /* Çerçeveyi başlangıçta şeffaf yapar */
+    border: 3px solid transparent;
     border-radius: 8px;
     cursor: pointer;
     transition: border-color 0.3s ease;
     object-fit: cover;
 }
 
+/* Seçili olan küçük resmin çerçevesi (Bu kısım da aynı kalıyor) */
+.thumbnail-gallery .thumbnail.active {
+    border-color: var(--primary-color);
+}
+
 /* Seçili olan küçük resmin çerçevesini belirginleştirir */
 .thumbnail-gallery .thumbnail.active {
     border-color: var(--primary-color); /* Ana renkte çerçeve */
 }
+
+/* Ürün Detay Sayfası Galeri Taşma Problemi Düzeltmesi */
+.product-gallery-container {
+    /* Bu kural, galeri konteynerinin kendi grid hücresinin dışına taşmasını engeller. */
+    /* İçindeki thumbnail galerisi ne kadar geniş olursa olsun, bu konteynerin */
+    /* genişliği ana grid tarafından belirlenenle sınırlı kalır ve diğer sütunu */
+    /* aşağı itmesini önler. */
+    min-width: 0; /* Ana grid hücresinin genişliğini kaplar */
+}
+
