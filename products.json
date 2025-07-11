@@ -3,11 +3,16 @@
     "id": "pleksi-dusakabin",
     "name": "Pleksi Duşakabinler",
     "category": "Duşakabin",
-    "mainImage": "images/pleksi-dusakabin/pileksidusakabin.jpg",
+    "mainImage": "images/pleksi-dusakabin/1.jpg",
     "thumbnails": [
-      { "src": "images/pleksi-dusakabin/pileksidusakabin.jpg", "name": "Buzlu Pleksi Standart Görünüm" },
-      { "src": "images/pleksi-dusakabin/pileksidusakabin2.jpg", "name": "Köşe Detayı" },
-      { "src": "images/pleksi-dusakabin/pileksidusakabin3.jpg", "name": "Profil ve Tekerlek Detayı" }
+      { "src": "images/pleksi-dusakabin/1.jpg", "name": "Buzlu Pleksi Standart Görünüm" },
+      { "src": "images/pleksi-dusakabin/2.jpg", "name": "Cam Detayı" },
+      { "src": "images/pleksi-dusakabin/3.jpg", "name": "Cam Detayı" },
+      { "src": "images/pleksi-dusakabin/4.jpg", "name": "Banyo İçi Uygulama" },
+      { "src": "images/pleksi-dusakabin/5.jpg", "name": "Sürgülü Kapı Modeli" },
+      { "src": "images/pleksi-dusakabin/6.jpg", "name": "Özel Ölçü Uygulama" },
+      { "src": "images/pleksi-dusakabin/7.jpeg", "name": "Siyah Pleksi Detayı" },
+      { "src": "images/pleksi-dusakabin/8.jpeg", "name": "Siyah Profil Detayı" }
     ],
     "shortDescription": "Hafif ve dayanıklı pleksi malzemesi ile ekonomik ve pratik banyo çözümleri.",
     "longDescription": "Ekonomik ve pratik bir çözüm arayanlar için ideal olan pleksi duşakabinler, hafif ve dayanıklı yapısıyla kolay kurulum ve kullanım sunar. Buzlu yüzeyi sayesinde mahremiyet sağlar.",
