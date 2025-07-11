@@ -661,33 +661,7 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .gallery-nav-btn.next { right: 10px; }
 
 
-@media (min-width: 768px) {
-    /* Galeri ana taşıyıcısını flex container yapar */
-    .product-gallery-container {
-        display: flex; /* YAN YANA HİZALAMAYI AKTİF EDER */
-        align-items: flex-start; /* Öğeleri yukarıdan hizalar */
-        gap: 20px; /* Ana resim ve küçük resimler arasına boşluk ekler */
-    }
 
-    /* Ana resmin esnek büyümesini sağlar */
-    .main-image-display {
-        flex: 1; 
-    }
-
-    /* Küçük resim galerisinin sabit bir genişliğe sahip olmasını sağlar */
-    .thumbnail-gallery {
-        display: flex;
-        flex-direction: column; /* Küçük resimleri dikey olarak sıralar */
-        gap: 10px; /* Küçük resimler arasına boşluk ekler */
-        flex: 0 0 100px; /* Galeri genişliğini sabitler (büyümez, küçülmez, 100px genişliğinde) */
-    }
-
-    /* Küçük resimlerin boyutunu ayarlar */
-    .thumbnail-gallery img, .thumbnail {
-        width: 100px;
-        height: 100px;
-    }
-}
 
 /* Ürün Bilgi Alanı */
 .product-info-container h1 { font-size: 2.2rem; margin-bottom: 1rem; }
@@ -1479,3 +1453,64 @@ footer {
     min-width: 0; /* Ana grid hücresinin genişliğini kaplar */
 }
 
+/* === ÜRÜN DETAY SAYFASI GALERİ FİNAL DÜZENLEMESİ === */
+
+/* 1. Ana galerinin sol sütununa taşma sorununu önleyen kural */
+.product-gallery-container {
+    min-width: 0;
+}
+
+/* 2. Ana resim ve küçük resimlerin mobil cihazlardaki yerleşimi */
+.main-image-wrapper {
+    margin-bottom: 1rem;
+}
+
+.thumbnail-gallery {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, auto); /* Her sütunda 5 resim */
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+    justify-content: flex-start;
+}
+
+.thumbnail-gallery .thumbnail {
+    width: 80px;
+    height: 80px;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+/* 3. Masaüstü (geniş ekran) için özel yerleşim */
+@media (min-width: 992px) {
+    .product-gallery-container {
+        display: flex; /* Ana resmi ve küçük resimleri yan yana getirir */
+        gap: 20px;
+    }
+    
+    .main-image-wrapper {
+        flex: 1; /* Ana resim alanının esnek büyümesini sağlar */
+        margin-bottom: 0;
+    }
+
+    .thumbnail-gallery {
+        flex: 0 0 auto; /* Genişliğinin içeriğine göre ayarlanmasını sağlar */
+        grid-auto-flow: row; /* Dikey olarak değil, satır satır doldurur */
+        grid-template-columns: repeat(2, 80px); /* 2 sütunlu dikey galeri */
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right: 10px;
+        max-height: 550px; /* Galerinin maksimum yüksekliği (kaydırma çubuğu çıkar) */
+    }
+}
+
+/* Seçili olan küçük resmin çerçevesi */
+.thumbnail-gallery .thumbnail.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(13, 148, 136, 0.4);
+}
