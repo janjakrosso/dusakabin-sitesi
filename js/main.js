@@ -112,20 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('mainProductImage').src = product.mainImage;
         document.getElementById('mainProductImage').alt = product.name;
         document.getElementById('whatsappLink').href = product.whatsappLink;
-
         const imageVariantName = document.getElementById('image-variant-name');
         const thumbnailContainer = document.getElementById('thumbnail-gallery-container');
-
         if (thumbnailContainer) {
             thumbnailContainer.innerHTML = product.thumbnails.map((thumb, index) =>
                 `<img class="thumbnail ${index === 0 ? 'active' : ''}" src="${thumb.src}" alt="${thumb.name}" data-name="${thumb.name}">`
             ).join('');
         }
-
         if (imageVariantName && product.thumbnails.length > 0) {
             imageVariantName.textContent = product.thumbnails[0].name;
         }
-
         const featuresList = document.getElementById('featuresList');
         if (featuresList) featuresList.innerHTML = product.features.map(feature => `<li><i class="fas ${feature.icon}"></i> <span>${feature.text}</span></li>`).join('');
         const specsList = document.getElementById('specsList');
@@ -149,13 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextFullscreenButton = document.querySelector('.next-fullscreen');
         const openFullscreenLink = document.getElementById('openFullscreen');
         const imageVariantName = document.getElementById('image-variant-name');
-
         if (!mainImage || !fullscreenOverlay) return;
         let currentImageIndex = 0;
         let productThumbnails = Array.from(thumbnails).map(t => {
             return { src: t.src, name: t.dataset.name };
         });
-
         thumbnails.forEach((thumb, index) => {
             thumb.addEventListener('click', () => {
                 mainImage.src = thumb.src;
@@ -168,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentImageIndex = index;
             });
         });
-
         if (openFullscreenLink) {
             openFullscreenLink.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -178,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
-
         const closeGallery = () => {
             fullscreenOverlay.classList.remove('open');
             if (mainImage && productThumbnails[currentImageIndex]) {
@@ -192,13 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 thumb.classList.toggle('active', index === currentImageIndex);
             });
         };
-
         const navigateGallery = (direction) => {
             if (!productThumbnails || productThumbnails.length === 0) return;
             currentImageIndex = (currentImageIndex + direction + productThumbnails.length) % productThumbnails.length;
             fullscreenImage.src = productThumbnails[currentImageIndex].src;
         };
-
         if (closeFullscreenButton) closeFullscreenButton.addEventListener('click', closeGallery);
         if (prevFullscreenButton) prevFullscreenButton.addEventListener('click', () => navigateGallery(-1));
         if (nextFullscreenButton) nextFullscreenButton.addEventListener('click', () => navigateGallery(1));
