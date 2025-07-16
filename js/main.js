@@ -1,12 +1,4 @@
-/**
- * main.js - Mobil Dropdown Düzeltmesi Dahil SON SÜRÜM
- * Dropdown kodu doğru yere taşındı.
- */
 document.addEventListener('DOMContentLoaded', () => {
-
-    // =======================================================
-    // === BÖLÜM 1: GENEL DEĞİŞKENLER VE ANA FONKSİYONLAR
-    // =======================================================
 
     let allProducts = [];
 
@@ -70,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 card.dataset.currentIndex = currentIndex;
                 imageElement.src = images[currentIndex].src;
-paginationDots.forEach((dot, index) => {
+                paginationDots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentIndex);
                 });
             }
@@ -104,8 +96,7 @@ paginationDots.forEach((dot, index) => {
         [searchInput, categorySelect, sortSelect].forEach(el => el.addEventListener('change', applyFilters));
         searchInput.addEventListener('input', applyFilters);
     }
-    
-    // Bu fonksiyonu bulun ve tamamen değiştirin
+
     async function populateProductDetails() {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
@@ -122,135 +113,123 @@ paginationDots.forEach((dot, index) => {
         document.getElementById('mainProductImage').alt = product.name;
         document.getElementById('whatsappLink').href = product.whatsappLink;
 
-        // === DEĞİŞİKLİK BURADA BAŞLIYOR ===
         const imageVariantName = document.getElementById('image-variant-name');
         const thumbnailContainer = document.getElementById('thumbnail-gallery-container');
-        
+
         if (thumbnailContainer) {
-            thumbnailContainer.innerHTML = product.thumbnails.map((thumb, index) => 
+            thumbnailContainer.innerHTML = product.thumbnails.map((thumb, index) =>
                 `<img class="thumbnail ${index === 0 ? 'active' : ''}" src="${thumb.src}" alt="${thumb.name}" data-name="${thumb.name}">`
             ).join('');
         }
 
-        // Sayfa ilk yüklendiğinde ilk resmin adını yazdır
         if (imageVariantName && product.thumbnails.length > 0) {
             imageVariantName.textContent = product.thumbnails[0].name;
         }
-        // === DEĞİŞİKLİK BURADA BİTİYOR ===
 
         const featuresList = document.getElementById('featuresList');
         if (featuresList) featuresList.innerHTML = product.features.map(feature => `<li><i class="fas ${feature.icon}"></i> <span>${feature.text}</span></li>`).join('');
         const specsList = document.getElementById('specsList');
         if (specsList) specsList.innerHTML = product.specs.map(spec => `<li><strong>${spec.label}:</strong> ${spec.value}</li>`).join('');
         const careText = document.getElementById('careText');
-        if(careText) careText.textContent = product.careInfo;
+        if (careText) careText.textContent = product.careInfo;
         const relatedProducts = products.filter(p => p.category === product.category && p.id !== productId).slice(0, 5);
-        renderProductGrid(relatedProducts.length > 0 ? relatedProducts : products.filter(p => p.id !== productId).slice(0,5), 'related-products-wrapper');
+        renderProductGrid(relatedProducts.length > 0 ? relatedProducts : products.filter(p => p.id !== productId).slice(0, 5), 'related-products-wrapper');
         setupImageZoomAndGallery();
         initializeRelatedProductsSlider();
         setupProductCardGallery('#related-products-slider');
     }
-    
-    // Bu fonksiyonu da bulun ve tamamen değiştirin
-     function setupImageZoomAndGallery() {
-    const mainImage = document.getElementById('mainProductImage');
-    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
-    const fullscreenOverlay = document.getElementById('fullscreen-overlay');
-    const fullscreenImage = document.getElementById('fullscreen-image');
-    const closeFullscreenButton = document.querySelector('.close-fullscreen');
-    const prevFullscreenButton = document.querySelector('.prev-fullscreen');
-    const nextFullscreenButton = document.querySelector('.next-fullscreen');
-    const openFullscreenLink = document.getElementById('openFullscreen');
-    const imageVariantName = document.getElementById('image-variant-name');
 
-    if (!mainImage || !fullscreenOverlay) return;
-    let currentImageIndex = 0;
-    let productThumbnails = Array.from(thumbnails).map(t => {
-        return { src: t.src, name: t.dataset.name };
-    });
+    function setupImageZoomAndGallery() {
+        const mainImage = document.getElementById('mainProductImage');
+        const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
+        const fullscreenOverlay = document.getElementById('fullscreen-overlay');
+        const fullscreenImage = document.getElementById('fullscreen-image');
+        const closeFullscreenButton = document.querySelector('.close-fullscreen');
+        const prevFullscreenButton = document.querySelector('.prev-fullscreen');
+        const nextFullscreenButton = document.querySelector('.next-fullscreen');
+        const openFullscreenLink = document.getElementById('openFullscreen');
+        const imageVariantName = document.getElementById('image-variant-name');
 
-    thumbnails.forEach((thumb, index) => {
-        thumb.addEventListener('click', () => {
-            mainImage.src = thumb.src;
-            mainImage.alt = thumb.alt;
-            if (imageVariantName) {
-                imageVariantName.textContent = thumb.dataset.name;
-            }
-            thumbnails.forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-            currentImageIndex = index;
+        if (!mainImage || !fullscreenOverlay) return;
+        let currentImageIndex = 0;
+        let productThumbnails = Array.from(thumbnails).map(t => {
+            return { src: t.src, name: t.dataset.name };
         });
-    });
 
-    if (openFullscreenLink) {
-        openFullscreenLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            if(productThumbnails.length > 0) {
-                fullscreenImage.src = productThumbnails[currentImageIndex].src;
-                fullscreenOverlay.classList.add('open');
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                mainImage.src = thumb.src;
+                mainImage.alt = thumb.alt;
+                if (imageVariantName) {
+                    imageVariantName.textContent = thumb.dataset.name;
+                }
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                currentImageIndex = index;
+            });
+        });
+
+        if (openFullscreenLink) {
+            openFullscreenLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (productThumbnails.length > 0) {
+                    fullscreenImage.src = productThumbnails[currentImageIndex].src;
+                    fullscreenOverlay.classList.add('open');
+                }
+            });
+        }
+
+        const closeGallery = () => {
+            fullscreenOverlay.classList.remove('open');
+            if (mainImage && productThumbnails[currentImageIndex]) {
+                mainImage.src = productThumbnails[currentImageIndex].src;
+                mainImage.alt = productThumbnails[currentImageIndex].name;
+            }
+            if (imageVariantName && productThumbnails[currentImageIndex]) {
+                imageVariantName.textContent = productThumbnails[currentImageIndex].name;
+            }
+            thumbnails.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentImageIndex);
+            });
+        };
+
+        const navigateGallery = (direction) => {
+            if (!productThumbnails || productThumbnails.length === 0) return;
+            currentImageIndex = (currentImageIndex + direction + productThumbnails.length) % productThumbnails.length;
+            fullscreenImage.src = productThumbnails[currentImageIndex].src;
+        };
+
+        if (closeFullscreenButton) closeFullscreenButton.addEventListener('click', closeGallery);
+        if (prevFullscreenButton) prevFullscreenButton.addEventListener('click', () => navigateGallery(-1));
+        if (nextFullscreenButton) nextFullscreenButton.addEventListener('click', () => navigateGallery(1));
+        fullscreenOverlay.addEventListener('click', (e) => { if (e.target === fullscreenOverlay) closeGallery(); });
+        document.addEventListener('keydown', (e) => {
+            if (fullscreenOverlay.classList.contains('open')) {
+                if (e.key === 'ArrowLeft') navigateGallery(-1);
+                else if (e.key === 'ArrowRight') navigateGallery(1);
+                else if (e.key === 'Escape') closeGallery();
             }
         });
     }
 
-    // --- DEĞİŞTİRİLEN FONKSİYON ---
-    const closeGallery = () => {
-        fullscreenOverlay.classList.remove('open');
-        
-        // Ana resmi, galerideki son kalınan resimle güncelle
-        if (mainImage && productThumbnails[currentImageIndex]) {
-            mainImage.src = productThumbnails[currentImageIndex].src;
-            mainImage.alt = productThumbnails[currentImageIndex].name;
-        }
-
-        // Desen adını güncelle
-        if (imageVariantName && productThumbnails[currentImageIndex]) {
-            imageVariantName.textContent = productThumbnails[currentImageIndex].name;
-        }
-        
-        // Aktif olan küçük resmi (thumbnail) güncelle
-        thumbnails.forEach((thumb, index) => {
-            thumb.classList.toggle('active', index === currentImageIndex);
-        });
-    };
-
-    const navigateGallery = (direction) => {
-        if (!productThumbnails || productThumbnails.length === 0) return;
-        currentImageIndex = (currentImageIndex + direction + productThumbnails.length) % productThumbnails.length;
-        fullscreenImage.src = productThumbnails[currentImageIndex].src;
-    };
-    
-    if(closeFullscreenButton) closeFullscreenButton.addEventListener('click', closeGallery);
-    if(prevFullscreenButton) prevFullscreenButton.addEventListener('click', () => navigateGallery(-1));
-    if(nextFullscreenButton) nextFullscreenButton.addEventListener('click', () => navigateGallery(1));
-    fullscreenOverlay.addEventListener('click', (e) => { if (e.target === fullscreenOverlay) closeGallery(); });
-    document.addEventListener('keydown', (e) => {
-        if (fullscreenOverlay.classList.contains('open')) {
-            if (e.key === 'ArrowLeft') navigateGallery(-1);
-            else if (e.key === 'ArrowRight') navigateGallery(1);
-            else if (e.key === 'Escape') closeGallery();
-        }
-    });
-}
-
     function initializeRelatedProductsSlider() {
         if (document.querySelector('#related-products-slider')) {
             new Swiper('#related-products-slider', {
-                loop: false, spaceBetween: 20, slidesPerView: 1,
-                breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } },
+                loop: false,
+                spaceBetween: 20,
+                slidesPerView: 1,
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    992: { slidesPerView: 3 }
+                },
                 pagination: { el: '#related-products-slider .swiper-pagination', clickable: true },
             });
         }
     }
 
-
-    // =======================================================
-    // === BÖLÜM 2: SİTE GENELİ KÜÇÜK İŞLEVLER
-    // =======================================================
-
     const siteHeader = document.querySelector('.site-header');
     if (siteHeader) window.addEventListener('scroll', () => { siteHeader.classList.toggle('scrolled', window.scrollY > 50); });
-    
-    // Mobil menü ana aç/kapat butonu
+
     const menuToggle = document.getElementById('menu-toggle');
     const navLinksContainer = document.getElementById('nav-links');
     if (menuToggle && navLinksContainer) {
@@ -260,57 +239,40 @@ paginationDots.forEach((dot, index) => {
         });
     }
 
-
-    // === YENİ: SAYFA ÜSTÜ GALERİLERİ AKTİF ETME ===
     const topGallery = document.querySelector('.top-gallery-swiper');
     if (topGallery) {
         new Swiper(topGallery, {
-            // Sonsuz döngü
             loop: true,
-            
-            // Fare ile sürükleme imkanı
             grabCursor: true,
-            
-            // Geçiş efekti (fade daha şık durabilir)
             effect: 'fade',
             fadeEffect: {
                 crossFade: true
             },
-            
-            // Otomatik oynatma
             autoplay: {
-              delay: 4000,
-              disableOnInteraction: false,
+                delay: 4000,
+                disableOnInteraction: false,
             },
-
-            // Sayfalama (noktalar)
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
             },
-
-            // Navigasyon (oklar)
-            // Navigasyon (oklar) - Artık özel butonlarımızı kullanıyoruz
             navigation: {
                 nextEl: '.swiper-button-next-custom',
                 prevEl: '.swiper-button-prev-custom',
             },
         });
     }
-    // *** KOD BURAYA TAŞINDI ***
-    // Mobil menüdeki alt menülerin (dropdown) açılıp kapanmasını yöneten kod
+
     const dropdowns = document.querySelectorAll('.main-nav .dropdown');
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         toggle.addEventListener('click', (e) => {
-            // Sadece mobil görünümde (767px ve altı) çalışır
             if (window.innerWidth <= 767) {
-                e.preventDefault(); // Sayfanın üste atmasını engeller
-                dropdown.classList.toggle('open'); // Alt menüyü açar/kapatır
+                e.preventDefault();
+                dropdown.classList.toggle('open');
             }
         });
     });
-    // *** TAŞIMA İŞLEMİ BİTTİ ***
 
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (scrollToTopBtn) {
@@ -337,10 +299,6 @@ paginationDots.forEach((dot, index) => {
         });
     }
 
-    // =======================================================
-    // === BÖLÜM 3: SAYFA YÖNETİCİSİ
-    // =======================================================
-
     const page = document.body.dataset.page;
     const bodyId = document.body.id;
     if (bodyId === 'home-page') {
@@ -348,8 +306,13 @@ paginationDots.forEach((dot, index) => {
             renderProductGrid(allProducts, 'featured-products-wrapper');
             if (document.querySelector('.featured-products .product-slider')) {
                 new Swiper('.featured-products .product-slider', {
-                    loop: true, spaceBetween: 20, slidesPerView: 1,
-                    breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } },
+                    loop: true,
+                    spaceBetween: 20,
+                    slidesPerView: 1,
+                    breakpoints: {
+                        768: { slidesPerView: 2 },
+                        992: { slidesPerView: 3 }
+                    },
                     pagination: { el: '.swiper-pagination', clickable: true },
                 });
             }
@@ -363,7 +326,7 @@ paginationDots.forEach((dot, index) => {
             const categoryFromURL = params.get('category');
             if (categoryFromURL) {
                 const categorySelect = document.getElementById('category-select');
-                if(categorySelect) {
+                if (categorySelect) {
                     const optionExists = Array.from(categorySelect.options).some(opt => opt.value === categoryFromURL);
                     if (optionExists) categorySelect.value = categoryFromURL;
                 }
@@ -375,4 +338,4 @@ paginationDots.forEach((dot, index) => {
     if (page === 'urun-detay') {
         populateProductDetails();
     }
-}); // <-- DOMContentLoaded SONUs
+});

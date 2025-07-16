@@ -1,19 +1,13 @@
-/* css/style.css */
-
-/* Genel Stiller ve Reset */
 :root {
-    /* Yeni Canlı Renk Paleti */
-    --primary-color: #0D9488; /* Ana Renk (Modern Teal) */
-    --primary-hover-color: #0F766E; /* Ana rengin hover hali (Koyu Teal) */
-    
-    --accent-color: #FBBF24; /* Vurgu Rengi (Sıcak Amber/Altın) */
-    --accent-hover-color: #F59E0B; /* Vurgu renginin hover hali (Koyu Amber) */
-    
-    --secondary-bg-color: #F1F5F9; /* Bölüm arka plan rengi (Soğuk Açık Gri) */
-    --text-dark: #1E293B; /* Koyu metin rengi (Koyu Gri/Slate) */
-    --text-medium: #64748B; /* Orta ton metin rengi (Orta Gri/Slate) */
-    --border-light: #CBD5E1; /* Açık kenarlık rengi (Açık Gri/Slate) */
-    --white: #FFFFFF; /* Saf beyaz */
+    --primary-color: #0D9488;
+    --primary-hover-color: #0F766E;
+    --accent-color: #FBBF24;
+    --accent-hover-color: #F59E0B;
+    --secondary-bg-color: #F1F5F9;
+    --text-dark: #1E293B;
+    --text-medium: #64748B;
+    --border-light: #CBD5E1;
+    --white: #FFFFFF;
     --font-family: 'Poppins', sans-serif;
 }
 
@@ -32,7 +26,7 @@ body {
     line-height: 1.7;
     background-color: var(--white);
     color: var(--text-dark);
-    padding-top: 85px; 
+    padding-top: 85px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -65,7 +59,6 @@ a, button, .product-card-final, .feature-item, .social-links a, .menu-toggle {
     transition: all 0.3s ease-in-out;
 }
 
-/* Genel link stilleri */
 p a, .footer-contact-info a, .about-text a {
     color: var(--primary-color);
     text-decoration: none;
@@ -87,7 +80,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     padding-bottom: 0 !important;
 }
 
-/* === HEADER VE NAVİGASYON === */
 .site-header {
     background-color: var(--white);
     padding: 1rem 0;
@@ -123,30 +115,26 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-/* YENİ: Header scroll edildiğinde eklenecek stil */
+
 .site-header.scrolled {
     box-shadow: 0 4px 15px rgba(30, 41, 59, 0.08);
     background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px); /* Modern tarayıcılar için camsı etki */
+    backdrop-filter: blur(8px);
 }
 
-/* YENİ: Aktif sayfa linkini vurgulamak için stil */
 .nav-links > li.active-page > a {
     color: var(--primary-color);
     font-weight: 700;
 }
 
-/* Aktif sayfa linkinin altındaki hover çizgisini kaldırıyoruz */
 .nav-links > li.active-page > a::after {
     display: none;
 }
 
-/* Masaüstü Dropdown */
 @media (min-width: 768px) {
     .nav-links li a { position: relative; padding-bottom: 5px; }
     .nav-links li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s ease-out; }
     .nav-links li a:hover::after { width: 100%; }
-
     .dropdown:hover .dropdown-toggle i { transform: rotate(180deg); }
     .dropdown-menu {
         display: none;
@@ -168,38 +156,33 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     .dropdown:hover .dropdown-menu { display: block; opacity: 1; top: 100%; visibility: visible; }
     .dropdown-menu li a { padding: 12px 20px !important; color: var(--text-dark); display: block; white-space: nowrap; }
     .dropdown-menu li a:hover { background-color: var(--secondary-bg-color) !important; color: var(--primary-color); }
-    .dropdown-menu li a::after { display: none; } /* Alt çizgi efektini dropdown içinde iptal et */
+    .dropdown-menu li a::after { display: none; }
 }
 
-
-/* Mobil Menü (Tablet ve Altı) */
 @media (max-width: 767px) {
     .menu-toggle { display: block; }
     .nav-links {
         position: fixed;
         top: 85px; left: 0;
         width: 100%;
-        height: calc(100vh - 85px); /* Yükseklik artık daha dinamik */
+        height: auto;
         background-color: var(--white);
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; /* Linkleri yukarıdan başlat */
-        padding: 1.5rem 0; /* İç boşluklar */
-        gap: 0; /* Linkler arası boşluklar kaldırıldı */
+        justify-content: flex-start;
+        padding: 1.5rem 0;
+        gap: 0;
         visibility: hidden;
         opacity: 0;
         transition: visibility 0.4s ease-in-out, opacity 0.4s ease-in-out;
-        height: auto;
     }
     .nav-links.is-open { visibility: visible; opacity: 1; }
-    
     .nav-links li { width: 100%; text-align: center; border-bottom: 1px solid var(--border-light); }
     .nav-links > li:last-child { border-bottom: none; }
     .nav-links a { font-size: 1.2rem; padding: 0.8rem 1rem; display: block; width: 100%;}
-    
     .dropdown.open .dropdown-toggle i { transform: rotate(180deg); }
     .dropdown .dropdown-menu {
-        display: none; /* JS ile yönetilecek */
+        display: none;
         position: static;
         box-shadow: none;
         background-color: var(--secondary-bg-color);
@@ -220,8 +203,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     }
 }
 
-
-/* === SAYFA BAŞLIKLARI VE HERO ALANI === */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg-banyo.jpg') no-repeat center center/cover;
     color: var(--white);
@@ -248,16 +229,15 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 }
 
 .page-header {
-    position: relative; /* Renk katmanı için gerekli */
+    position: relative;
     color: var(--white);
-    padding: 5rem 20px; /* Daha ferah bir görünüm için iç boşlukları artırdık */
+    padding: 5rem 20px;
     text-align: center;
-    background-size: cover; /* Görselin alanı kaplamasını sağlar */
-    background-position: center center; /* Görseli ortalar */
-    overflow: hidden; /* Taşmaları engeller */
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
 }
 
-/* Görselin üzerine yarı şeffaf renk katmanı ekliyoruz */
 .page-header::before {
     content: '';
     position: absolute;
@@ -265,22 +245,18 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Sitenizin ana rengini kullanarak modern bir gradyan oluşturuyoruz */
     background: linear-gradient(45deg, rgba(13, 148, 136, 0.85), rgba(15, 118, 110, 0.9));
-    z-index: 1; /* Yazıların arkasında kalması için */
+    z-index: 1;
 }
 
-/* Yazıların renk katmanının üzerinde görünmesini sağlıyoruz */
 .page-header .container {
     position: relative;
     z-index: 2;
 }
 
-/* Başlık (H1) ve Paragraf (p) stillerini okunabilirlik için güncelliyoruz */
 .page-header h1 {
     font-size: 3.2rem;
     color: var(--white);
-    /* Yazıyı arka plandan ayıran daha belirgin bir gölge */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     margin-bottom: 0.5rem;
 }
@@ -289,12 +265,11 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-    max-width: 600px; /* Paragrafın çok geniş olmasını engeller */
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Mobil cihazlar için başlık boyutunu ayarlıyoruz */
 @media (max-width: 768px) {
     .page-header {
         padding: 4rem 20px;
@@ -325,8 +300,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     max-width: 600px;
 }
 
-
-/* === BÖLÜM STİLLERİ VE BAŞLIKLARI === */
 .featured-products, .product-gallery, .about-content, .contact-content, .product-detail, .why-us, .related-products {
     padding: 4rem 0;
 }
@@ -353,8 +326,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-
-/* === FİNAL ÜRÜN KARTI TASARIMI (.product-card-final) === */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -471,8 +442,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     font-size: 1.2rem;
 }
 
-
-/* === GENEL BUTON STİLLERİ === */
 .btn {
     display: inline-block;
     background-color: var(--accent-color);
@@ -500,10 +469,8 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .btn-secondary:hover {
     background-color: var(--primary-color);
     color: var(--white);
-} 
+}
 
-
-/* === SABİT SOSYAL MEDYA VE YUKARI ÇIK BUTONLARI === */
 .social-links {
     position: fixed;
     bottom: 20px; right: 20px;
@@ -554,8 +521,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 #scrollToTopBtn.show { opacity: 1; transform: translateY(0); visibility: visible; }
 #scrollToTopBtn:hover { background-color: var(--accent-hover-color); transform: scale(1.1) translateY(0); }
 
-
-/* === ÜRÜNLER SAYFASI FİLTRELEME VE SIRALAMA === */
 .controls-container {
     display: flex;
     flex-wrap: wrap;
@@ -619,8 +584,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     }
 }
 
-
-/* === ÜRÜN DETAY SAYFASI === */
 .product-detail-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -638,6 +601,7 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     width: 100%; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden;
     margin-bottom: 1rem;
     background-color: #f8f8f8;
+    cursor: zoom-in;
 }
 #mainProductImage, .main-image-display img {
     width: 100%; height: 100%;
@@ -660,10 +624,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .gallery-nav-btn.prev { left: 10px; }
 .gallery-nav-btn.next { right: 10px; }
 
-
-
-
-/* Ürün Bilgi Alanı */
 .product-info-container h1 { font-size: 2.2rem; margin-bottom: 1rem; }
 .product-info-container .product-description { font-size: 1.1rem; color: var(--text-medium); margin-bottom: 2rem; }
 
@@ -687,7 +647,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 }
 .btn-whatsapp:hover, .price-cta-box .btn.cta-whatsapp:hover { background-color: #1DAA57; }
 
-/* Breadcrumb Navigasyonu */
 .breadcrumb-section { background-color: var(--secondary-bg-color); padding: 1rem 0; border-bottom: 1px solid var(--border-light); }
 .breadcrumb { display: flex; list-style: none; margin: 0; padding: 0; }
 .breadcrumb-item + .breadcrumb-item::before { content: '/'; padding: 0 0.75rem; color: var(--text-medium); }
@@ -695,7 +654,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .breadcrumb-item a:hover { text-decoration: underline; }
 .breadcrumb-item.active { color: var(--text-medium); }
 
-/* Sekmeli Bilgi Alanı */
 .product-tabs-section { padding: 2rem 0 4rem 0; }
 .tab-buttons { display: flex; border-bottom: 2px solid var(--border-light); margin-bottom: 2rem; }
 .tab-btn { padding: 1rem 1.5rem; cursor: pointer; background: none; border: none; font-size: 1rem; font-weight: 700; color: var(--text-medium); position: relative; bottom: -2px; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
@@ -707,8 +665,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .tab-pane ul li { padding: 0.5rem 0; border-bottom: 1px dashed var(--border-light); }
 .tab-pane ul li:last-child { border-bottom: none; }
 
-
-/* === LIGHTBOX STİLLERİ === */
 .lightbox {
     display: none; position: fixed; z-index: 2000;
     padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%;
@@ -735,8 +691,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .lightbox-nav-btn.prev { left: 20px; }
 .lightbox-nav-btn.next { right: 20px; }
 
-
-/* === SWIPER SLIDER (İlgili/Öne Çıkan Ürünler) === */
 .product-slider {
     padding-bottom: 50px;
     padding-left: 15px;
@@ -745,28 +699,23 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     margin-right: -15px;
 }
 
-/* YENİ VE İYİLEŞTİRİLMİŞ SLAYT STİLLERİ */
 .swiper-slide {
-    height: auto; /* Yüksekliğin içeriğe göre ayarlanmasını sağlar */
+    height: auto;
     display: flex;
-    align-items: stretch; /* Kartların dikeyde esneyerek aynı boyda kalmasını sağlar */
-    padding-bottom: 10px; /* Gölge veya hover efektleri için altta küçük bir boşluk */
+    align-items: stretch;
+    padding-bottom: 10px;
 }
 
 .swiper-slide .product-card-final {
-    width: 100%; /* Slaytın tamamını kapla */
-    height: 100%; /* Slaytın esneyen yüksekliğinin tamamını kullan */
+    width: 100%;
+    height: 100%;
 }
 
-/* Swiper Navigasyon ve Paginasyon stilleri (Bunlar zaten vardı, aynı kalacak) */
 .swiper-button-prev,
 .swiper-button-next {
     color: var(--primary-color);
     top: 45%;
 }
-.swiper-slide { display: flex; justify-content: center; align-items: stretch; height: auto; }
-.swiper-slide .product-card-final { width: 100%; }
-.swiper-button-prev, .swiper-button-next { color: var(--primary-color); top: 45%; }
 .swiper-button-prev:after, .swiper-button-next:after {
     font-size: 1.5rem; font-weight: 900; padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -778,8 +727,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .swiper-pagination-bullet { background-color: var(--border-light); opacity: 1; transition: background-color 0.3s, width 0.3s; }
 .swiper-pagination-bullet-active { background-color: var(--primary-color); width: 20px; border-radius: 5px; }
 
-
-/* === İLETİŞİM & HAKKIMIZDA SAYFALARI === */
 .about-content .container, .contact-content .container {
     display: grid; grid-template-columns: 1fr; gap: 2rem;
 }
@@ -814,8 +761,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
     box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
 }
 
-
-/* === DİĞER BÖLÜMLER (Why Us, CTA, etc.) === */
 .why-us .features-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem; text-align: center;
@@ -849,8 +794,6 @@ p a:hover, .footer-contact-info a:hover, .about-text a:hover {
 .cta-btn { background-color: var(--accent-color); color: var(--text-dark); padding: 15px 35px; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 .cta-btn:hover { background-color: var(--accent-hover-color); transform: translateY(-3px) scale(1.05); }
 
-
-/* === FOOTER === */
 footer {
     background-color: var(--text-dark);
     color: #E0E7FF;
@@ -873,8 +816,6 @@ footer {
     .footer-contact-info p { margin-bottom: 0; }
 }
 
-
-/* === ANİMASYONLAR === */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -891,7 +832,6 @@ footer {
 .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 .fade-in-section.is-visible .section-title::after { width: 80px; }
 
-/* Grid elemanları için sıralı animasyon */
 .fade-in-section.is-visible .product-card-final,
 .fade-in-section.is-visible .feature-item {
     animation: fadeInUp 0.7s ease-out forwards;
@@ -902,10 +842,8 @@ footer {
 .fade-in-section.is-visible .product-card-final:nth-child(5) { animation-delay: 0.6s; }
 .fade-in-section.is-visible .product-card-final:nth-child(6) { animation-delay: 0.75s; }
 
-/* === ÜRÜN KARTI İÇİ GALERİ STİLLERİ === */
-
 .product-image-link {
-    position: relative; /* Navigasyon elemanlarını konumlandırmak için gerekli */
+    position: relative;
 }
 
 .card-nav-btn {
@@ -928,7 +866,7 @@ footer {
 }
 
 .product-card-final:hover .card-nav-btn {
-    opacity: 1; /* Sadece kartın üzerine gelince görünür yap */
+    opacity: 1;
 }
 
 .card-nav-btn:hover {
@@ -970,13 +908,6 @@ footer {
     transform: scale(1.2);
 }
 
-/* === ÜRÜN DETAY SAYFASI BÜYÜTME STİLLERİ === */
-.main-image-display {
-    position: relative;
-    overflow: hidden; /* Büyütme efekti için gerekebilir */
-    cursor: zoom-in;
-}
-
 .zoom-icon {
     position: absolute;
     top: 10px;
@@ -998,7 +929,6 @@ footer {
     opacity: 1;
 }
 
-/* Tam Ekran (Fullscreen) Overlay */
 .fullscreen-overlay {
     position: fixed;
     top: 0;
@@ -1062,195 +992,142 @@ footer {
         right: 15px;
     }
 }
-/* === ÜRÜN KARTI BOYUT DÜZELTMESİ === */
 
-/* Swiper'ı içeren sarmalayıcıya (<a> etiketi) sabit bir yükseklik veriyoruz.
-  Bu, tüm kartların resim alanlarının aynı boyutta olmasını sağlar.
-*/
 .product-card-final .product-image-link-wrapper {
     display: block;
-    height: 250px; /* Kartların resim alanına sabit bir yükseklik veriyoruz. */
-    background-color: #f8f9fa; /* Resim yüklenene kadar boş görünmemesi için arkaplan rengi */
+    height: 250px;
     position: relative;
     overflow: hidden;
+    background-color: #f8f9fa;
 }
 
-/* İçindeki Swiper slider'ının bu alanı tamamen doldurmasını sağlıyoruz.
-  Bu kural zaten mevcuttu, ancak bütünlük için burada da belirtmekte fayda var.
-*/
-
-/* === ÜRÜN KARTI RESİM BOYUTU DÜZELTMESİ (SON HALİ) === */
-
-/* 1. Adım: Resmin içinde bulunduğu <a> etiketine sabit bir yükseklik veriyoruz.
-   Bu, tüm kartların aynı boyutta kalmasını sağlar. */
-.product-card-final .product-image-link-wrapper {
-    display: block;
-    height: 250px; /* Kartların resim alanına sabit bir yükseklik veriyoruz. */
-    position: relative;
-    overflow: hidden;
-    background-color: #f8f9fa; /* Resim yüklenene kadar bir arka plan rengi */
-}
-
-/* 2. Adım: Resmin (<img>), bu 250px'lik alanı tamamen kaplamasını sağlıyoruz.
-   object-fit: cover; -> Resmi en-boy oranını koruyarak ve gerekirse kırparak alanı doldurur. Boşluk bırakmaz.
-*/
 .product-card-final .product-card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Bu kural resmin alanı doldurmasını sağlar */
+    object-fit: cover;
     transition: transform 0.4s ease;
 }
 
-/* Kartın üzerine gelince resmin büyüme efektini koruyoruz */
 .product-card-final:hover .product-card-image {
     transform: scale(1.1);
 }
 
-/* === MOBİL BREADCRUMB DÜZELTMESİ (ALTERNATİF: ÜÇ NOKTA İLE KISALTMA) === */
-
-/* Bu kuralı sadece mobil ekranlar için geçerli yapıyoruz */
 @media (max-width: 768px) {
     .breadcrumb {
         display: flex;
         align-items: center;
-        width: 100%; /* Taşıyıcının tam genişliği kullanmasını sağlar */
-        overflow: hidden; /* Taşan kısmı gizler */
+        width: 100%;
+        overflow: hidden;
     }
 
     .breadcrumb-item {
-        white-space: nowrap; /* "Ana Sayfa", "Ürünler" gibi linklerin kırılmasını engeller */
+        white-space: nowrap;
     }
 
-    /* Son ve aktif olan ürün ismine özel kurallar */
     .breadcrumb-item.active {
-        flex-shrink: 1; /* Esneyerek küçülebilmesini sağlar */
-        min-width: 0; /* Küçülme yeteneği için gerekli bir kural */
-        overflow: hidden; /* Taşan metni gizle */
-        text-overflow: ellipsis; /* Gizlenen metnin sonuna '...' ekle */
-        white-space: nowrap; /* Metnin kendisinin alt satıra inmesini engelle */
+        flex-shrink: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
-/* === MOBİL DROPDOWN AÇILMA STİLİ === */
 
-/* JS tarafından .open sınıfı eklendiğinde, alt menüyü görünür yap */
 .dropdown.open > .dropdown-menu {
     display: block;
 }
 
-/* Bonus: Menü açıldığında yanındaki ok işaretini yukarı döndür */
 .dropdown.open > .dropdown-toggle i {
     transform: rotate(180deg);
 }
 
-/* === İKİLİ RESİM GALERİSİ STİLLERİ (SİNEKLİK SAYFASI İÇİN) === */
-
 .resim-galeri-ikili {
-    display: flex; /* Resimleri yan yana getirmek için flexbox kullanıyoruz */
-    gap: 1rem; /* İki resim arasına boşluk koyuyoruz */
+    display: flex;
+    gap: 1rem;
     width: 100%;
 }
 
 .resim-galeri-ikili img {
-    width: 50%; /* Her resmin, boşluklar çıktıktan sonra kalan alanın yarısını kaplamasını sağlıyoruz */
-    height: 400px; /* TÜM resimlerin yüksekliğini sabitliyoruz. Bu sayede aynı boyutta olurlar. */
-    object-fit: cover; /* Resmin en-boy oranını koruyarak alanı doldurmasını sağlıyoruz. */
-    border-radius: 8px; /* Kenarları yumuşatıyoruz */
-    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.08); /* Hafif bir gölge ekliyoruz */
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.08);
 }
 
-/* Mobil Cihazlar için Duyarlılık */
 @media (max-width: 992px) {
     .resim-galeri-ikili {
-       /* Orta boy ekranlarda resim yüksekliğini biraz azaltabiliriz */
        height: 350px;
     }
 }
 
 @media (max-width: 768px) {
     .resim-galeri-ikili img {
-       /* Mobil cihazlarda resim yüksekliğini daha da azaltıyoruz */
        height: 280px;
     }
 }
 
-/* === SAYFA ÜSTÜ GALERİ SLIDER === */
 .page-gallery-slider {
-    padding: 2.5rem 0; /* Üstten ve alttan boşluk */
-    background-color: var(--secondary-bg-color); /* Arka plan rengi */
+    padding: 2.5rem 0;
+    background-color: var(--secondary-bg-color);
     border-bottom: 1px solid var(--border-light);
 }
 
 .top-gallery-swiper {
     width: 100%;
-    height: 550px; /* Galerinin yüksekliği */
+    height: 550px;
     border-radius: 12px;
-    overflow: hidden; /* Köşelerin yuvarlak kalmasını sağlar */
+    overflow: hidden;
     box-shadow: 0 8px 25px rgba(30, 41, 59, 0.1);
 }
 
-/* YENİ HALİ */
 .top-gallery-swiper .swiper-slide {
-    /* Slaytın arka planına yumuşak bir renk veriyoruz ki resim kenarları boş kalırsa sırıtmasın. */
-    background-color: #f1f5f9; 
-
-    /* Resimlerin slayt kenarlarına yapışmasını önlemek için küçük bir iç boşluk. */
+    background-color: #f1f5f9;
     padding: 10px;
 }
 
 .top-gallery-swiper .swiper-slide img {
     width: 100%;
     height: 100%;
-
-    /* BU EN ÖNEMLİ KURALDIR: */
-    /* Resmi kırpmadan, en-boy oranını koruyarak alana sığdırır. */
-    object-fit: contain; 
-
-    border-radius: 8px; /* Resimlerin köşelerini hafifçe yuvarlaklaştırır. */
+    object-fit: contain;
+    border-radius: 8px;
 }
 
-/* === YENİ: SAYFA ÜSTÜ GALERİ İÇİN ÖZEL YÖN TUŞLARI === */
-
-/* Tuşları ortalamak için sarmalayıcı div */
 .swiper-navigation-custom {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem; /* İki tuş arasındaki boşluk */
-    margin-top: 1.5rem; /* Galerinin altına boşluk bırakır */
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-/* Her bir tuşun genel stili */
 .swiper-button-prev-custom,
 .swiper-button-next-custom {
     width: 50px;
     height: 50px;
-    background-color: var(--primary-color); /* Sitenin ana rengi */
-    color: var(--white); /* Ok rengi */
-    border-radius: 50%; /* Yuvarlak şekil */
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.15); /* Hafif bir gölge */
+    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.15);
     transition: all 0.3s ease;
 }
 
-/* Üzerine gelince (hover) efekti */
 .swiper-button-prev-custom:hover,
 .swiper-button-next-custom:hover {
-    background-color: var(--primary-hover-color); /* Ana rengin koyu tonu */
-    transform: scale(1.1); /* Hafifçe büyüme efekti */
+    background-color: var(--primary-hover-color);
+    transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(30, 41, 59, 0.2);
 }
 
-/* İçindeki ikonun boyutu */
 .swiper-button-prev-custom i,
 .swiper-button-next-custom i {
     font-size: 1.2rem;
 }
 
-/* Swiper tarafından otomatik eklenen 'disabled' sınıfı için stil */
-/* Not: loop:true olduğu için bu stil görünmez ama iyi bir pratiktir. */
 .swiper-button-disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -1258,19 +1135,17 @@ footer {
     box-shadow: none;
 }
 
-/* Mobil cihazlar için galeri yüksekliğini ayarla */
 @media (max-width: 768px) {
     .top-gallery-swiper {
         height: 350px;
     }
 }
 
-/* === GENEL HİZMET AÇIKLAMA BÖLÜMÜ === */
 .service-description {
     padding: 3rem 0 4rem 0;
-    max-width: 850px; /* İçerik genişliğini okunaklılık için sınırlıyoruz */
+    max-width: 850px;
     margin: 0 auto;
-    text-align: center; /* Tüm içeriği merkeze hizalıyoruz */
+    text-align: center;
 }
 
 .service-description h2 {
@@ -1288,15 +1163,15 @@ footer {
 .service-description ul {
     list-style: none;
     padding: 0;
-    display: inline-block; /* Liste elemanlarının merkezde kalmasını sağlar */
-    text-align: left; /* Liste içindeki metinleri sola hizalar */
+    display: inline-block;
+    text-align: left;
     margin: 2rem 0;
 }
 
 .service-description ul li {
     display: flex;
     align-items: center;
-    gap: 15px; /* İkon ve metin arası boşluk */
+    gap: 15px;
     margin-bottom: 1rem;
     font-size: 1.1rem;
     color: var(--text-medium);
@@ -1305,7 +1180,7 @@ footer {
 .service-description ul li i {
     color: var(--primary-color);
     font-size: 1.5rem;
-    width: 25px; /* İkonların aynı hizada durması için */
+    width: 25px;
 }
 
 .service-description .btn {
@@ -1314,7 +1189,6 @@ footer {
     font-size: 1.1rem;
 }
 
-/* === ÜRÜN DETAY SAYFASI - RESİM İSMİ STİLİ === */
 .image-variant-name {
     text-align: center;
     font-size: 1.1rem;
@@ -1324,143 +1198,14 @@ footer {
     padding: 0.75rem;
     border-radius: 8px;
     margin-top: 1rem;
-    margin-bottom: 1rem;
-    min-height: 45px; /* Tıklamalar arası yükseklik oynamasını engeller */
+    min-height: 45px;
     transition: background-color 0.3s ease;
 }
 
-/* === ÜRÜN DETAY GALERİSİ - NİHAİ DÜZEN (MASAÜSTÜ) === */
-
-/* Bu kurallar sadece 992px ve üzeri genişlikteki ekranlarda (masaüstü) geçerli olacak */
-@media (min-width: 992px) {
-    
-    /* Ana galeriyi yan yana iki sütuna ayırır */
-    .product-gallery-container {
-        display: flex;
-        align-items: flex-start; /* Sütunları yukarıdan hizalar */
-        gap: 20px; /* Sütunlar arasına boşluk bırakır */
-    }
-
-    /* SOL SÜTUN (Büyük resim ve desen adını içerir) */
-    .main-image-wrapper {
-        flex: 1; /* Esneyerek mevcut alanın çoğunu kaplar */
-        min-width: 0; /* Esneme yeteneği için gerekli */
-    }
-
-    /* SAĞ SÜTUN (Küçük resimler) */
-    .thumbnail-gallery {
-        display: flex;
-        flex-direction: column; /* Küçük resimleri dikey olarak sıralar */
-        gap: 10px; /* Resimler arası boşluk */
-        flex: 0 0 100px; /* Genişliğini sabit 100px yapar, büyümez/küçülmez */
-    }
-
-    /* Küçük resimlerin kendisi */
-    .thumbnail-gallery .thumbnail {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border: 3px solid transparent;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    /* Seçili olan küçük resmin çerçevesi */
-    .thumbnail-gallery .thumbnail.active {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 10px rgba(13, 148, 136, 0.4);
-    }
-}
-
-/* Bu kural tüm ekran boyutlarında geçerlidir */
-/* Desen adının yazdığı metin alanı */
-.image-variant-name {
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    background-color: var(--secondary-bg-color);
-    padding: 0.75rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    min-height: 45px; /* Yükseklik oynamasını engellemek için */
-}
-
-/* === NİHAİ DÜZEN - BÖLÜM 1: Desen Adı Metni === */
-/* Bu kural desen adının stilini belirler ve tüm ekran boyutlarında geçerlidir. */
-.image-variant-name {
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    background-color: var(--secondary-bg-color);
-    padding: 0.75rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    min-height: 45px; /* Yükseklik oynamasını engellemek için */
-}
-
-/* === NİHAİ DÜZEN - BÖLÜM 2: Yatay Küçük Resim Galerisi === */
-/* Bu kurallar küçük resimleri büyük resmin altında yatay olarak sıralar. */
-/* === NİHAİ DÜZEN - BÖLÜM 2: Dikey Sütunlu Küçük Resim Galerisi === */
-.thumbnail-gallery {
-    display: grid; /* Layout sistemini Grid olarak değiştiriyoruz */
-    grid-auto-flow: column; /* Öğelerin önce dikeyde (sütun içinde) sıralanmasını sağlar */
-    grid-template-rows: repeat(5, auto); /* Her sütunda 5 satır (resim) olacağını belirtir */
-    gap: 10px; /* Resimler arası boşluk */
-    
-    /* Çok fazla resim olduğunda yatay kaydırma çubuğu çıkması için */
-    overflow-x: auto; 
-    overflow-y: hidden;
-    
-    /* Kaydırma çubuğu içeriğe yapışmasın diye alttan küçük bir boşluk */
-    padding-bottom: 15px; 
-    
-    /* Mobil cihazlarda daha iyi bir görünüm için sola hizalama */
-    justify-content: flex-start; 
-    
-    margin-top: 1rem;
-}
-
-/* Her bir küçük resmin stili (Bu kısım aynı kalıyor) */
-.thumbnail-gallery .thumbnail {
-    width: 80px;
-    height: 80px;
-    border: 3px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-    object-fit: cover;
-}
-
-/* Seçili olan küçük resmin çerçevesi (Bu kısım da aynı kalıyor) */
-.thumbnail-gallery .thumbnail.active {
-    border-color: var(--primary-color);
-}
-
-/* Seçili olan küçük resmin çerçevesini belirginleştirir */
-.thumbnail-gallery .thumbnail.active {
-    border-color: var(--primary-color); /* Ana renkte çerçeve */
-}
-
-/* Ürün Detay Sayfası Galeri Taşma Problemi Düzeltmesi */
-.product-gallery-container {
-    /* Bu kural, galeri konteynerinin kendi grid hücresinin dışına taşmasını engeller. */
-    /* İçindeki thumbnail galerisi ne kadar geniş olursa olsun, bu konteynerin */
-    /* genişliği ana grid tarafından belirlenenle sınırlı kalır ve diğer sütunu */
-    /* aşağı itmesini önler. */
-    min-width: 0; /* Ana grid hücresinin genişliğini kaplar */
-}
-
-/* === ÜRÜN DETAY SAYFASI GALERİ FİNAL DÜZENLEMESİ === */
-
-/* 1. Ana galerinin sol sütununa taşma sorununu önleyen kural */
 .product-gallery-container {
     min-width: 0;
 }
 
-/* 2. Ana resim ve küçük resimlerin mobil cihazlardaki yerleşimi */
 .main-image-wrapper {
     margin-bottom: 1rem;
 }
@@ -1468,7 +1213,7 @@ footer {
 .thumbnail-gallery {
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: repeat(5, auto); /* Her sütunda 5 resim */
+    grid-template-rows: repeat(5, auto);
     gap: 10px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -1486,30 +1231,28 @@ footer {
     object-fit: cover;
 }
 
-/* 3. Masaüstü (geniş ekran) için özel yerleşim */
 @media (min-width: 992px) {
     .product-gallery-container {
-        display: flex; /* Ana resmi ve küçük resimleri yan yana getirir */
+        display: flex;
         gap: 20px;
     }
     
     .main-image-wrapper {
-        flex: 1; /* Ana resim alanının esnek büyümesini sağlar */
+        flex: 1;
         margin-bottom: 0;
     }
 
     .thumbnail-gallery {
-        flex: 0 0 auto; /* Genişliğinin içeriğine göre ayarlanmasını sağlar */
-        grid-auto-flow: row; /* Dikey olarak değil, satır satır doldurur */
-        grid-template-columns: repeat(2, 80px); /* 2 sütunlu dikey galeri */
+        flex: 0 0 auto;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(2, 80px);
         overflow-x: hidden;
         overflow-y: auto;
         padding-right: 10px;
-        max-height: 550px; /* Galerinin maksimum yüksekliği (kaydırma çubuğu çıkar) */
+        max-height: 550px;
     }
 }
 
-/* Seçili olan küçük resmin çerçevesi */
 .thumbnail-gallery .thumbnail.active {
     border-color: var(--primary-color);
     box-shadow: 0 0 10px rgba(13, 148, 136, 0.4);
