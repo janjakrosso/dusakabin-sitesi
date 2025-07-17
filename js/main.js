@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMainSlider = gridContainer.classList.contains('swiper-wrapper');
         gridContainer.innerHTML = products.map(product => {
             const paginationDots = product.thumbnails.map((thumb, index) => `<span class="card-pagination-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></span>`).join('');
-            const cardHTML = `<div class="product-card-final" data-images='${JSON.stringify(product.thumbnails)}' data-current-index="0"><a href="urun-detay.html?id=${product.id}" class="product-image-link-wrapper"><img src="${product.mainImage}" alt="${product.name}" class="product-card-image"><button class="card-nav-btn prev" aria-label="Önceki Resim"><i class="fas fa-chevron-left"></i></button><button class="card-nav-btn next" aria-label="Sonraki Resim"><i class="fas fa-chevron-right"></i></button><div class="card-pagination">${paginationDots}</div><div class="product-actions-overlay"><span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span></div></a><div class="product-content"><div class="product-info"><h3 class="product-title"><a href="urun-detay.html?id=${product.id}">${product.name}</a></h3><p class="product-description">${product.shortDescription}</p></div><a href="${product.whatsappLink}" target="_blank" class="btn-cta-card"><i class="fab fa-whatsapp"></i> Fiyat Teklifi Al</a></div></div>`;
+            const cardHTML = `<div class="product-card-final" data-images='${JSON.stringify(product.thumbnails)}' data-current-index="0"><a href="urun-detay.html?id=${product.id}" class="product-image-link-wrapper"><img src="${product.mainImage}" alt="${product.name}" class="product-card-image" loading="lazy" width="300" height="250"><button class="card-nav-btn prev" aria-label="Önceki Resim"><i class="fas fa-chevron-left"></i></button><button class="card-nav-btn next" aria-label="Sonraki Resim"><i class="fas fa-chevron-right"></i></button><div class="card-pagination">${paginationDots}</div><div class="product-actions-overlay"><span class="action-btn" title="Detayları Gör"><i class="fas fa-search-plus"></i></span></div></a><div class="product-content"><div class="product-info"><h3 class="product-title"><a href="urun-detay.html?id=${product.id}">${product.name}</a></h3><p class="product-description">${product.shortDescription}</p></div><a href="${product.whatsappLink}" target="_blank" class="btn-cta-card"><i class="fab fa-whatsapp"></i> Fiyat Teklifi Al</a></div></div>`;
             return isMainSlider ? `<div class="swiper-slide">${cardHTML}</div>` : cardHTML;
         }).join('');
     }
@@ -96,6 +96,42 @@ document.addEventListener('DOMContentLoaded', () => {
         [searchInput, categorySelect, sortSelect].forEach(el => el.addEventListener('change', applyFilters));
         searchInput.addEventListener('input', applyFilters);
     }
+    
+    function addProductSchema(product) {
+    // Sayfada daha önce eklenmiş bir ürün şeması varsa kaldır
+    const existingSchema = document.querySelector('script[type="application/ld+json"]');
+    if (existingSchema) {
+        existingSchema.remove();
+    }
+
+    const schema = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": product.name,
+        "image": `https://www.#.com/${product.mainImage}`,
+        "description": product.longDescription,
+        "sku": product.id,
+        "brand": {
+            "@type": "Brand",
+            "name": "BerkaDuşakabin"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": `https://www.#.com/urun-detay.html?id=${product.id}`,
+            "priceCurrency": "TRY",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "BerkaDuşakabin"
+            }
+        }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+}
 
     async function populateProductDetails() {
         const params = new URLSearchParams(window.location.search);
@@ -104,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const products = await fetchProducts();
         const product = products.find(p => p.id === productId);
         if (!product) return;
-        document.title = `${product.name} - Berka Kabin`;
+        addProductSchema(product);
+        document.title = `${product.name} | BerkaDuşakabin`;
         const breadcrumb = document.getElementById('breadcrumb-container');
         if (breadcrumb) breadcrumb.innerHTML = `<li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li><li class="breadcrumb-item"><a href="urunler.html">Ürünler</a></li><li class="breadcrumb-item active" aria-current="page">${product.name}</li>`;
         document.getElementById('productName').textContent = product.name;

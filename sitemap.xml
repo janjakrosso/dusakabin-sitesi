@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.#.com/index.html</loc><priority>1.00</priority></url>
+  <url><loc>https://www.#.com/urunler.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.#.com/cam-balkon.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.#.com/sineklik.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.#.com/hakkimizda.html</loc><priority>0.60</priority></url>
+  <url><loc>https://www.#.com/iletisim.html</loc><priority>0.60</priority></url>
+  <url><loc>https://www.#.com/urun-detay.html?id=pleksi-dusakabin</loc><priority>0.90</priority></url>
+  <url><loc>https://www.#.com/urun-detay.html?id=siyah-cizgili-cam-dusakabin</loc><priority>0.90</priority></url>
+  <url><loc>https://www.#.com/urun-detay.html?id=seffaf-cam-dusakabin</loc><priority>0.90</priority></url>
+  <url><loc>https://www.#.com/urun-detay.html?id=desenli-cam-dusakabin</loc><priority>0.90</priority></url>
+  <url><loc>https://www.#.com/urun-detay.html?id=dus-teknesi</loc><priority>0.90</priority></url>
+  <url><loc>https://www.#.com/urun-detay.html?id=gold-profil-dusakabin</loc><priority>0.90</priority></url>
+  <url><loc>https://www.#.com/urun-detay.html?id=katlanir-akordiyon</loc><priority>0.90</priority></url>
+</urlset>
